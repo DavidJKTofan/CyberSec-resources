@@ -15,6 +15,7 @@ _"Open-source intelligence (OSINT) is data collected from publicly available sou
 ***
 
 * [General OSINT Tools](https://www.aware-online.com/en/osint-tools/)
+* [Usernames](https://checkusernames.com/)
 
 
 <a name="company"/>
@@ -22,14 +23,22 @@ _"Open-source intelligence (OSINT) is data collected from publicly available sou
 ## Company Research
 
 * [Dun & Bradstreet – Global](https://www.dnb.com/business-directory.html)
-* [axesor – Spain](https://www.axesor.es/)
 * [OpenCorporates – Global](https://opencorporates.com/)
+* [axesor – Spain](https://www.axesor.es/)
 
 
 <a name="dns"/>
 
 ## Websites
 
+* [BuiltWith](https://builtwith.com/)
+* [Web.Dev Audit](https://web.dev/measure/)
+* [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/)
+* [Test My Site](https://www.thinkwithgoogle.com/feature/testmysite/)
+
+### DNS
+
+* [analyzeID](https://analyzeid.com/)
 * [Viewdns](https://viewdns.info/)
 * [spyse](https://spyse.com/tools)
 * [dnsdumpster](https://dnsdumpster.com/)
@@ -47,8 +56,8 @@ _"Open-source intelligence (OSINT) is data collected from publicly available sou
 
 ## Phone Numbers
 
+* [Free Carrier LookUp](https://freecarrierlookup.com/)
 * [OkCaller – USA](https://www.okcaller.com/)
 * [Reverse Phone Check – USA](https://www.reversephonecheck.com/)
-* (nuwber – USA)(https://nuwber.com/)
-* [Free Carrier LookUp](https://freecarrierlookup.com/)
+* [nuwber – USA](https://nuwber.com/)
 
