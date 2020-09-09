@@ -16,6 +16,7 @@ _"Open-source intelligence (OSINT) is data collected from publicly available sou
 
 * [General OSINT Tools](https://www.aware-online.com/en/osint-tools/)
 * [Usernames](https://checkusernames.com/)
+* [Clean CSS](https://www.cleancss.com/)
 
 
 <a name="company"/>
@@ -50,6 +51,14 @@ _"Open-source intelligence (OSINT) is data collected from publicly available sou
 
 * [emailrep](https://emailrep.io/) –– Local Terminal: ```curl -s emailrep.io/dtofan@lunalabs.eu```
 * [MailTester](https://mailtester.com/testmail.php)
+
+
+<a name="mac"/>
+
+## MAC Address
+
+* [HWaddress](https://hwaddress.com/)
+* [Clean CSS](https://www.cleancss.com/mac-lookup/)
 
 
 <a name="phone"/>
