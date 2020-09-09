@@ -18,6 +18,7 @@ _"Open-source intelligence (OSINT) is data collected from publicly available sou
 
 
 <a name="company"/>
+
 ## Company Research
 
 * [Dun & Bradstreet – Global](https://www.dnb.com/business-directory.html)
@@ -26,6 +27,7 @@ _"Open-source intelligence (OSINT) is data collected from publicly available sou
 
 
 <a name="dns"/>
+
 ## Website
 
 * [Viewdns](https://viewdns.info/)
@@ -34,6 +36,7 @@ _"Open-source intelligence (OSINT) is data collected from publicly available sou
 
 
 <a name="email"/>
+
 ## Emails
 
 * [emailrep](https://emailrep.io/) –– Local Terminal: ```curl -s emailrep.io/dtofan@lunalabs.eu```
@@ -41,6 +44,7 @@ _"Open-source intelligence (OSINT) is data collected from publicly available sou
 
 
 <a name="phone"/>
+
 ## Phone Numbers
 
 * [OkCaller – USA](https://www.okcaller.com/)
