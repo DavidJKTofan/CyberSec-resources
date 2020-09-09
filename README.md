@@ -8,7 +8,7 @@ _"Open-source intelligence (OSINT) is data collected from publicly available sou
 
 # Table of Contents
 [Company Research](#company)  
-[Website DNS](#dns)  
+[Websites](#dns)  
 [Emails](#email)
 [Phone Numbers](#phone) 
 
@@ -28,7 +28,7 @@ _"Open-source intelligence (OSINT) is data collected from publicly available sou
 
 <a name="dns"/>
 
-## Website
+## Websites
 
 * [Viewdns](https://viewdns.info/)
 * [spyse](https://spyse.com/tools)
