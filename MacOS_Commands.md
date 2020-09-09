@@ -13,7 +13,6 @@ Click Control + X to exit
 ```sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil -flushcache```
 
 *****
-==============================
 
 ## Delete Icon from Launchpad
 
@@ -23,7 +22,6 @@ LOCATION:
 /System/Library/CoreServices/Dock.app/Contents/Resources/LaunchPadLayout.plist
 
 *****
-==============================
 
 ## Delete TimeMachine Snapshots
 
@@ -36,7 +34,6 @@ EXAMPLE:
 ```sudo tmutil thinlocalsnapshots / 999999999999```
 
 *****
-==============================
 
 ## Check Downloaded file SHA256
 Check for Malware
@@ -45,7 +42,6 @@ TERMINAL
 ```shasum -a 256 PATH_TO_FILE```
 
 *****
-==============================
 
 ## List Open Ports
 ### Network Sockets
@@ -69,14 +65,12 @@ TERMINAL
 ```lsof -i | grep -E "(LISTEN|ESTABLISHED)"```
 
 *****
-==============================
 
 ## Check if System Integrity Protection (SIP) is enabled
 
 ```csrutil status```
 
 *****
-==============================
 
 ## Disable Remote SSH
 
