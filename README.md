@@ -9,7 +9,7 @@ _"Open-source intelligence (OSINT) is data collected from publicly available sou
 # Table of Contents
 [Company Research](#company)  
 [Websites](#dns)  
-[Emails](#email)
+[Emails](#email) <br>
 [Phone Numbers](#phone) 
 
 ***
