@@ -1,6 +1,11 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+try:
+  import zxing
+except ImportError:
+  print("Please install required module: zxing. \n")
+
 import zxing
 import re
 import pandas as pd
