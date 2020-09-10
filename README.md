@@ -23,6 +23,7 @@ _"Open-source intelligence (OSINT) is data collected from publicly available sou
 * [General OSINT Tools](https://www.aware-online.com/en/osint-tools/)
 * [Usernames](https://checkusernames.com/)
 * [Clean CSS](https://www.cleancss.com/)
+* [Bar Code Reader](https://online-barcode-reader.inliteresearch.com/default.aspx)
 <br>
 
 <a name="company"/>
