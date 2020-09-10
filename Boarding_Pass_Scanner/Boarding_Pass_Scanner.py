@@ -83,7 +83,7 @@ def Scan_Boarding_Pass( image_path ):
     #         DATAFRAME 1         #
     ###############################
     # SOURCE: https://openflights.org/data.html
-    df = pd.read_table('/Users/davidtofan/Desktop/Boarding_Pass_Scanner/External_Data/airports.dat',
+    df = pd.read_table('https://raw.githubusercontent.com/DavidJKTofan/OSINT-resources/master/Boarding_Pass_Scanner/External_Data/airports.dat?token=AJHBU6OOYBE4NKKRGUVAV6C7MOMYY',
                        sep=",",
                        names=['1','Name','City','Country','IATA','ICAO','Latitude','Longitude','Altitude','Timezone','DST','Tz_DB','Type','Source'])
     df.drop(['1','Altitude','Timezone','DST','Tz_DB','Type','Source'], axis=1, inplace=True)
@@ -114,7 +114,7 @@ def Scan_Boarding_Pass( image_path ):
     ###############################
     #         DATAFRAME 2         #
     ###############################
-    df2 = pd.read_table('/Users/davidtofan/Desktop/Boarding_Pass_Scanner/External_Data/airlines.dat',
+    df2 = pd.read_table('https://raw.githubusercontent.com/DavidJKTofan/OSINT-resources/master/Boarding_Pass_Scanner/External_Data/airlines.dat?token=AJHBU6JVHNUDYIJLPNB25X27MOMYU',
                         sep=",",
                         names=['1','Airline','Name','Alias','IATA','ICAO','Callsign','Country','Active'])
     df2.drop(['1','IATA','ICAO','Callsign','Country','Active'], axis=1, inplace=True)
