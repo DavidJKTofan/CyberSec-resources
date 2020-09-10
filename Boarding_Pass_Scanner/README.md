@@ -10,4 +10,4 @@ Currently only works with good quality and cropped images of the Bar Code, as we
 ## Run on Terminal
 ```python Boarding_Pass_Scanner.py``` 
 
-Then <b>insert</b> the Folder Path to the image file of the Bar Code.
+Then <b>insert</b> the Path to the image file of the Bar Code.
