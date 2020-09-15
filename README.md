@@ -50,6 +50,7 @@ _"Open-source intelligence (OSINT) is data collected from publicly available sou
 * [Viewdns](https://viewdns.info/)
 * [spyse](https://spyse.com/tools)
 * [dnsdumpster](https://dnsdumpster.com/)
+* [DNSviz](https://dnsviz.net/)
 <br>
 
 <a name="email"/>
