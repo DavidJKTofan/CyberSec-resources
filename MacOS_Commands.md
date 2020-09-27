@@ -41,6 +41,8 @@ Check for Malware
 TERMINAL
 ```shasum -a 256 PATH_TO_FILE```
 
+Alternative: [Minisign](https://jedisct1.github.io/minisign/) or [Free Formatter](https://www.freeformatter.com/)
+
 *****
 
 ## List Open Ports
@@ -60,7 +62,8 @@ TERMINAL
 
 ```arp -a```
 
-### See all open Connections
+### See all open Connections
+
 ```lsof -i```
 ```lsof -i | grep -E "(LISTEN|ESTABLISHED)"```
 
@@ -77,4 +80,9 @@ TERMINAL
 ```sudo systemsetup -setremotelogin off```
 
 *****
-==============================
+
+## Check Email Reputation
+
+```curl -s emailrep.io/name@domain.com```
+
+*****
