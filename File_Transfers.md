@@ -2,7 +2,6 @@
 
 * [WeTransfer](https://wetransfer.com/)
 * [Tresorit](https://send.tresorit.com/) <--
-* [Transfer.sh](https://transfer.sh/) <--
 
 * [File.io](https://www.file.io/)
 * [JustBeamIt.com](https://justbeamit.com/)
