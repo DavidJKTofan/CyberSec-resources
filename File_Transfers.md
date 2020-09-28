@@ -16,4 +16,4 @@
 * [Instant.io](https://instant.io/)
 
 ## Anonymous
-* [OnionShare](https://onionshare.org/) <--
+* [OnionShare](https://onionshare.org/)
