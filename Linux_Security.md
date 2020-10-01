@@ -174,7 +174,31 @@ logpath = %(sshd_log)s
 
 When applying changes to the CONFIG FILE:
 ```
-service fail2ban restart
+sudo service fail2ban restart
+sudo systemctl restart fail2ban.service
+```
+
+Check Fail2Ban status:
+```
+sudo fail2ban-client status
+sudo fail2ban-client status sshd
+```
+
+Start Fail2Ban on startup:
+```
+sudo systemctl enable fail2ban.service
+```
+
+### SSH File Transfer
+
+Copy file from remote machine to local:
+```
+scp USER@IPADDRESS:PATHNAME/SUBPATH/FILENAME.txt  myfile.txt
+```
+
+Copy file from local to remote machine:
+```
+scp myfile.txt USER@IPADDRESS:PATHNAME/SUBPATH/FILENAME.txt
 ```
 
 ****
