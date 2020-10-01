@@ -1,4 +1,4 @@
-## Temporary Links
+## "Free" Proxy Servers
 
 * [Spys](https://spys.one/en/)
 * [Free Proxy List](https://www.sslproxies.org/)
