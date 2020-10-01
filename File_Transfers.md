@@ -10,7 +10,7 @@
 * [File Dropper](https://www.filedropper.com/)
 
 ## Remote Peer-to-Peer
-* [Magic-Wormhole (Python Tool)](https://github.com/warner/magic-wormhole) <--
+* [Magic-Wormhole (Python Tool)](https://github.com/warner/magic-wormhole)
 * [Croc (Golang Tool)](https://github.com/schollz/croc)
 * [FilePizza](https://file.pizza/)
 * [Instant.io](https://instant.io/)
