@@ -224,3 +224,9 @@ scp myfile.txt USER@IPADDRESS:PATHNAME/SUBPATH/FILENAME.txt
 
 <a name="users"></a>
 
+## User Management
+
+Change user password:
+```
+psswd USERNAME
+```
