@@ -1,6 +1,20 @@
-## Update 
 
-Update all:
+***
+
+# Table of Contents
+[System Update](#update)  
+[Startup Services](#startup)  
+[Uncomplicated Firewall](#ufw)  
+[SSH](#ssh)  
+[User Management](#users)  
+
+***
+
+<a name="update"></a>
+
+## System Update 
+
+Update all (system, libraries, dependencies, etc.):
 ```
 sudo apt update && sudo apt dist-upgrade && sudo apt full-upgrade && sudo apt autoremove -y && sudo apt autoclean && sudo apt clean
 ```
@@ -11,6 +25,8 @@ sudo reboot
 ```
 
 ****
+
+<a name="startup"></a>
 
 ## Startup Services
 
@@ -35,6 +51,8 @@ sudo service bluetooth stop
 ```
 
 ****
+
+<a name="ufw"></a>
 
 ## Uncomplicated Firewall (UFW)
 
@@ -91,6 +109,8 @@ sudo ufw delete NUMBER
 
 ****
 
+<a name="ssh"></a>
+
 ## SSH
 
 Update SSH:
@@ -137,7 +157,6 @@ Disable and stop SSH:
 ```
 sudo systemctl disable sshd.service
 sudo systemctl stop sshd.service
-
 ```
 
 Enable and start SSH:
@@ -203,4 +222,5 @@ scp myfile.txt USER@IPADDRESS:PATHNAME/SUBPATH/FILENAME.txt
 
 ****
 
+<a name="users"></a>
 
