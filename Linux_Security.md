@@ -107,6 +107,7 @@ Add the following two lines:
 * hard core 0
 ```
 
+Open the file:
 ```
 nano /etc/sysctl.conf
 ```
