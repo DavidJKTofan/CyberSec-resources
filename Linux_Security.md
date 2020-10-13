@@ -3,13 +3,13 @@
 
 # Table of Contents
 [System Update](#update)  
-[Permissions](#permissions)
+[Permissions](#permissions)  
 [Startup Services](#startup)  
-[Network Parameters](#network)
+[Network Parameters](#network)  
 [Uncomplicated Firewall](#ufw)  
 [SSH](#ssh)  
 [User Management](#users)  
-[SELinux](#selinux)
+[SELinux](#selinux)  
 [Disable USB Usage](#blacklist)  
 
 ***
