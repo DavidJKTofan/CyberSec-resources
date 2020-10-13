@@ -4,7 +4,7 @@ Currently only works with good quality and cropped images of the Bar Code, as we
 
 ## Boarding Pass Structure
 
-![Boarding Pass Structure](/boarding-pass-structure.jpg)
+![Boarding Pass Structure](/Boarding_Pass_Scanner/boarding-pass-structure.jpg)
 
 
 ## Run on Terminal
