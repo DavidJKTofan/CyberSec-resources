@@ -3,10 +3,14 @@
 
 # Table of Contents
 [System Update](#update)  
+[Permissions](#permissions)
 [Startup Services](#startup)  
+[Network Parameters](#network)
 [Uncomplicated Firewall](#ufw)  
 [SSH](#ssh)  
 [User Management](#users)  
+[SELinux](#selinux)
+[Disable USB Usage](#blacklist)  
 
 ***
 
@@ -19,9 +23,99 @@ Update all (system, libraries, dependencies, etc.):
 sudo apt update && sudo apt dist-upgrade && sudo apt full-upgrade && sudo apt autoremove -y && sudo apt autoclean && sudo apt clean
 ```
 
+```
+sudo apt-get update && sudo apt-get upgrade -y
+```
+
+View installed packages:
+```
+sudo apt-cache pkgnames
+```
+
 Reboot:
 ```
 sudo reboot
+```
+
+****
+
+<a name="permissions"></a>
+
+## Permissions
+
+```
+chown root:root /etc/anacrontab
+chmod og-rwx /etc/anacrontab
+
+chown root:root /etc/crontab
+chmod og-rwx /etc/crontab
+
+chown root:root /etc/cron.hourly
+chmod og-rwx /etc/cron.hourly
+
+chown root:root /etc/cron.daily
+chmod og-rwx /etc/cron.daily
+
+chown root:root /etc/cron.weekly
+chmod og-rwx /etc/cron.weekly
+
+chown root:root /etc/cron.monthly
+chmod og-rwx /etc/cron.monthly
+
+chown root:root /etc/cron.d
+chmod og-rwx /etc/cron.d
+```
+
+```
+chown root:root <crontabfile>
+chmod og-rwx <crontabfile>
+```
+
+```
+chmod 644 /etc/passwd
+chown root:root /etc/passwd
+```
+
+```
+chmod 644 /etc/group
+chown root:root /etc/group
+```
+
+```
+chmod 600 /etc/shadow
+chown root:root /etc/shadow
+```
+
+```
+chmod 600 /etc/gshadow
+chown root:root /etc/gshadow
+```
+
+```
+chown root:root /etc/grub.conf
+chmod og-rwx /etc/grub.conf
+```
+
+Disable core dumps:
+```
+nano /etc/security/limits.conf
+```
+
+Add the following two lines:
+```
+* soft core 0
+* hard core 0
+```
+
+```
+nano /etc/sysctl.conf
+```
+
+Add the following three lines:
+```
+fs.suid_dumpable = 0
+kernel.exec-shield = 1
+kernel.randomize_va_space = 2
 ```
 
 ****
@@ -47,7 +141,35 @@ sudo systemctl status SERVICENAME.service
 
 Stop service:
 ```
-sudo service bluetooth stop
+sudo service SERVICENAME stop
+```
+
+****
+
+<a name="network"></a>
+
+## Network Parameters
+
+Securing your Linux host network activities.
+
+Open the CONFIG file:
+```
+nano /etc/sysctl.conf
+```
+
+EXAMPLE CONFIG FILE content:
+```
+net.ipv4.ip_forward = 0                                   # Disable the IP Forwarding
+net.ipv4.conf.all.send_redirects = 0                      # Disable the Send Packet Redirects
+net.ipv4.conf.default.send_redirects = 0                  # Disable the Send Packet Redirects
+net.ipv4.conf.all.accept_redirects = 0                    # Disable ICMP Redirect Acceptance
+net.ipv4.conf.default.accept_redirects = 0                # Disable ICMP Redirect Acceptance
+net.ipv4.icmp_ignore_bogus_error_responses parameter = 1  # Enable Bad Error Message Protection
+```
+
+Check for open ports:
+```
+netstat -antp
 ```
 
 ****
@@ -130,21 +252,28 @@ sudo nano /etc/ssh/sshd_config
 
 EXAMPLE CONFIG FILE content:
 ```
-Port 2025  # Port used for SSH connection
-PermitRootLogin no  # Root login disabled
-AuthenticationMethods publickey  # # Allow Public Key authentication
-PubkeyAuthentication yes  # Enable Public Key authentication
-PasswordAuthentication no  # Disable password authentication forcing use of keys
-# PermitEmptyPasswords no  # Empty passwords not permitted
-Protocol 2  # SSH protocol
-X11Forwarding no  # Disable remote application access
-MaxAuthTries 3  # Maximum SSH authentication attempts
-ClientAliveInterval 300  # Disconnect idle sessions
-ClientAliveCountMax 2  # Maximum live client sessions
-UsePAM no  # Disable Pluggable Authentication Module (PAM)
+Port 2025                           # Port used for SSH connection
+PermitRootLogin no                  # Root login disabled
+AllowUsers USERNAME                 # Only allow specific users
+AuthenticationMethods publickey     # Allow Public Key authentication
+PubkeyAuthentication yes            # Enable Public Key authentication
+PasswordAuthentication no           # Disable password authentication forcing use of keys
+# PermitEmptyPasswords no           # Empty passwords not permitted
+Protocol 2                          # SSH protocol
+X11Forwarding no                    # Disable remote application access
+MaxAuthTries 3                      # Maximum SSH authentication attempts
+ClientAliveInterval 300             # Disconnect idle sessions
+ClientAliveCountMax 2               # Maximum live client sessions
+UsePAM no                           # Disable Pluggable Authentication Module (PAM)
 ChallengeResponseAuthentication no  # Related to PAM
-IgnoreRhosts yes  # Disable Rhost authentication
-HostbasedAuthentication no  # Disable host-based authentication
+IgnoreRhosts yes                    # Disable Rhost authentication
+HostbasedAuthentication no          # Disable host-based authentication
+```
+
+Change the permissions to the CONFIG file so that only root can edit:
+```
+chown root:root /etc/ssh/sshd_config
+chmod 600 /etc/ssh/sshd_config
 ```
 
 When applying changes to the CONFIG FILE:
@@ -230,3 +359,51 @@ Change user password:
 ```
 psswd USERNAME
 ```
+
+****
+
+<a name="selinux"></a>
+
+## SELinux
+
+Security Enhanced Linux.
+
+Open the CONFIG file:
+```
+nano /etc/selinux/config
+```
+
+Add the following line:
+```
+SELINUX=enforcing
+```
+
+****
+
+<a name="blacklist"></a>
+
+## Disable USB Usage
+
+Deny the usage of USB storage.
+
+Open the CONFIG file:
+```
+nano /etc/modprobe.d/blacklist.conf
+```
+
+Add the following line:
+```
+blacklist usb_storage
+```
+
+Open the file:
+```
+nano /etc/rc.local
+```
+
+Add the following two lines:
+```
+modprobe -r usb_storage
+exit 0
+```
+
