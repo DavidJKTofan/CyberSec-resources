@@ -115,8 +115,8 @@ nano /etc/sysctl.conf
 Add the following three lines:
 ```
 fs.suid_dumpable = 0
-kernel.exec-shield = 1
-kernel.randomize_va_space = 2
+kernel.exec-shield = 1           # Turn on execshield
+kernel.randomize_va_space = 2    # Address space layout randomization (ASLR)
 ```
 
 ****
@@ -127,6 +127,7 @@ kernel.randomize_va_space = 2
 
 View all services that run on startup:
 ```
+sudo systemctl list-units --type=service #--state=active #--state=running 
 sudo service --status-all
 ```
 
@@ -140,8 +141,14 @@ See service status:
 sudo systemctl status SERVICENAME.service
 ```
 
+See open ports used by service
+```
+netstat -ltup | grep SERVICENAME
+```
+
 Stop service:
 ```
+sudo systemctl disable service
 sudo service SERVICENAME stop
 ```
 
@@ -161,6 +168,11 @@ nano /etc/sysctl.conf
 EXAMPLE CONFIG FILE content:
 ```
 net.ipv4.ip_forward = 0                                   # Disable the IP Forwarding
+net.ipv4.conf.all.rp_filter = 1                           # Enable IP spoofing protection
+net.ipv4.conf.all.accept_source_route = 0                 # Disable IP source routing
+net.ipv4.icmp_echo_ignore_broadcasts = 1                  # Ignoring broadcasts request
+net.ipv4.icmp_ignore_bogus_error_messages = 1             # Ignoring broadcasts request
+net.ipv4.conf.all.log_martians = 1                        # Make sure spoofed packets get logged
 net.ipv4.conf.all.send_redirects = 0                      # Disable the Send Packet Redirects
 net.ipv4.conf.default.send_redirects = 0                  # Disable the Send Packet Redirects
 net.ipv4.conf.all.accept_redirects = 0                    # Disable ICMP Redirect Acceptance
@@ -170,7 +182,7 @@ net.ipv4.icmp_ignore_bogus_error_responses parameter = 1  # Enable Bad Error Mes
 
 Check for open ports:
 ```
-netstat -antp
+netstat -antp #-ltup
 ```
 
 ****
@@ -241,6 +253,16 @@ Update SSH:
 sudo apt install openssh-server
 ```
 
+Create SSH Public Key:
+```
+ssh-keygen -t rsa -b 4096
+```
+
+Install Public Key:
+```
+ssh-copy-id USER@LOCA_NETWORK_IP
+```
+
 Check SSH status:
 ```
 systemctl status ssh.service
@@ -255,7 +277,8 @@ EXAMPLE CONFIG FILE content:
 ```
 Port 2025                           # Port used for SSH connection
 PermitRootLogin no                  # Root login disabled
-AllowUsers USERNAME                 # Only allow specific users
+AllowUsers USERNAME                 # Allow specific users
+DenyUsers USERNAME                  # Deny specific users
 AuthenticationMethods publickey     # Allow Public Key authentication
 PubkeyAuthentication yes            # Enable Public Key authentication
 PasswordAuthentication no           # Disable password authentication forcing use of keys
@@ -271,6 +294,11 @@ IgnoreRhosts yes                    # Disable Rhost authentication
 HostbasedAuthentication no          # Disable host-based authentication
 ```
 
+Extended CONFIG test:
+``` 
+sudo sshd -T
+```
+
 Change the permissions to the CONFIG file so that only root can edit:
 ```
 chown root:root /etc/ssh/sshd_config
@@ -279,8 +307,8 @@ chmod 600 /etc/ssh/sshd_config
 
 When applying changes to the CONFIG FILE:
 ```
-sudo service ssh restart
-service sshd restart
+sudo systemctl restart sshd.service
+sudo service sshd restart
 ```
 
 Disable and stop SSH:
@@ -356,9 +384,25 @@ scp myfile.txt USER@IPADDRESS:PATHNAME/SUBPATH/FILENAME.txt
 
 ## User Management
 
+
+Create a new user and add to sudo group:
+```
+sudo adduser USERNAME sudo
+```
+
+Add user to sudo group:
+```
+sudo usermod -aG wheel USERNAME
+```
+
 Change user password:
 ```
 psswd USERNAME
+```
+
+View group membership:
+```
+id USERNAME
 ```
 
 ****
