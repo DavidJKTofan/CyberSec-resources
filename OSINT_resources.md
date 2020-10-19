@@ -79,6 +79,7 @@ _"Open-source intelligence (OSINT) is data collected from publicly available sou
 ## Phone Numbers
 
 * [Free Carrier LookUp](https://freecarrierlookup.com/)
+* [SpamCalls](https://spamcalls.net/en/)
 * [OkCaller – USA](https://www.okcaller.com/)
 * [Reverse Phone Check – USA](https://www.reversephonecheck.com/)
 * [nuwber – USA](https://nuwber.com/)
