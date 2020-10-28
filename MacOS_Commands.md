@@ -86,3 +86,14 @@ Alternative: [Minisign](https://jedisct1.github.io/minisign/) or [Free Formatter
 ```curl -s emailrep.io/name@domain.com```
 
 *****
+
+## Disable IPv6
+
+```networksetup -setv6off Wi-Fi```
+
+### Re-enable IPv6
+
+```networksetup -setv6automatic Wi-Fi```
+
+*****
+
