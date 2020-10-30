@@ -97,3 +97,10 @@ Alternative: [Minisign](https://jedisct1.github.io/minisign/) or [Free Formatter
 
 *****
 
+## Check Internet Speed Test
+
+```sudo apt install speedtest-cli && speedtest-cli```
+
+```sudo snap install fast && fast```
+
+*****
