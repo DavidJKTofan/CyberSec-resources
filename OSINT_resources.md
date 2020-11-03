@@ -28,6 +28,7 @@ _"Open-source intelligence (OSINT) is data collected from publicly available sou
 * [Bar Code Reader](https://online-barcode-reader.inliteresearch.com/default.aspx)
 * [VirusTotal](https://www.virustotal.com/gui/)
 * [URLScan](https://urlscan.io/)
+* [Mitaka](https://github.com/ninoseki/mitaka)
 <br>
 
 <a name="company"/>
