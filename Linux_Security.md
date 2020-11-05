@@ -216,6 +216,11 @@ Check for open ports:
 netstat -antp #-ltup
 ```
 
+Avoid legacy communication services by removing them entirely:
+```
+sudo apt-get --purge remove xinetd nis yp-tools tftpd atftpd tftpd-hpa telnetd rsh-server rsh-redone-server
+```
+
 
 ****
 
