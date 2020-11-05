@@ -208,7 +208,7 @@ net.ipv4.conf.all.send_redirects = 0                      # Disable the Send Pac
 net.ipv4.conf.default.send_redirects = 0                  # Disable the Send Packet Redirects
 net.ipv4.conf.all.accept_redirects = 0                    # Disable ICMP Redirect Acceptance
 net.ipv4.conf.default.accept_redirects = 0                # Disable ICMP Redirect Acceptance
-net.ipv4.icmp_ignore_bogus_error_responses parameter = 1  # Enable Bad Error Message Protection
+net.ipv4.icmp_ignore_bogus_error_responses = 1            # Enable Bad Error Message Protection
 ```
 
 Check for open ports:
