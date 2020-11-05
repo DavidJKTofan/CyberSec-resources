@@ -1,3 +1,6 @@
+A brief overview on some packages and commands that help you secure your Linux operating system.
+
+_Disclaimer: Some of the packages and/or commands may or may not work and/or vary in certain Linux distributions._
 
 ***
 
@@ -12,6 +15,7 @@
 [SSH](#ssh)  
 [SELinux](#selinux)  
 [Disable USB Usage](#blacklist)  
+[Uninstall Unused Packages](#deborphan)  
 
 ***
 
@@ -588,4 +592,26 @@ Add the following two lines:
 modprobe -r usb_storage
 exit 0
 ```
+
+****
+
+<a name="deborphan"></a>
+
+## Uninstall Unused Packages
+
+Install the package:
+```
+sudo apt install deborphan
+```
+
+Show all orphaned/unused packages:
+```
+deborphan
+```
+
+Remove all orphaned/unused packages:
+```
+sudo orphaner
+```
+
 
