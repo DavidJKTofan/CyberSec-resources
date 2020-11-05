@@ -490,6 +490,11 @@ sudo systemctl restart fail2ban.service
 
 Check Fail2Ban status:
 ```
+sudo service fail2ban status
+```
+
+Check Fail2Ban jails status:
+```
 sudo fail2ban-client status
 sudo fail2ban-client status sshd
 ```
