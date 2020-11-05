@@ -3,12 +3,12 @@
 
 # Table of Contents
 [System Update](#update)  
+[User Management](#users)  
 [Permissions](#permissions)  
 [Startup Services](#startup)  
 [Network Parameters](#network)  
 [Uncomplicated Firewall](#ufw)  
 [SSH](#ssh)  
-[User Management](#users)  
 [SELinux](#selinux)  
 [Disable USB Usage](#blacklist)  
 
@@ -35,6 +35,36 @@ sudo apt-cache pkgnames
 Reboot:
 ```
 sudo reboot
+```
+
+****
+
+<a name="users"></a>
+
+## User Management
+
+
+Create a new user and add to sudo group:
+```
+sudo adduser USERNAME sudo
+```
+
+Add user to sudo group:
+```
+sudo usermod -aG sudo USERNAME
+```
+```
+sudo usermod -aG GROUP USERNAME
+```
+
+Change user password:
+```
+psswd USERNAME
+```
+
+View group membership:
+```
+id USERNAME
 ```
 
 ****
@@ -148,7 +178,7 @@ netstat -ltup | grep SERVICENAME
 
 Stop service:
 ```
-sudo systemctl disable service
+sudo systemctl disable SERVICENAME
 sudo service SERVICENAME stop
 ```
 
@@ -191,6 +221,10 @@ netstat -antp #-ltup
 
 ## Uncomplicated Firewall (UFW)
 
+```
+sudo apt install ufw
+```
+
 **CONFIG FILE:**
 ```
 sudo nano /etc/default/ufw
@@ -219,17 +253,21 @@ sudo service ufw restart
 
 ### Rules
 
-Add DENY rule:
+Add DENY rule(s):
 ```
 sudo ufw default deny incoming
 sudo ufw default deny outgoing
-sudo ufw deny from 15.15.15.51 to any port 22
+sudo ufw deny from IP_ADDRESS to any port 23 comment 'TELNET'
 ```
 
-Add ALLOW rule:
+Add ALLOW rule(s):
 ```
-sudo ufw allow ssh
-sudo ufw allow from 15.15.15.51 to any port 22
+sudo ufw allow ssh comment 'SSH'
+sudo ufw allow dns comment 'DNS'
+sudo ufw allow from IP_ADDRESS to any port 22 comment 'SSH'
+sudo ufw allow from IP_ADDRESS to any port 53 comment 'DNS'
+sudo ufw allow from IP_ADDRESS to any port 80 comment 'HTTP'
+sudo ufw allow from IP_ADDRESS to any port 443 comment 'HTTPS'
 ```
 
 List all rules numbered:
@@ -336,13 +374,31 @@ Install:
 apt-get install fail2ban
 ```
 
+Copy CONFIG file as LOCAL jail:
+```
+cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+```
+
 **CONFIG FILE:**
 ```
 sudo nano /etc/fail2ban/jail.local
 ```
 
-EXAMPLE CONFIG FILE content:
+Add the following lines to the LOCAL FILE content:
 ```
+[DEFAULT]
+ignoreip = 127.0.0.1/8
+
+# Ban hosts for one hour
+bantime = 3600
+
+# Banning conditions
+findtime = 600
+maxretry = 3
+
+# Override /etc/fail2ban/jail.d/00-firewalld.conf
+banaction = iptables-multiport
+
 [sshd]
 enabled  = true
 port    = ssh
@@ -361,9 +417,15 @@ sudo fail2ban-client status
 sudo fail2ban-client status sshd
 ```
 
+View recent logs:
+```
+sudo tail -F /var/log/fail2ban.log
+```
+
 Start Fail2Ban on startup:
 ```
 sudo systemctl enable fail2ban.service
+sudo systemctl enable fail2ban
 ```
 
 ### SSH File Transfer
@@ -380,38 +442,25 @@ scp myfile.txt USER@IPADDRESS:PATHNAME/SUBPATH/FILENAME.txt
 
 ****
 
-<a name="users"></a>
-
-## User Management
-
-
-Create a new user and add to sudo group:
-```
-sudo adduser USERNAME sudo
-```
-
-Add user to sudo group:
-```
-sudo usermod -aG wheel USERNAME
-```
-
-Change user password:
-```
-psswd USERNAME
-```
-
-View group membership:
-```
-id USERNAME
-```
-
-****
-
 <a name="selinux"></a>
 
 ## SELinux
-
 Security Enhanced Linux.
+
+Install SELinux:
+```
+sudo apt install selinux selinux-utils selinux-basics auditd audispd-plugins
+```
+
+Verify SELinux status:
+```
+sudo sestatus
+```
+
+Put SELinux into enforcing mode:
+```
+sudo setenforce 1
+```
 
 Open the CONFIG file:
 ```
@@ -422,6 +471,12 @@ Add the following line:
 ```
 SELINUX=enforcing
 ```
+
+Ensure SSH access:
+```
+sudo semanage port -a -t ssh_port_t -p tcp 22
+```
+
 
 ****
 
