@@ -7,6 +7,7 @@
 [Permissions](#permissions)  
 [Startup Services](#startup)  
 [Network Parameters](#network)  
+[DNS over HTTPS](#dns)  
 [Uncomplicated Firewall](#ufw)  
 [SSH](#ssh)  
 [SELinux](#selinux)  
@@ -214,6 +215,77 @@ Check for open ports:
 ```
 netstat -antp #-ltup
 ```
+
+
+****
+
+<a name="dns"></a>
+
+## DNS over HTTPS
+
+Download Cloudflared:
+https://developers.cloudflare.com/1.1.1.1/dns-over-https/cloudflared-proxy
+
+Check version:
+```
+cloudflared --version
+```
+
+```
+sudo cloudflared proxy-dns
+```
+
+Create folder and CONFIG file:
+```
+sudo mkdir /etc/cloudflared/
+sudo nano /etc/cloudflared/config.yml
+```
+
+EXAMPLE of a CONFIG file:
+```
+proxy-dns: true
+proxy-dns-port: 53
+proxy-dns-upstream:
+  - https://1.1.1.1/dns-query
+  - https://1.0.0.1/dns-query
+  #Uncomment following if you want to also want to use IPv6 for  external DOH lookups
+  #- https://[2606:4700:4700::1111]/dns-query
+  #- https://[2606:4700:4700::1001]/dns-query
+```
+
+Install the service:
+```
+sudo cloudflared service install
+```
+
+Verify that it is working:
+```
+dig +short @127.0.0.1 cloudflare.com AAAA
+dig @127.0.0.1 google.com
+```
+
+Change local DNS to localhost, as it is listening by default on:
+```
+localhost:53
+```
+
+Enable to run on Startup:
+```
+sudo systemctl enable cloudflared
+sudo systemctl start cloudflared
+```
+
+Check status:
+```
+sudo systemctl status cloudflared
+```
+
+Update Cloudflared:
+```
+sudo cloudflared update
+sudo systemctl restart cloudflared
+```
+
 
 ****
 
