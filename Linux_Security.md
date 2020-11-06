@@ -5,6 +5,7 @@ _Disclaimer: Some of the packages and/or commands may or may not work and/or var
 ***
 
 # Table of Contents
+[Sync Time](#time)  
 [System Update](#update)  
 [User Management](#users)  
 [Permissions](#permissions)  
@@ -16,6 +17,53 @@ _Disclaimer: Some of the packages and/or commands may or may not work and/or var
 [SELinux](#selinux)  
 [Disable USB Usage](#blacklist)  
 [Uninstall Unused Packages](#deborphan)  
+
+***
+***
+
+<a name="time"></a>
+
+## Sync Time
+
+View status:
+```
+timedatectl
+systemctl status systemd-timesyncd.service
+```
+
+Edit CONFIG file:
+```
+sudo nano /etc/systemd/timesyncd.conf
+```
+
+Example of a CONFIG file:
+```
+[Time]
+NTP=http://time.google.com/
+FallbackNTP=0.arch.pool.ntp.org 1.arch.pool.ntp.org 2.arch.pool.ntp.org 3.arch.pool.ntp.org
+#RootDistanceMaxSec=5
+#PollIntervalMinSec=32
+#PollIntervalMaxSec=2048
+```
+
+Enable remote NTP server sync:
+```
+sudo timedatectl set-ntp true
+```
+
+Restart service:
+```
+sudo systemctl restart systemd-timesyncd.service
+```
+
+If the clock still does not sync, then try the following:
+Install NTP package, enable the NTP service, and enable remote NTP server sync:
+```
+sudo apt install ntp
+sudo systemctl enable ntp
+sudo timedatectl set-ntp true
+```
+
 
 ***
 
