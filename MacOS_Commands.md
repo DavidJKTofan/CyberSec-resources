@@ -1,3 +1,27 @@
+## Terminal (Shell) Profiles
+
+Change to Z Shell:
+```
+chsh -s /bin/zsh
+```
+
+Open Z Shell CONFIG file:
+```
+nano ~/.zshrc
+```
+
+Bash Shell:
+```
+chsh -s /bin/bash
+```
+
+Open Bash Shell CONFIG file:
+```
+nano ~/.bashrc
+```
+
+*****
+
 ## Block access to specific Websites on Mac
 
 Open Terminal
@@ -7,31 +31,41 @@ Add:
 0.0.0.0    www.website.com
 
 Click Control + O and hit Enter
-
 Click Control + X to exit
 
+Flush local DNS cache:
 ```sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil -flushcache```
 
 *****
 
 ## Delete Icon from Launchpad
 
-```sqlite3 $(sudo find /private/var/folders -name com.apple.dock.launchpad)/db/db "DELETE FROM apps WHERE title=‘APPNAME’;” && killall Dock```
+```
+sqlite3 $(sudo find /private/var/folders -name com.apple.dock.launchpad)/db/db "DELETE FROM apps WHERE title=‘APPNAME’;” && killall Dock
+```
 
 LOCATION:
+```
 /System/Library/CoreServices/Dock.app/Contents/Resources/LaunchPadLayout.plist
+```
 
 *****
 
 ## Delete TimeMachine Snapshots
 
 SEE ALL SNAPSHOTS:
-```tmutil listlocalsnapshots /```
+```
+tmutil listlocalsnapshots /
+```
 
 EXAMPLE:
-```sudo tmutil deletelocalsnapshots 2020-03-16-093306```
+```
+sudo tmutil deletelocalsnapshots 2020-03-16-093306
+```
 
-```sudo tmutil thinlocalsnapshots / 999999999999```
+```
+sudo tmutil thinlocalsnapshots / 999999999999
+```
 
 *****
 
@@ -39,7 +73,9 @@ EXAMPLE:
 Check for Malware
 
 TERMINAL
-```shasum -a 256 PATH_TO_FILE```
+```
+shasum -a 256 PATH_TO_FILE
+```
 
 Alternative: [Minisign](https://jedisct1.github.io/minisign/) or [Free Formatter](https://www.freeformatter.com/)
 
