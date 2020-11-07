@@ -104,3 +104,35 @@ Alternative: [Minisign](https://jedisct1.github.io/minisign/) or [Free Formatter
 ```sudo snap install fast && fast```
 
 *****
+
+## Programming
+
+Create a virtual environment (venv):
+```
+python3 -m venv DIRECTORY_NAME
+```
+
+Active the virtual environment:
+```
+source DIRECTORY_NAME/bin/activate
+```
+
+Install packages (specific version):
+```
+python -m pip install requests==2.6.0
+```
+
+Display all packages installed in the virtual environment:
+```
+pip list
+```
+
+Create a requirements.txt file with all installed packages (incl. version info):
+```pip freeze > requirements.txt```
+
+Install all packages listed inside the requirements.txt file:
+```
+pip install -r requirements.txt
+```
+
+*****
