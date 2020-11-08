@@ -1,5 +1,5 @@
 # MacOS Daemons
-List of some of the most important MacOS Daemons and processes. Especially useful for firewall rules (not an exhaustive list).
+* List of some of the most important MacOS Daemons and processes. Especially useful for firewall rules (not an exhaustive list).
 
 nsurlsessiond "icloud sync"
 
@@ -103,22 +103,41 @@ AirPlayXPCHelper "macos airplay"
 
 # Apps
 plugin_host "sublime text plugins"
+
 Finder
+
 iTunes
+
 Messages
+
 Photos Agent
+
 Terminal
+
 iTerm2
+
 Google Chrome
+
 Google Chrome Helper
-Sublime Text "custom app"
+
+Sublime Text
+
 Dropbox "custom app"
-1Password mini "custom app"
+
+1Password mini
+
 Activity Monitor
-LaunchBar "custom app"
+
+LaunchBar
+
 Stickies
+
 Activity
-Flux "custom app"
+
+Flux
+
 iTunes
+
 Siri
+
 AGMService "adobe creative genuine service"
