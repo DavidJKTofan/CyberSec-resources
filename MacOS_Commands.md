@@ -153,6 +153,11 @@ Active the virtual environment:
 source DIRECTORY_NAME/bin/activate
 ```
 
+Deactive virtual environment:
+```
+deactivate
+```
+
 Install packages (specific version):
 ```
 python -m pip install requests==2.6.0
@@ -169,6 +174,11 @@ Create a requirements.txt file with all installed packages (incl. version info):
 Install all packages listed inside the requirements.txt file:
 ```
 pip install -r requirements.txt
+```
+
+Delte virtual environment:
+```
+rm -rf DIRECTORY_NAME
 ```
 
 *****
