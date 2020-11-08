@@ -141,16 +141,18 @@ Alternative: [Minisign](https://jedisct1.github.io/minisign/) or [Free Formatter
 
 *****
 
-## Programming
+## Python Programming
 
-Create a virtual environment (venv):
+### Virtual Environment
+
+Create a virtual environment (venv) with python3:
 ```
-python3 -m venv DIRECTORY_NAME
+python3 -m venv PROJECT_NAME -p python3
 ```
 
 Active the virtual environment:
 ```
-source DIRECTORY_NAME/bin/activate
+source PROJECT_NAME/bin/activate
 ```
 
 Deactive virtual environment:
@@ -176,9 +178,21 @@ Install all packages listed inside the requirements.txt file:
 pip install -r requirements.txt
 ```
 
-Delte virtual environment:
+Install Jupyter Notebook, and install new Jupyter Notebook kernel:
 ```
-rm -rf DIRECTORY_NAME
+pip install jupyter
+ipython kernel install --user --name=PROJECT_NAME
+```
+
+Display all kernels, and uninstall kernel:
+```
+jupyter kernelspec list
+jupyter kernelspec uninstall project_name
+```
+
+Delete virtual environment:
+```
+rm -rf PROJECT_NAME
 ```
 
 *****
