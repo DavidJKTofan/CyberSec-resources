@@ -3,14 +3,23 @@ Especially useful for firewall rules
 ==> not an exhaustive list
 
 nsurlsessiond "icloud sync"
+
 fseventsd "macos file system events"
+
 WindowServer "macos windows"
+
 DisplayLinkManager "macos driver"
+
 configd "macos dynamic configuration"
+
 displaypolicyd "macos process"
+
 CommCenter "macos keychain"
+
 kernel_task "macos kernel"
+
 opendirectoryd "macos users, groups, etc"
+
 mds "macos metadata server for spotlight"
 diskmanagementd "mac os stuff"
 airportd "macos wifi"
