@@ -196,3 +196,13 @@ rm -rf PROJECT_NAME
 ```
 
 *****
+
+## WiFi Passwords
+
+View saved WiFi password of WIFI_NAME:
+```
+security find-generic-password -ga WIFI_NAME | grep “password:”
+```
+
+*****
+
