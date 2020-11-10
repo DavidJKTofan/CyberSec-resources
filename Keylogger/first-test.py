@@ -11,7 +11,6 @@ finally:
     from pynput.keyboard import Listener
 
 import os
-import sys
 import logging
 #from shutil import copyfile
 
