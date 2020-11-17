@@ -8,11 +8,12 @@ _"Open-source intelligence (OSINT) is data collected from publicly available sou
 
 # Table of Contents
 [General](#general)  
+[File & URL Scanners](#scans)  
 [Company Research](#company)  
 [Websites](#dns)  
-[Emails](#email) <br>
-[Mac Address](#mac) <br>
-[Phone Numbers](#phone) 
+[Emails](#email)  
+[Mac Address](#mac)  
+[Phone Numbers](#phone)  
 
 ***
 
@@ -26,10 +27,17 @@ _"Open-source intelligence (OSINT) is data collected from publicly available sou
 * [Background Checks](https://backgroundchecks.org/)
 * [Usernames](https://checkusernames.com/)
 * [Clean CSS](https://www.cleancss.com/)
-* [Bar Code Reader](https://online-barcode-reader.inliteresearch.com/default.aspx)
+* [Mitaka](https://github.com/ninoseki/mitaka)
+<br>
+
+<a name="scans"/>
+
+## File & URL Scanners
+
 * [VirusTotal](https://www.virustotal.com/gui/)
 * [URLScan](https://urlscan.io/)
-* [Mitaka](https://github.com/ninoseki/mitaka)
+* [Hybrid Analysis](https://www.hybrid-analysis.com/)
+* [Bar Code Reader](https://online-barcode-reader.inliteresearch.com/default.aspx)
 <br>
 
 <a name="company"/>
