@@ -26,7 +26,7 @@ _"Open-source intelligence (OSINT) is data collected from publicly available sou
 * [OCCRP Aleph](https://aleph.occrp.org/)
 * [Background Checks](https://backgroundchecks.org/)
 * [Usernames](https://checkusernames.com/)
-* [Clean CSS](https://www.cleancss.com/)
+* [Intelligence X](https://intelx.io/)
 * [Mitaka](https://github.com/ninoseki/mitaka)
 <br>
 
