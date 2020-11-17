@@ -21,6 +21,7 @@ _"Open-source intelligence (OSINT) is data collected from publicly available sou
 ## General
 
 * [General OSINT Tools](https://www.aware-online.com/en/osint-tools/)
+* [Atomic Red Team - MITRE's ATT&CK](https://github.com/redcanaryco/atomic-red-team)
 * [OCCRP Aleph](https://aleph.occrp.org/)
 * [Background Checks](https://backgroundchecks.org/)
 * [Usernames](https://checkusernames.com/)
