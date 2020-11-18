@@ -127,8 +127,8 @@ id USERNAME
 ## Permissions
 
 ```
-chown root:root /etc/anacrontab
-chmod og-rwx /etc/anacrontab
+chown root:root /etc/anacrontab       # Change ownership to user root and group root
+chmod og-rwx /etc/anacrontab          # Allow users who are not owners of this file, and users who are part of this files' group to rwx
 
 chown root:root /etc/crontab
 chmod og-rwx /etc/crontab
@@ -422,7 +422,7 @@ sudo apt install openssh-server
 
 Create SSH Public Key:
 ```
-ssh-keygen -t rsa -b 4096
+ssh-keygen -t rsa -b 4096 -C COMMENT    # maximum rsa is 16384 (takes longer)
 ```
 
 Install Public Key:
@@ -435,6 +435,16 @@ Check SSH status:
 systemctl status ssh.service
 ```
 
+Login with SSH:
+```
+ssh USER@IP_ADDRESS
+```
+
+Verify SHA256 host key fingerprint (seen when logging in for the first time; compare SHA256):
+```
+ssh-keygen -lf /etc/ssh/ssh_host_rsa_key.pub    # SSH_PUBLIC_KEY_NAME.pub
+```
+
 **CONFIG FILE:**
 ```
 sudo nano /etc/ssh/sshd_config
@@ -444,9 +454,9 @@ EXAMPLE CONFIG FILE content:
 ```
 Port 2025                           # Port used for SSH connection
 PermitRootLogin no                  # Root login disabled
-AllowUsers USERNAME                 # Allow specific users
+AllowUsers USERNAME@IP_ADDRESS      # Allow specific users from specific IP Address
 DenyUsers USERNAME                  # Deny specific users
-AuthenticationMethods publickey     # Allow Public Key authentication
+AuthenticationMethods publickey     # Allow Public Key authentication (if 2FA is actived, then "publickey,password publickey,keyboard-interactive")
 PubkeyAuthentication yes            # Enable Public Key authentication
 PasswordAuthentication no           # Disable password authentication forcing use of keys
 # PermitEmptyPasswords no           # Empty passwords not permitted
@@ -455,8 +465,8 @@ X11Forwarding no                    # Disable remote application access
 MaxAuthTries 3                      # Maximum SSH authentication attempts
 ClientAliveInterval 300             # Disconnect idle sessions
 ClientAliveCountMax 2               # Maximum live client sessions
-UsePAM no                           # Disable Pluggable Authentication Module (PAM)
-ChallengeResponseAuthentication no  # Related to PAM
+UsePAM no                           # Pluggable Authentication Module (PAM) (if 2FA is actived, then "yes")
+ChallengeResponseAuthentication no  # Related to PAM (if 2FA is actived, then "yes")
 IgnoreRhosts yes                    # Disable Rhost authentication
 HostbasedAuthentication no          # Disable host-based authentication
 ```
@@ -496,11 +506,38 @@ sudo systemctl restart sshd.service
 sudo systemctl restart sshd
 ```
 
+### 2FA
+
+Install the PAM:
+```
+sudo apt-get install libpam-google-authenticator
+```
+
+Run the initialization app and answer questions (y, y, y, n, y):
+```
+google-authenticator
+```
+
+**CONFIG FILE**
+```
+sudo nano /etc/pam.d/sshd
+```
+
+Add to the CONFIG FILE:
+```
+# Standard Un*x authentication
+#@include common-auth   # Comment this existing line
+
+auth required pam_google_authenticator.so nullok
+auth required pam_permit.so
+```
+_Note: In sshd_config change "ChallengeResponseAuthentication" to "yes", change "AuthenticationMethods" to "publickey,password publickey,keyboard-interactive" and restart SSH_
+
 ### Fail2Ban
 
 Install:
 ```
-apt-get install fail2ban
+sudo apt-get install fail2ban
 ```
 
 Copy CONFIG file as LOCAL jail:
