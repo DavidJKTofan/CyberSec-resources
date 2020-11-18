@@ -288,14 +288,14 @@ Check version:
 cloudflared --version
 ```
 
+Run the Proxy DNS (after verification that it works CTRL+C):
 ```
 sudo cloudflared proxy-dns
 ```
 
-Create folder and CONFIG file:
+Edit the CONFIG file:
 ```
-sudo mkdir /etc/cloudflared/
-sudo nano /etc/cloudflared/config.yml
+sudo nano /usr/local/etc/cloudflared/config.yml
 ```
 
 EXAMPLE of a CONFIG file:
@@ -310,18 +310,19 @@ proxy-dns-upstream:
   #- https://[2606:4700:4700::1001]/dns-query
 ```
 
-Install the service:
-```
-sudo cloudflared service install
-```
-
 Verify that it is working:
 ```
 dig +short @127.0.0.1 cloudflare.com AAAA
 dig @127.0.0.1 google.com
+dig +short @127.0.0.1 github.com AA
 ```
 
-Change local DNS to localhost, as it is listening by default on:
+Install the service (Argo Tunnel client will run at boot):
+```
+sudo cloudflared service install
+```
+
+Change local DNS to localhost (127.0.0.1), as it is listening by default on:
 ```
 localhost:53
 ```
