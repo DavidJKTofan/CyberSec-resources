@@ -155,7 +155,7 @@ chmod og-rwx <crontabfile>
 ```
 
 ```
-chmod 644 /etc/passwd
+chmod 644 /etc/passwd                 # Owner of the file has rw, while the group members and other users on the system only have r
 chown root:root /etc/passwd
 ```
 
@@ -165,7 +165,7 @@ chown root:root /etc/group
 ```
 
 ```
-chmod 600 /etc/shadow
+chmod 600 /etc/shadow                 # Owner can rw
 chown root:root /etc/shadow
 ```
 
