@@ -25,16 +25,21 @@ nano ~/.bashrc
 ## Block access to specific Websites on Mac
 
 Open Terminal
-```sudo nano /etc/hosts```
+```
+sudo nano /etc/hosts
+```
 
 Add:
+```
 0.0.0.0    www.website.com
-
+```
 Click Control + O and hit Enter
 Click Control + X to exit
 
 Flush local DNS cache:
-```sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil -flushcache```
+```
+sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil -flushcache
+```
 
 *****
 
@@ -84,60 +89,92 @@ Alternative: [Minisign](https://jedisct1.github.io/minisign/) or [Free Formatter
 ## List Open Ports
 ### Network Sockets
 
-```netstat -nr```
+```
+netstat -nr
+```
 
-```netstat -ap tcp | grep -i "listen"```
-```sudo lsof -PiTCP -sTCP:LISTEN```
-```lsof -Pn -i4```
+```
+netstat -ap tcp | grep -i "listen"
+```
+```
+sudo lsof -PiTCP -sTCP:LISTEN
+```
+```
+lsof -Pn -i4
+```
 
-```netstat -Watnlv | grep LISTEN | awk '{"ps -o comm= -p " $9 | getline procname;colred="\033[01;31m";colclr="\033[0m"; print cred "proto: " colclr $1 colred " | addr.port: " colclr $4 colred " | pid: " colclr $9 colred " | name: " colclr procname;  }' | column -t -s "|"```
+```
+netstat -Watnlv | grep LISTEN | awk '{"ps -o comm= -p " $9 | getline procname;colred="\033[01;31m";colclr="\033[0m"; print cred "proto: " colclr $1 colred " | addr.port: " colclr $4 colred " | pid: " colclr $9 colred " | name: " colclr procname;  }' | column -t -s "|"
+```
 
-```netstat -ap tcp```
+```
+netstat -ap tcp
+```
 
 ### See all connected Devices
 
-```arp -a```
+```
+arp -a
+```
 
 ### See all open Connections
 
-```lsof -i```
-```lsof -i | grep -E "(LISTEN|ESTABLISHED)"```
+```
+lsof -i
+```
+```
+lsof -i | grep -E "(LISTEN|ESTABLISHED)"
+```
 
 *****
 
 ## Check if System Integrity Protection (SIP) is enabled
 
-```csrutil status```
+```
+csrutil status
+```
 
 *****
 
 ## Disable Remote SSH
 
-```sudo systemsetup -setremotelogin off```
+```
+sudo systemsetup -setremotelogin off
+```
 
 *****
 
 ## Check Email Reputation
 
-```curl -s emailrep.io/name@domain.com```
+```
+curl -s emailrep.io/name@domain.com
+```
 
 *****
 
 ## Disable IPv6
 
-```networksetup -setv6off Wi-Fi```
+```
+networksetup -setv6off Wi-Fi
+```
 
 ### Re-enable IPv6
 
-```networksetup -setv6automatic Wi-Fi```
+```
+networksetup -setv6automatic Wi-Fi
+```
 
 *****
 
 ## Check Internet Speed Test
 
-```sudo apt install speedtest-cli && speedtest-cli```
+```
+sudo apt install speedtest-cli && speedtest-cli
+```
 
-```sudo snap install fast && fast```
+```
+sudo snap install fast && fast
+```
 
 *****
 
@@ -171,7 +208,9 @@ pip list
 ```
 
 Create a requirements.txt file with all installed packages (incl. version info):
-```pip freeze > requirements.txt```
+```
+pip freeze > requirements.txt
+```
 
 Install all packages listed inside the requirements.txt file:
 ```
