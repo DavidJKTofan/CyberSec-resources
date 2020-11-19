@@ -280,6 +280,8 @@ sudo apt-get --purge remove xinetd nis yp-tools tftpd atftpd tftpd-hpa telnetd r
 
 ## DNS over HTTPS
 
+### Cloudflared
+
 Download Cloudflared:
 https://developers.cloudflare.com/1.1.1.1/dns-over-https/cloudflared-proxy
 
@@ -344,6 +346,22 @@ sudo cloudflared update
 sudo systemctl restart cloudflared
 ```
 
+Uninstall Cloudflared:
+```
+sudo cloudflared service uninstall && rm -rf /usr/local/etc/cloudflared/config.yml && rm -rf /usr/local/etc/cloudflared
+```
+
+### dnscrypt-proxy
+
+Download dnscrypt-proxy:
+https://github.com/DNSCrypt/dnscrypt-proxy/wiki/installation
+
+Uninstall dnscrypt-proxy (depends on the location of the folder, as well as your OS):
+```
+./dnscrypt-proxy -service stop
+
+./dnscrypt-proxy -service uninstall
+```
 
 ****
 
