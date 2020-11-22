@@ -40,6 +40,7 @@ Show path info of pip3:
 which pip3
 ```
 
+Add aliases to the Terminal:
 ```
 echo "alias pip=/usr/local/bin/pip3" >> ~/.zshrc 
 # or for BASH
