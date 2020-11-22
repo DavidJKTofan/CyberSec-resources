@@ -1,3 +1,51 @@
+## Install Python
+
+Install [Homebrew](https://brew.sh/):
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+```
+
+Install Python3:
+```
+brew install python3
+```
+
+List installed Python packages:
+```
+brew list | grep python
+```
+
+Show info on Python package:
+```
+brew info python
+```
+
+Update Homebrew and Python package:
+```
+brew update && brew upgrade python
+```
+
+Create an alias to use Python3:
+```
+alias python=/usr/local/bin/python3     # Or the path info that was shown when running `brew info python` or `which python3`
+```
+
+Show pip3 version:
+```
+pip3 -V
+```
+
+Show path info of pip3:
+```
+which pip3
+```
+
+```
+echo "alias pip=/usr/local/bin/pip3" >> ~/.zshrc 
+# or for BASH
+echo "alias pip=/usr/local/bin/pip3" >> ~/.bashrc
+```
+
 ## Terminal (Shell) Profiles
 
 Change to Z Shell:
