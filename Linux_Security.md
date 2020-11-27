@@ -126,6 +126,9 @@ id USERNAME
 
 ## Permissions
 
+![Linux Permissions](/Images/linux-permissions.png)
+
+
 ```
 chown root:root /etc/anacrontab       # Change ownership to user root and group root
 chmod og-rwx /etc/anacrontab          # Allow users who are not owners of this file, and users who are part of this files' group to rwx
