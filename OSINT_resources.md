@@ -35,8 +35,11 @@ _"Open-source intelligence (OSINT) is data collected from publicly available sou
 ## File & URL Scanners
 
 * [VirusTotal](https://www.virustotal.com/gui/)
+* [Redirect Detective](https://redirectdetective.com/)
 * [URLScan](https://urlscan.io/)
+* [TrueURL](http://www.trueurl.net/)
 * [Hybrid Analysis](https://www.hybrid-analysis.com/)
+* [ANY.RUN](https://app.any.run/)
 * [Bar Code Reader](https://online-barcode-reader.inliteresearch.com/default.aspx)
 <br>
 
