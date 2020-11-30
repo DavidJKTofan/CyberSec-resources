@@ -1,3 +1,10 @@
+## Update
+
+Update brew, pip, outdated pip modules, brew cleanup, brew doctor:
+```
+brew update && brew upgrade && pip install --upgrade pip && pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U && brew cleanup && brew doctor && brew cleanup && echo success
+```
+
 ## Install Python
 
 Install [Homebrew](https://brew.sh/):
