@@ -5,6 +5,8 @@ Update brew, pip, outdated pip modules, brew cleanup, brew doctor:
 brew update && brew upgrade && pip install --upgrade pip && pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U && brew cleanup && brew doctor && brew cleanup && echo success
 ```
 
+*****
+
 ## Install Python
 
 Install [Homebrew](https://brew.sh/):
@@ -53,6 +55,71 @@ echo "alias pip=/usr/local/bin/pip3" >> ~/.zshrc
 # or for BASH
 echo "alias pip=/usr/local/bin/pip3" >> ~/.bashrc
 ```
+
+*****
+
+## Python Programming
+
+### Virtual Environment
+
+Create a virtual environment (venv) with python3:
+```
+python3 -m venv PROJECT_NAME -p python3
+```
+
+Active the virtual environment:
+```
+source PROJECT_NAME/bin/activate
+```
+
+Deactive virtual environment:
+```
+deactivate
+```
+
+Install packages (specific version):
+```
+python -m pip install requests==2.6.0
+```
+
+Display all packages installed in the virtual environment:
+```
+pip list
+```
+
+Create a requirements.txt file with all installed packages (incl. version info):
+```
+pip freeze > requirements.txt
+```
+
+Install all packages listed inside the requirements.txt file:
+```
+pip install -r requirements.txt
+```
+
+Install Jupyter Notebook, and install new Jupyter Notebook kernel:
+```
+pip install jupyter
+ipython kernel install --user --name=PROJECT_NAME
+```
+
+Check the kernel JSON file so that it is pointing to your virtual environment python version (/bin/python3):
+``` 
+/Users/`whoami`/Library/Jupyter/kernels/
+```
+
+Display all kernels, and uninstall kernel:
+```
+jupyter kernelspec list
+jupyter kernelspec uninstall project_name
+```
+
+Delete virtual environment:
+```
+rm -rf PROJECT_NAME
+```
+
+*****
 
 ## Terminal (Shell) Profiles
 
@@ -230,64 +297,6 @@ sudo apt install speedtest-cli && speedtest-cli
 
 ```
 sudo snap install fast && fast
-```
-
-*****
-
-## Python Programming
-
-### Virtual Environment
-
-Create a virtual environment (venv) with python3:
-```
-python3 -m venv PROJECT_NAME -p python3
-```
-
-Active the virtual environment:
-```
-source PROJECT_NAME/bin/activate
-```
-
-Deactive virtual environment:
-```
-deactivate
-```
-
-Install packages (specific version):
-```
-python -m pip install requests==2.6.0
-```
-
-Display all packages installed in the virtual environment:
-```
-pip list
-```
-
-Create a requirements.txt file with all installed packages (incl. version info):
-```
-pip freeze > requirements.txt
-```
-
-Install all packages listed inside the requirements.txt file:
-```
-pip install -r requirements.txt
-```
-
-Install Jupyter Notebook, and install new Jupyter Notebook kernel:
-```
-pip install jupyter
-ipython kernel install --user --name=PROJECT_NAME
-```
-
-Display all kernels, and uninstall kernel:
-```
-jupyter kernelspec list
-jupyter kernelspec uninstall project_name
-```
-
-Delete virtual environment:
-```
-rm -rf PROJECT_NAME
 ```
 
 *****
