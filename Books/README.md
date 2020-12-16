@@ -20,3 +20,12 @@
 
 * [Injection Flaws – OWASP](https://owasp.org/www-community/Injection_Flaws)
 
+### Training
+
+* [Hack The Box](https://www.hackthebox.eu/)
+
+* [Over The Wire](https://overthewire.org/wargames/)
+
+* [Try Hack Me](https://tryhackme.com/)
+
+* [Hack This Site](https://www.hackthissite.org/)
