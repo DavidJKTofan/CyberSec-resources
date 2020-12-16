@@ -1,6 +1,6 @@
 ## Interesting Links
 
-### News
+### News & more
 
 * [Data Breaches](https://www.databreaches.net/)
 
@@ -9,6 +9,8 @@
 * [Security Intelligence](https://securityintelligence.com/)
 
 * [ENISA Europe](https://www.enisa.europa.eu/)
+
+* [Down Detector](https://downdetector.com/)
 
 ### Injections
 
