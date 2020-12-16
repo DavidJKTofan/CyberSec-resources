@@ -20,7 +20,7 @@
 
 * [Injection Flaws – OWASP](https://owasp.org/www-community/Injection_Flaws)
 
-### Training
+### Training & Guides
 
 * [Hack The Box](https://www.hackthebox.eu/)
 
@@ -29,3 +29,5 @@
 * [Try Hack Me](https://tryhackme.com/)
 
 * [Hack This Site](https://www.hackthissite.org/)
+
+* [Hacking Articles](https://www.hackingarticles.in/)
