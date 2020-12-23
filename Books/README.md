@@ -1,10 +1,22 @@
 ## Interesting Links
 
-### News & more
+### News, Threat Intelligence Sources, & more
+
+* [X-Force Exchange IBM](https://exchange.xforce.ibmcloud.com/)
 
 * [Data Breaches](https://www.databreaches.net/)
 
-* [Bleeping Computer](https://www.bleepingcomputer.com/)
+* [BleepingComputer](https://www.bleepingcomputer.com/)
+
+* [Recorded Future](https://www.recordedfuture.com/)
+
+* [Krebs on Security](https://krebsonsecurity.com/)
+
+* [DARKReading](https://www.darkreading.com/threat-intelligence.asp)
+
+* [InfoSecurity Magazine](https://www.infosecurity-magazine.com/threat-intelligence/)
+
+* [Trend Micro](https://www.trendmicro.com/vinfo/us/security/news/vulnerabilities-and-exploits)
 
 * [Security Intelligence](https://securityintelligence.com/)
 
