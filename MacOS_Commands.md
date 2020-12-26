@@ -310,3 +310,22 @@ security find-generic-password -ga WIFI_NAME | grep “password:”
 
 *****
 
+## Auditing, system hardening, compliance testing
+_Lynis is a battle-tested security tool for systems running Linux, macOS, or Unix-based operating system_
+Documentation: https://cisofy.com/documentation/lynis/get-started/
+
+Download Lynis:
+```
+brew install lynis  # Also available through Git: git clone https://github.com/CISOfy/lynis
+```
+
+```
+cd lynis
+```
+
+Perform a quick security scan:
+```
+./lynis audit system -Q
+```
+
+*****
