@@ -6,28 +6,28 @@ _Some regulations might be industry-/region-/country-specific._
 
 ## Global
 
-### Payment Card Industry Data Security Standard (PCI DSS)
+* ### Payment Card Industry Data Security Standard (PCI DSS)
 
-### ISO/IEC 27000 series
+* ### ISO/IEC 27000 series
 
-### Center for Internet Security (CIS)
+* ### Center for Internet Security (CIS)
 
 ******
 
 ##  Europe
 
-### General Data Protection Regulation (GDPR)
+* ### General Data Protection Regulation (GDPR)
 
-### The EU Directive on security of Network and Information Systems (NIS Directive)
+* ### The EU Directive on security of Network and Information Systems (NIS Directive)
 
 ******
 
 ## USA
 
-### The NIST Cybersecurity Framework (CSF)
+* ### The NIST Cybersecurity Framework (CSF)
 
-### NIST 800-53
+* ### NIST 800-53
 
-### Health Insurance Portability and Accountability Act (HIPAA)
+* ### Health Insurance Portability and Accountability Act (HIPAA)
 
-### HITRUST CSF
+* ### HITRUST CSF
