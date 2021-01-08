@@ -78,6 +78,8 @@ _"Open-source intelligence (OSINT) is data collected from publicly available sou
 
 * [emailrep](https://emailrep.io/) –– Local Terminal: ```curl -s emailrep.io/example@email.com```
 * [MailTester](https://mailtester.com/testmail.php)
+* [Google Admin Toolbox](https://toolbox.googleapps.com/apps/main/)
+* [MX Toolbox](https://mxtoolbox.com/)
 <br>
 
 <a name="mac"/>
