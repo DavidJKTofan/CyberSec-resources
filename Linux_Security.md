@@ -17,6 +17,7 @@ _Disclaimer: Some of the packages and/or commands may or may not work and/or var
 [SELinux](#selinux)  
 [Disable USB Usage](#blacklist)  
 [Uninstall Unused Packages](#deborphan)  
+[Encrypt/Decrypt Files](#encryption)  
 
 ***
 ***
@@ -721,4 +722,31 @@ Remove all orphaned/unused packages:
 sudo orphaner
 ```
 
+****
 
+<a name="encryption"></a>
+
+## Encrypt/Decrypt Files
+
+Create your GnuPG keys:
+```
+gpg --gen-key
+```
+_Note: Fill out the information asked (Name and working Email), and use a strong password._
+
+Generate your Public Key (MYPUBKEY.gpg):
+```
+gpg --armor --output MYPUBKEY.gpg --export EMAIL@EMAIL.COM
+```
+
+Encrypt FILE.txt file with your Public Key (MYPUBKEY.gpg):
+```
+gpg --output FILE.txt.gpg --encrypt --recipient EMAIL@EMAIL.COM FILE.txt
+```
+
+Decrypt the encrypted FILE.txt file with your Private Key (enter your key password):
+```
+gpg --output FILE.txt --decrypt FILE.txt.gpg
+```
+
+****
