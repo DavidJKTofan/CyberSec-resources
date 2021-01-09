@@ -726,9 +726,16 @@ sudo orphaner
 
 <a name="encryption"></a>
 
+Install GPG (if not already installed):
+```
+sudo apt-get install gpg
+```
+
 ## Encrypt/Decrypt Files
 
-Create your GnuPG keys:
+More info here: https://www.devdungeon.com/content/gpg-tutorial
+
+Create your Private GnuPG keys (using default encryption type RSA asymmetric):
 ```
 gpg --gen-key
 ```
@@ -747,6 +754,16 @@ gpg --output FILE.txt.gpg --encrypt --recipient EMAIL@EMAIL.COM FILE.txt
 Decrypt the encrypted FILE.txt file with your Private Key (enter your key password):
 ```
 gpg --output FILE.txt --decrypt FILE.txt.gpg
+```
+
+List all Public Keys you have stored:
+```
+gpg --list-keys
+```
+
+List all your Private Keys:
+```
+gpg --list-secret-keys
 ```
 
 ****
