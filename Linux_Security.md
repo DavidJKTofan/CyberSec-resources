@@ -129,6 +129,7 @@ id USERNAME
 
 ![Linux Permissions](/Images/linux-permissions.png)
 
+<img src="/Images/linux-permissions.png" width="300">
 
 ```
 chown root:root /etc/anacrontab       # Change ownership to user root and group root
