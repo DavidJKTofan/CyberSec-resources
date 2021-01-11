@@ -61,10 +61,12 @@ echo "alias pip=/usr/local/bin/pip3" >> ~/.bashrc
 ## Python Programming
 
 ### Virtual Environment
+#### venv
 
 Create a virtual environment (venv) with python3:
 ```
 python3 -m venv PROJECT_NAME -p python3
+python3.8 -m venv PROJECT_NAME  # For a specific Python version
 ```
 
 Active the virtual environment:
