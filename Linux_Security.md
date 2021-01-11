@@ -748,7 +748,7 @@ _Note: Fill out the information asked (Name and working Email), and use a strong
 
 Generate your Public Key (MYPUBKEY.gpg):
 ```
-gpg --armor --output MYPUBKEY.gpg --export EMAIL@EMAIL.COM
+gpg --armor --output MYPUBKEY.key --export YOUR-EMAIL@EMAIL.COM
 ```
 
 Encrypt FILE.txt file with your Public Key (MYPUBKEY.gpg):
@@ -769,6 +769,36 @@ gpg --list-keys
 List all your Private Keys:
 ```
 gpg --list-secret-keys
+```
+
+Import external Public Key:
+```
+gpg --import PUBKEY-FROM-SOMEONE-ELSE.key
+```
+
+Search for external Public Keys on the MIT public key server:
+```
+gpg --keyserver pgp.mit.edu --search-keys EMAIL@EMAIL.com
+```
+
+Refresh your Public Key on the MIT public key server:
+```
+gpg --keyserver pgp.mit.edu --refresh-keys
+```
+
+Fingerprint of the Public Key (double check with owner of the Public Key):
+```
+gpg --fingerprint EMAIL@EMAIL.com
+```
+
+Sign external Public Key (only if trusted):
+```
+gpg --sign-key EMAIL@EMAIL.com
+```
+
+Send encrypted file:
+```
+gpg --encrypt --sign --armor -r EMAIL@EMAIL.COM  # File appended with ".asc", -r for the owner of the received external Public Key
 ```
 
 ****
