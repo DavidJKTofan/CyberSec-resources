@@ -733,9 +733,15 @@ sudo apt-get install gpg
 
 ## Encrypt/Decrypt Files
 
+### [GnuPG](https://gnupg.org/)
 More info here: https://www.devdungeon.com/content/gpg-tutorial
 
-Create your Private GnuPG keys (using default encryption type RSA asymmetric):
+Install GnuPG (if not already installed):
+```
+sudo apt-get install gpg
+```
+
+Create your Private GnuPG keys (using default asymmetric encryption type RSA):
 ```
 gpg --gen-key
 ```
