@@ -12,6 +12,8 @@ _Some regulations might be industry-/region-/country-specific._
 
 * ### Center for Internet Security (CIS)
 
+* ### ISA/IEC 62443
+
 ******
 
 ##  Europe
