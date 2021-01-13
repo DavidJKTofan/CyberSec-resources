@@ -555,6 +555,43 @@ auth required pam_permit.so
 ```
 _Note: In sshd_config change "ChallengeResponseAuthentication" to "yes", change "AuthenticationMethods" to "publickey,password publickey,keyboard-interactive" and restart SSH_
 
+### SSH Audit
+Source: https://github.com/arthepsy/ssh-audit
+
+Run an Audit and review the report:
+```
+python ssh-audit.py TARGET_IP_ADDRESS
+```
+
+Remove current HosyKey entries in the SSH configuration file, and replace them with the following:
+```
+HostKey /etc/ssh/ssh_host_ed25519_key
+HostKey /etc/ssh/ssh_host_rsa_key
+```
+
+Change Default Ciphers and Algorithms by adding/replacing the following to the SSH configuration file:
+```
+KexAlgorithms curve25519-sha256@libssh.org
+Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
+MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,umac-128-etm@openssh.com
+```
+
+Re-run the Audit:
+```
+python ssh-audit.py TARGET_IP_ADDRESS
+```
+
+### Regenerate Moduli
+
+Regenerate new Moduli in `/etc/ssh/moduli` (this process might take between several minutes to hours):
+```
+ssh-keygen -G moduli-2048.candidates -b 2048            # Candidate primes are generated
+ssh-keygen -T moduli-2048 -f moduli-2048.candidates     # Candidate primes are tested for suitability
+cp moduli-2048 /etc/ssh/moduli                          # Copy new moduli to specific folder
+rm moduli-2048                                          # Remove moduli file in current direcotry
+```
+_Note: Restart SSH after changes are made._
+
 ### Fail2Ban
 
 Install:
