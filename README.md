@@ -5,6 +5,7 @@ A repo of useful CyberSec tools/urls, OSINT, Linux security resources, and more.
 
 ### OSINT
 * [Useful OSINT Tools & Resources](OSINT_resources.md)
+* [Google Dorking](Google_Dorking.md)
 
 ### Linux
 * [Linux Security Basics](Linux_Security.md)
