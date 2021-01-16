@@ -49,3 +49,10 @@
 * [Hacking Articles](https://www.hackingarticles.in/)
 
 * [Identity Theft](https://www.identitytheft.gov/databreach)
+
+*****
+
+## The 7 layers of the OSI model
+
+![OSI Model](osi-model-7-layers.png)
+
