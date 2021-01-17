@@ -52,6 +52,10 @@
 
 * [IBM Terminal](https://www.ibm.com/terminal)
 
+* [Crypto 101](https://www.crypto101.io/)
+
+* [Cryptopals](https://cryptopals.com/)
+
 *****
 
 ## The 7 layers of the OSI model
