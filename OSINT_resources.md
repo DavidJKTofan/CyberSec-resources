@@ -36,6 +36,8 @@ _"Open-source intelligence (OSINT) is data collected from publicly available sou
 
 * [IBM X-Force Exchange](https://exchange.xforce.ibmcloud.com/)
 * [VirusTotal](https://www.virustotal.com/gui/)
+* [OPSWAT MetaDefender](https://metadefender.opswat.com/)
+* [Kaspersky Threat Intelligence Portal](https://opentip.kaspersky.com/)
 * [Redirect Detective](https://redirectdetective.com/)
 * [URLScan](https://urlscan.io/)
 * [TrueURL](http://www.trueurl.net/)
