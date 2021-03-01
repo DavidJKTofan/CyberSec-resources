@@ -60,5 +60,4 @@
 
 ## The 7 layers of the OSI model
 
-![OSI Model](osi-model-7-layers.png)
-
+![OSI Model](../Images/osi-model-7-layers.png)
