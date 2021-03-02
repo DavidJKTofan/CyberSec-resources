@@ -30,6 +30,7 @@ _"Open-source intelligence (OSINT) is data collected from publicly available sou
 * [Mitaka](https://github.com/ninoseki/mitaka)
 
 * [Awesome OSINT – GitHub Repo](https://github.com/jivoi/awesome-osint)
+* [OSINT – HackControl](https://hackcontrol.org/OSINT/People_search_engines.html)
 * [OSINT: How to find information on anyone – Guide](https://medium.com/the-first-digit/osint-how-to-find-information-on-anyone-5029a3c7fd56)
 <br>
 
