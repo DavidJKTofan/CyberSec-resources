@@ -56,6 +56,8 @@
 
 * [Cryptopals](https://cryptopals.com/)
 
+* [Hacker101](https://www.hacker101.com/)
+
 *****
 
 ## The 7 layers of the OSI model
