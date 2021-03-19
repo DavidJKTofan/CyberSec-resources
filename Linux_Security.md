@@ -443,6 +443,7 @@ sudo ufw deny from IP_ADDRESS to any port 23 comment 'TELNET'
 Add ALLOW rule(s):
 ```
 sudo ufw allow ssh comment 'SSH'
+sudo ufw allow PORT_NUMBER
 sudo ufw allow dns comment 'DNS'
 sudo ufw allow from IP_ADDRESS to any port 22 comment 'SSH'
 sudo ufw allow from IP_ADDRESS to any port 53 comment 'DNS'
@@ -458,6 +459,13 @@ sudo ufw status numbered
 Delete rule number X:
 ```
 sudo ufw delete NUMBER
+```
+
+### Display Network Socket
+
+What's allowed into the server: 
+```
+sudo ss -tupln
 ```
 
 ****
