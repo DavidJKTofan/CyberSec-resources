@@ -489,7 +489,7 @@ systemctl status ssh.service
 
 Login with SSH:
 ```
-ssh USERNAME@IP_ADDRESS
+ssh USERNAME@IP_ADDRESS -p PORT_NUMBER          # If different Port number has been set in the CONFIG file
 ```
 
 Verify SHA256 host key fingerprint (seen when logging in for the first time; compare SHA256):
