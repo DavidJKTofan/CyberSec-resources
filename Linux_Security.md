@@ -461,6 +461,15 @@ Delete rule number X:
 sudo ufw delete NUMBER
 ```
 
+Deactivate PING (go to section `# ok icmp codes for INPUT`):
+```
+sudo nano /etc/ufw/before.rules
+```
+Add the following line to `/etc/ufw/before.rules`:
+```
+-A ufw-before-input -p icmp --icmp-type echo-request -j DROP      # Reload ufw and reboot afterwards
+```
+
 ### Display Network Socket
 
 What's allowed into the server: 
