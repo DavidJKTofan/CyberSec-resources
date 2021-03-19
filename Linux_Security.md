@@ -91,6 +91,35 @@ Reboot:
 sudo reboot
 ```
 
+### Automatic System Updates
+
+Install [`unattended-upgrades`](https://wiki.debian.org/UnattendedUpgrades) package:
+```
+sudo apt install unattended-upgrades
+```
+
+Enable `unattended-upgrades`:
+```
+sudo dpkg-reconfigure --priority=low unattended-upgrades
+```
+
+Check if package is running:
+```
+sudo systemctl status unattended-upgrades.service
+```
+
+Package configuration files:
+```
+sudo nano /etc/apt/apt.conf.d/20auto-upgrades
+sudo nano /etc/apt/apt.conf.d/50unattended-upgrades
+```
+
+Package logs located in:
+```
+/var/log/unattended-upgrades/
+```
+
+
 ****
 
 <a name="users"></a>
@@ -98,9 +127,9 @@ sudo reboot
 ## User Management
 
 
-Create a new user and add to sudo group:
+Create a new user (`sudo` only necessary if you are not root user):
 ```
-sudo adduser USERNAME sudo
+sudo adduser USERNAME
 ```
 
 Add user to sudo group:
