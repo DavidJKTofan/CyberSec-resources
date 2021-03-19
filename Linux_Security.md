@@ -451,6 +451,11 @@ sudo ufw allow from IP_ADDRESS to any port 80 comment 'HTTP'
 sudo ufw allow from IP_ADDRESS to any port 443 comment 'HTTPS'
 ```
 
+Add [LIMIT](https://wiki.archlinux.org/index.php/Uncomplicated_Firewall#Rate_limiting_with_ufw) rule(s) (only IPv4 supported):
+```
+sudo ufw limit PORT_NUMBER/tcp comment 'Some comment here'
+```
+
 List all rules numbered:
 ```
 sudo ufw status numbered
