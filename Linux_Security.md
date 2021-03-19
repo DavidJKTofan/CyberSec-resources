@@ -476,9 +476,10 @@ Create SSH Public Key:
 ssh-keygen -t rsa -b 4096 -C COMMENT    # maximum rsa is 16384 (takes longer)
 ```
 
-Install Public Key:
+Install Public Key; transfer the Public Key to the remote server:
 ```
-ssh-copy-id USER@LOCA_NETWORK_IP
+ssh-copy-id USERNAME@LOCA_NETWORK_IP                                              # ON LINUX
+scp ~/.ssh/SSH_PUBLIC_KEY_NAME.pub USERNAME@IP_ADDRESS:~/.ssh/authorized_keys     # ON MACOS (check the location of your .pub)
 ```
 
 Check SSH status:
@@ -488,7 +489,7 @@ systemctl status ssh.service
 
 Login with SSH:
 ```
-ssh USER@IP_ADDRESS
+ssh USERNAME@IP_ADDRESS
 ```
 
 Verify SHA256 host key fingerprint (seen when logging in for the first time; compare SHA256):
@@ -504,13 +505,14 @@ sudo nano /etc/ssh/sshd_config
 EXAMPLE CONFIG FILE content:
 ```
 Port 2025                           # Port used for SSH connection
+AddressFamily inet                  # Use IPv4 only (for IPv6 use `inet6`, and for both use `any`)
 PermitRootLogin no                  # Root login disabled
 AllowUsers USERNAME@IP_ADDRESS      # Allow specific users from specific IP Address
 DenyUsers USERNAME                  # Deny specific users
 AuthenticationMethods publickey     # Allow Public Key authentication (if 2FA is actived, then "publickey,password publickey,keyboard-interactive")
 PubkeyAuthentication yes            # Enable Public Key authentication
 PasswordAuthentication no           # Disable password authentication forcing use of keys
-# PermitEmptyPasswords no           # Empty passwords not permitted
+PermitEmptyPasswords no             # Empty passwords not permitted
 Protocol 2                          # SSH protocol
 X11Forwarding no                    # Disable remote application access
 MaxAuthTries 3                      # Maximum SSH authentication attempts
@@ -691,12 +693,12 @@ sudo systemctl enable fail2ban
 
 Copy file from remote machine to local:
 ```
-scp USER@IPADDRESS:PATHNAME/SUBPATH/FILENAME.txt  myfile.txt
+scp USERNAME@IPADDRESS:PATHNAME/SUBPATH/FILENAME.txt  myfile.txt
 ```
 
 Copy file from local to remote machine:
 ```
-scp myfile.txt USER@IPADDRESS:PATHNAME/SUBPATH/FILENAME.txt
+scp myfile.txt USERNAME@IPADDRESS:PATHNAME/SUBPATH/FILENAME.txt
 ```
 
 ****
