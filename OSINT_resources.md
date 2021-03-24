@@ -107,4 +107,5 @@ _"Open-source intelligence (OSINT) is data collected from publicly available sou
 * [Reverse Phone Check – USA](https://www.reversephonecheck.com/)
 * [nuwber – USA](https://nuwber.com/)
 * [numverify](https://numverify.com/)
+* [NumValidate](https://numvalidate.com/)
 <br>
