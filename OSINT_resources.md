@@ -86,6 +86,7 @@ _"Open-source intelligence (OSINT) is data collected from publicly available sou
 * [MailTester](https://mailtester.com/testmail.php)
 * [Google Admin Toolbox](https://toolbox.googleapps.com/apps/main/)
 * [MX Toolbox](https://mxtoolbox.com/)
+* [mailboxlayer](https://mailboxlayer.com/)
 <br>
 
 <a name="mac"/>
@@ -105,4 +106,5 @@ _"Open-source intelligence (OSINT) is data collected from publicly available sou
 * [OkCaller – USA](https://www.okcaller.com/)
 * [Reverse Phone Check – USA](https://www.reversephonecheck.com/)
 * [nuwber – USA](https://nuwber.com/)
+* [numverify](https://numverify.com/)
 <br>
