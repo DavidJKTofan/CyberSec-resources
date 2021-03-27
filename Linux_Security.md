@@ -114,6 +114,11 @@ sudo nano /etc/apt/apt.conf.d/20auto-upgrades
 sudo nano /etc/apt/apt.conf.d/50unattended-upgrades
 ```
 
+Test if the auto-upgrades work by launching a dry run:
+```
+sudo unattended-upgrades --dry-run --debug
+```
+
 Package logs located in:
 ```
 /var/log/unattended-upgrades/
