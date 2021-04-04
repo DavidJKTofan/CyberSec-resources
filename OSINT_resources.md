@@ -56,6 +56,7 @@ _"Open-source intelligence (OSINT) is data collected from publicly available sou
 
 * [Dun & Bradstreet – Global](https://www.dnb.com/business-directory.html)
 * [OpenCorporates – Global](https://opencorporates.com/)
+* [Crunchbase – Global](https://www.crunchbase.com/)
 * [axesor – Spain](https://www.axesor.es/)
 <br>
 
