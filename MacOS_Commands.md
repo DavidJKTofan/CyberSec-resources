@@ -359,6 +359,8 @@ Change your DNS settings (System Preferences -> Network -> Advanced -> DNS) to:
 127.0.0.1
 ```
 
-_Source: https://gist.github.com/soderlind/6a440cd3c8e017444097cf2c89cc301d _
+Test if it is connected on https://1.1.1.1/help
+
+_Source: [soderlind](https://gist.github.com/soderlind/6a440cd3c8e017444097cf2c89cc301d) _
 
 *****
