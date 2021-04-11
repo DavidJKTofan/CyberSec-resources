@@ -1,3 +1,31 @@
+
+A brief overview on some tools, packages and commands that help you secure or understand better your macOS operating system.
+
+_Disclaimer: Some of the tools, packages and/or commands may or may not work with only specific macOS versions. This is for educational purposes only._
+
+# Table of Contents
+[Homebrew & pip](#update)  
+[Python3 Paths](#python)  
+[Python Programming](#programming)  
+[Shell Terminal](#shell)  
+[Edit DNS Hosts File](#hosts)  
+[Delete Icons on Launchpad](#launchpad)  
+[Time Machine Snapshots](#timemachine)  
+[Checksum Files](#sha256)  
+[Network Ports](#ports)  
+[System Integrity Protection](#sip)  
+[SSH Protocol](#ssh)  
+[Email Reputation](#emailrep)  
+[IPv6](#ipv6)  
+[Internet Speed](#speed)  
+[Auditing](#audits)  
+[DNS over HTTPS](#doh)  
+
+
+*****
+*****
+
+<a name="update"></a>
 ## Update
 
 Update brew, pip, outdated pip modules, brew cleanup, brew doctor:
@@ -7,6 +35,7 @@ brew update && brew upgrade && pip install --upgrade pip && pip list --outdated 
 
 *****
 
+<a name="python"></a>
 ## Install Python
 
 Install [Homebrew](https://brew.sh/):
@@ -58,6 +87,7 @@ echo "alias pip=/usr/local/bin/pip3" >> ~/.bashrc
 
 *****
 
+<a name="programming"></a>
 ## Python Programming
 
 ### Virtual Environment
@@ -123,6 +153,7 @@ rm -rf PROJECT_NAME
 
 *****
 
+<a name="shell"></a>
 ## Terminal (Shell) Profiles
 
 Change to Z Shell:
@@ -147,6 +178,7 @@ nano ~/.bashrc
 
 *****
 
+<a name="hosts"></a>
 ## Block access to specific Websites on Mac
 
 Open Terminal
@@ -168,6 +200,7 @@ sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheuti
 
 *****
 
+<a name="launchpad"></a>
 ## Delete Icon from Launchpad
 
 ```
@@ -181,6 +214,7 @@ LOCATION:
 
 *****
 
+<a name="timemachine"></a>
 ## Delete TimeMachine Snapshots
 
 SEE ALL SNAPSHOTS:
@@ -199,6 +233,7 @@ sudo tmutil thinlocalsnapshots / 999999999999
 
 *****
 
+<a name="sha256"></a>
 ## Check Downloaded file SHA256
 Check for Malware
 
@@ -211,6 +246,7 @@ Alternative: [Minisign](https://jedisct1.github.io/minisign/) or [Free Formatter
 
 *****
 
+<a name="ports"></a>
 ## List Open Ports
 ### Network Sockets
 
@@ -253,6 +289,7 @@ lsof -i | grep -E "(LISTEN|ESTABLISHED)"
 
 *****
 
+<a name="sip"></a>
 ## Check if System Integrity Protection (SIP) is enabled
 
 ```
@@ -261,6 +298,7 @@ csrutil status
 
 *****
 
+<a name="ssh"></a>
 ## Disable Remote SSH
 
 ```
@@ -269,6 +307,7 @@ sudo systemsetup -setremotelogin off
 
 *****
 
+<a name="emailrep"></a>
 ## Check Email Reputation
 
 ```
@@ -277,6 +316,7 @@ curl -s emailrep.io/name@domain.com
 
 *****
 
+<a name="ipv6"></a>
 ## Disable IPv6
 
 ```
@@ -291,6 +331,7 @@ networksetup -setv6automatic Wi-Fi
 
 *****
 
+<a name="speed"></a>
 ## Check Internet Speed Test
 
 ```
@@ -303,6 +344,7 @@ sudo snap install fast && fast
 
 *****
 
+<a name="wifi"></a>
 ## WiFi Passwords
 
 View saved WiFi password of WIFI_NAME:
@@ -312,6 +354,7 @@ security find-generic-password -ga WIFI_NAME | grep “password:”
 
 *****
 
+<a name="audits"></a>
 ## Auditing, system hardening, compliance testing
 _Lynis is a battle-tested security tool for systems running Linux, macOS, or Unix-based operating system_
 Documentation: https://cisofy.com/documentation/lynis/get-started/
@@ -332,6 +375,7 @@ Perform a quick security scan:
 
 *****
 
+<a name="doh"></a>
 ## DNS over HTTPS
 
 ### Cloudflared
@@ -344,9 +388,13 @@ brew install cloudflare/cloudflare/cloudflared
 Create /usr/local/etc/cloudflared/config.yaml, with the following content:
 ```
 proxy-dns: true
+proxy-dns-port: 53
 proxy-dns-upstream:
   - https://1.1.1.1/dns-query
   - https://1.0.0.1/dns-query
+  #Uncomment below if you want to also want to use IPv6 for external DoH lookups
+  #- https://[2606:4700:4700::1111]/dns-query
+  #- https://[2606:4700:4700::1001]/dns-query
 ```
 
 Activate cloudflared as a service:
