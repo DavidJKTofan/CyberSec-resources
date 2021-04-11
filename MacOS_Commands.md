@@ -1,7 +1,8 @@
 
 A brief overview on some tools, packages and commands that help you secure or understand better your macOS operating system.
 
-_Disclaimer: Some of the tools, packages and/or commands may or may not work with only specific macOS versions. This is for educational purposes only._
+_Disclaimer: Some of the tools, packages and/or commands may or may not work with only specific macOS versions._
+_This is for educational purposes only._
 
 # Table of Contents
 [Homebrew & pip](#update)  
