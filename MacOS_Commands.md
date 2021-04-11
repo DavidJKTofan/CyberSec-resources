@@ -331,3 +331,34 @@ Perform a quick security scan:
 ```
 
 *****
+
+## DNS over HTTPS
+
+### Cloudflared
+
+Install cloudflared using homebrew:
+```
+brew install cloudflare/cloudflare/cloudflared
+```
+
+Create /usr/local/etc/cloudflared/config.yaml, with the following content:
+```
+proxy-dns: true
+proxy-dns-upstream:
+  - https://1.1.1.1/dns-query
+  - https://1.0.0.1/dns-query
+```
+
+Activate cloudflared as a service:
+```
+sudo cloudflared service install
+```
+
+Change your DNS settings (System Preferences -> Network -> Advanced -> DNS) to:
+```
+127.0.0.1
+```
+
+_Source: https://gist.github.com/soderlind/6a440cd3c8e017444097cf2c89cc301d _
+
+*****
