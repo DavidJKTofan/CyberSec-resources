@@ -1,6 +1,7 @@
 A brief overview on some packages and commands that help you secure your Linux operating system.
 
-_Disclaimer: Some of the packages and/or commands may or may not work and/or vary in certain Linux distributions._
+_Disclaimer: Some of the packages and/or commands may or may not work and/or vary in certain Linux distributions. 
+This is for educational purposes only._
 
 ***
 
