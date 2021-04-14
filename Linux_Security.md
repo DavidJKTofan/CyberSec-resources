@@ -19,6 +19,7 @@ _This is for educational purposes only._
 [Disable USB Usage](#blacklist)  
 [Uninstall Unused Packages](#deborphan)  
 [Encrypt/Decrypt Files](#encryption)  
+[MAC Address](#mac)
 
 ***
 ***
@@ -895,6 +896,26 @@ gpg --sign-key EMAIL@EMAIL.com
 Send encrypted file:
 ```
 gpg --encrypt --sign --armor -r EMAIL@EMAIL.COM  # File appended with ".asc", -r for the owner of the received external Public Key
+```
+
+****
+
+<a name="mac"></a>
+## Change MAC address
+
+In terminal:
+```
+ifconfig en0 | grep ether
+```
+
+Create new MAC address:
+```
+openssl rand -hex 6 | sed ‘s/\(..\)/\1:/g; s/.$//’
+```
+
+Copy-paste the new MAC Address (replacing x):
+```
+sudo ifconfig en0 ether xx:xx:xx:xx:xx:xx
 ```
 
 ****
