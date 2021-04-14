@@ -21,6 +21,7 @@ _This is for educational purposes only._
 [Internet Speed](#speed)  
 [Auditing](#audits)  
 [DNS over HTTPS](#doh)  
+[Convert Images](#webp)  
 [MAC Address](#mac)
 
 
@@ -412,6 +413,22 @@ Change your DNS settings (System Preferences -> Network -> Advanced -> DNS) to:
 Test if it is connected on https://1.1.1.1/help
 
 _Source: [soderlind](https://gist.github.com/soderlind/6a440cd3c8e017444097cf2c89cc301d) _
+
+*****
+
+## Convert Images to WebP
+
+Make sure you have ```webp``` installed on your macOS:
+```
+brew install webp
+```
+
+```cd``` into the folder where your images (.jpg or .png) are located and copy-paste into your terminal:
+```
+for F in *.jpg; do cwebp $F -o `basename ${F%.jpg}`.webp; done
+```
+
+_NOTE: The code is for .jpg files. If you want to convert .png files to .webp, simply change .jpg to .png._
 
 *****
 
