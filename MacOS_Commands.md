@@ -416,6 +416,7 @@ _Source: [soderlind](https://gist.github.com/soderlind/6a440cd3c8e017444097cf2c8
 
 *****
 
+<a name="webp"></a>
 ## Convert Images to WebP
 
 Make sure you have ```webp``` installed on your macOS:
