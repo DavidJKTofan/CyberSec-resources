@@ -21,6 +21,7 @@ _This is for educational purposes only._
 [Internet Speed](#speed)  
 [Auditing](#audits)  
 [DNS over HTTPS](#doh)  
+[MAC Address](#mac)
 
 
 *****
@@ -411,5 +412,25 @@ Change your DNS settings (System Preferences -> Network -> Advanced -> DNS) to:
 Test if it is connected on https://1.1.1.1/help
 
 _Source: [soderlind](https://gist.github.com/soderlind/6a440cd3c8e017444097cf2c89cc301d) _
+
+*****
+
+<a name="mac"></a>
+## Change MAC address
+
+In terminal:
+```
+ifconfig en0 | grep ether
+```
+
+Create new MAC address:
+```
+openssl rand -hex 6 | sed ‘s/\(..\)/\1:/g; s/.$//’
+```
+
+Copy-paste the new MAC Address (replacing x):
+```
+sudo ifconfig en0 ether xx:xx:xx:xx:xx:xx
+```
 
 *****
