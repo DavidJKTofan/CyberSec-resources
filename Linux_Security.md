@@ -19,8 +19,8 @@ _This is for educational purposes only._
 [Disable USB Usage](#blacklist)  
 [Uninstall Unused Packages](#deborphan)  
 [Encrypt/Decrypt Files](#encryption)  
-[MAC Address](#mac)
-[Random Passwords](#randompw)
+[MAC Address](#mac)  
+[Random Passwords](#randompw)  
 
 ***
 ***
