@@ -23,7 +23,7 @@ _This is for educational purposes only._
 [DNS over HTTPS](#doh)  
 [Convert Images](#webp)  
 [MAC Address](#mac)
-
+[Random Passwords](#randompw)
 
 *****
 *****
@@ -450,5 +450,17 @@ Copy-paste the new MAC Address (replacing x):
 ```
 sudo ifconfig en0 ether xx:xx:xx:xx:xx:xx
 ```
+
+*****
+
+<a name="randompw"></a>
+## Create Random Passwords
+
+Copy-paste into your terminal:
+```
+openssl rand -base64 200
+```
+
+_NOTE: change the value 200 to change the lenght of the password._
 
 *****
