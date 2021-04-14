@@ -22,7 +22,7 @@ _This is for educational purposes only._
 [Auditing](#audits)  
 [DNS over HTTPS](#doh)  
 [Convert Images](#webp)  
-[MAC Address](#mac)
+[MAC Address](#mac)  
 [Random Passwords](#randompw)
 
 *****
