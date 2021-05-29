@@ -973,6 +973,12 @@ server {
         location / {
                 try_files $uri $uri/ =404;
         }
+
+        # Robots.txt
+        location = /robots.txt {
+          add_header  Content-Type  text/plain;
+          return 200 "User-agent: *\nDisallow: /\n";
+        }
 }
 ```
 
