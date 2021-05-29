@@ -21,6 +21,7 @@ _This is for educational purposes only._
 [Encrypt/Decrypt Files](#encryption)  
 [MAC Address](#mac)  
 [Random Passwords](#randompw)  
+[NGINX](#nginx)  
 
 ***
 ***
@@ -73,7 +74,7 @@ sudo timedatectl set-ntp true
 
 <a name="update"></a>
 
-## System Update 
+## System Update
 
 Update all (system, libraries, dependencies, etc.):
 ```
@@ -111,7 +112,7 @@ Check if package is running:
 sudo systemctl status unattended-upgrades.service
 ```
 
-Package configuration files:
+Package CONFIG files:
 ```
 sudo nano /etc/apt/apt.conf.d/20auto-upgrades
 sudo nano /etc/apt/apt.conf.d/50unattended-upgrades
@@ -250,7 +251,7 @@ kernel.randomize_va_space = 2    # Address space layout randomization (ASLR)
 
 View all services that run on startup:
 ```
-sudo systemctl list-units --type=service #--state=active #--state=running 
+sudo systemctl list-units --type=service #--state=active #--state=running
 sudo service --status-all
 ```
 
@@ -485,7 +486,7 @@ Add the following line to `/etc/ufw/before.rules`:
 
 ### Display Network Socket
 
-What's allowed into the server: 
+What's allowed into the server:
 ```
 sudo ss -tupln
 ```
@@ -555,7 +556,7 @@ HostbasedAuthentication no          # Disable host-based authentication
 ```
 
 Extended CONFIG test:
-``` 
+```
 sudo sshd -T
 ```
 
@@ -624,13 +625,13 @@ Run an Audit and review the report:
 python ssh-audit.py TARGET_IP_ADDRESS
 ```
 
-Remove current HosyKey entries in the SSH configuration file, and replace them with the following:
+Remove current HosyKey entries in the SSH CONFIG file, and replace them with the following:
 ```
 HostKey /etc/ssh/ssh_host_ed25519_key
 HostKey /etc/ssh/ssh_host_rsa_key
 ```
 
-Change Default Ciphers and Algorithms by adding/replacing the following to the SSH configuration file:
+Change Default Ciphers and Algorithms by adding/replacing the following to the SSH CONFIG file:
 ```
 KexAlgorithms curve25519-sha256@libssh.org
 Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
@@ -930,5 +931,80 @@ openssl rand -base64 200
 ```
 
 _NOTE: change the value 200 to change the lenght of the password._
+
+****
+
+<a name="nginx"></a>
+
+## NGINX
+
+Create a folder for the server block (replace ```SERVER_BLOCK_NAME``` with your own domain):
+```
+sudo mkdir -p /var/www/SERVER_BLOCK_NAME/html
+```
+
+Assign ownership to user and change permissions:
+```
+sudo chown -R $USER:$USER /var/www/SERVER_BLOCK_NAME/html
+sudo chown -R 755 /var/www/SERVER_BLOCK_NAME
+```
+
+Create the HTML file for the server block and add any HTML content you want to display:
+```
+sudo nano /var/www/SERVER_BLOCK_NAME/html/index.html
+```
+
+Open the server block CONFIG file:
+```
+sudo nano /etc/nginx/sites-available/SERVER_BLOCK_NAME
+```
+
+Add the following code in order to make your server block accessible via HTTP (port 80):
+```
+server {
+        listen 80;
+        listen [::]:80;
+
+        root /var/www/SERVER_BLOCK_NAME/html;
+        index index.html index.htm index.nginx-debian.html;
+
+        server_name SERVER_BLOCK_NAME www.SERVER_BLOCK_NAME;
+
+        location / {
+                try_files $uri $uri/ =404;
+        }
+}
+```
+
+Enable the server block file by creating a link from it to the ```sites-enabled``` directory:
+```
+sudo ln -s /etc/nginx/sites-available/SERVER_BLOCK_NAME /etc/nginx/sites-enabled/SERVER_BLOCK_NAME
+```
+
+Open the NGINX CONFIG file:
+```
+sudo nano /etc/nginx/nginx.conf
+```
+
+To avoid a possible hash bucket memory problem that can arise from adding additional server names, uncomment the following line:
+```
+...
+http {
+    ...
+    server_names_hash_bucket_size 64;
+    ...
+}
+...
+```
+
+Validate the NGINX CONFIG file:
+```
+sudo nginx -t
+```
+
+Restart the NGINX process:
+```
+sudo systemctl restart nginx
+```
 
 ****
