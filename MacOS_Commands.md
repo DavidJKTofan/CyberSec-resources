@@ -352,7 +352,7 @@ sudo snap install fast && fast
 
 View saved WiFi password of WIFI_NAME:
 ```
-security find-generic-password -ga WIFI_NAME | grep “password:”
+security find-generic-password -ga "WIFI_NAME" | grep “password:”
 ```
 
 *****
