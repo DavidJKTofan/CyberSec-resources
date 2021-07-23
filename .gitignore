@@ -1,2 +1,8 @@
 
 .DS_Store
+.secret
+.pkf
+.security
+.bin
+.pkpass
+.pgp
