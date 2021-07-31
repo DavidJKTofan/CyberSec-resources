@@ -10,7 +10,7 @@ _"Open-source intelligence (OSINT) is data collected from publicly available sou
 [General](#general)  
 [File & URL Scanners](#scans)  
 [Company Research](#company)  
-[Websites](#dns)  
+[Websites](#websites)  
 [Emails](#email)  
 [Mac Address](#mac)  
 [Phone Numbers](#phone)  
@@ -60,7 +60,7 @@ _"Open-source intelligence (OSINT) is data collected from publicly available sou
 * [axesor – Spain](https://www.axesor.es/)
 <br>
 
-<a name="dns"/>
+<a name="websites"/>
 
 ## Websites
 
@@ -68,6 +68,8 @@ _"Open-source intelligence (OSINT) is data collected from publicly available sou
 * [Web.Dev Audit](https://web.dev/measure/)
 * [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/)
 * [Test My Site](https://www.thinkwithgoogle.com/feature/testmysite/)
+* [Website Security Test](https://www.immuniweb.com/websec/)
+* [SSL Server Test](https://www.ssllabs.com/ssltest/index.html)
 
 ### DNS
 
