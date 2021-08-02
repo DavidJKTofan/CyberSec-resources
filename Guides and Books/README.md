@@ -16,7 +16,7 @@
 
 * [InfoSecurity Magazine](https://www.infosecurity-magazine.com/threat-intelligence/)
 
-* [Trend Micro](https://www.trendmicro.com/vinfo/us/security/news/vulnerabilities-and-exploits)
+* [Trend Micro](https://www.trendmicro.com/vinfo/us/security/news/vulnerabilities-and-exploits)
 
 * [Security Intelligence](https://securityintelligence.com/)
 
