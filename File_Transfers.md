@@ -8,6 +8,7 @@
 * [GoFile](https://gofile.io/welcome)
 * [FileBin](https://filebin.net/)
 * [File Dropper](https://www.filedropper.com/)
+* [transfer.sh](https://transfer.sh/)
 
 ## Remote Peer-to-Peer
 * [Magic-Wormhole (Python Tool)](https://github.com/warner/magic-wormhole)
