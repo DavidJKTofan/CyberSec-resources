@@ -1,8 +1,7 @@
 ## Temporary Links
 
 * [WeTransfer](https://wetransfer.com/)
-* [Tresorit](https://send.tresorit.com/) <--
-
+* [Tresorit](https://send.tresorit.com/) <-- 
 * [File.io](https://www.file.io/)
 * [JustBeamIt.com](https://justbeamit.com/)
 * [GoFile](https://gofile.io/welcome)
