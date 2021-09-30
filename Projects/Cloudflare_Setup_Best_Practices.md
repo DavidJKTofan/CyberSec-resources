@@ -1,8 +1,8 @@
 # Cloudflare
 
-A brief guide on how to set up a Cloudflare account and add a Zone (domain).
+A brief guide on how to **set up a Cloudflare account** and **add a Zone (domain)**, as well as **Best Practices** on Security and Performance features.
 
-_Disclaimer: This is for educational purposes only, and depending on the situation, some configurations or steps might differ or change._
+_Disclaimer: This is for educational purposes only, and depending on the situation, some configurations or steps might differ, or change, or have different impacts._
 
 ***
 
@@ -172,3 +172,9 @@ GItHUB
 
 https://shields.io/category/other 
 https://github.com/pabloqc/pabloqc/blob/main/README.md 
+
+***
+
+## Domain Lookup
+
+https://rdap.cloudflare.com/
