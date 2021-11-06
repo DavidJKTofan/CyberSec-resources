@@ -504,7 +504,7 @@ sudo apt install openssh-server
 
 Create SSH Public Key:
 ```
-ssh-keygen -t rsa -b 4096 -C COMMENT    # maximum rsa is 16384 (takes longer)
+ssh-keygen -t rsa -b 4096 -C COMMENT -f OUTPUT_KEYFILE    # maximum rsa is 16384 (takes longer)
 ```
 
 Install Public Key; transfer the Public Key to the remote server:
