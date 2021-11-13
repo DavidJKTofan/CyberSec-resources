@@ -4,3 +4,4 @@
 
 ![Packet Transfers – Encapsulation](packet-transfer.png)
 
+![IP Network Blocks – Classification](IP-network-blocks.png)
