@@ -18,7 +18,7 @@ Open the Raspberry Pi Imager, select ```use custom``` and choose the image we ju
 
 ```CTL + SHIFT + X``` to open the secret menu in order to do our headless install by choosing ```Enable SSH```, set a password for the ```pi``` user, and configure your WiFi, unless you use hardwire.
 
-Then write.
+Then click write.
 
 ## RPi Update
 
@@ -50,7 +50,7 @@ Click on the Account tab, and copy your Wallet Address.
 
 ## Start Mining
 
-Using a mining pool makes it _easier_ to mine, so we use a mining pool, such as for example:
+Using a mining pool makes it _easier_ to mine, so we use a mining pool.
 
 Ready? Type into your RPi: ```./xmrig -o gulf.moneroocean.stream:10128 -u YOUR_WALLET_ADDRESS_HERE -p YOUR_LABEL```
 
