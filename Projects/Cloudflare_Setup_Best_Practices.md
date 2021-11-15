@@ -10,6 +10,12 @@ _Disclaimer: This is for educational purposes only, and depending on the situati
 
 # Table of Contents
 [Full or CNAME Setup](#fullsetup)  
+[Troubleshooting](#troubleshooting)  
+[Allow Cloudflare IPs](#allowips)  
+[Log Retention](#logs)  
+[Domain Lookup](#domainlookup)  
+
+[Enterprise Best Practices](#bestpractices)  
 
 ***
 ***
@@ -40,16 +46,24 @@ staging    CNAME    TTL 3600    staging.dt-cname.cf.cdn.cloudflare.net
 
 ## Troubleshooting
 
-### Check DNS Propagation
+### Check DNS Propagation & Response
 
-Check A Record for a *Full Setup*: https://dnschecker.org/#A/staging.dt-cname.cf.cdn.cloudflare.net OR `curl -svo /dev/null/ http://staging.dt-cname.cf/ 2>&1 | grep 'HTTP'`
+Check A Record for a **Full Setup**: https://dnschecker.org/#A/staging.dt-cname.cf.cdn.cloudflare.net OR `curl -svo /dev/null/ http://staging.dt-cname.cf/ 2>&1 | grep 'HTTP'`
 
-Check TXT record for a *CNAME Setup*: https://dnschecker.org/#TXT/CLOUDFLARE-VERIFY.dt-cname.cf
+cURL is a command line tool used to transport data using the URL syntax:
+```
+curl -svo /dev/null/ https://staging.dt-cname.cf/
+```
 
+Use cURL option to check the origin response directly:
+```
+curl -svo /dev/null/ https://staging.dt-cname.cf/ --connect-to ::35.234.81.115
+```
+
+Check TXT record for a **CNAME Setup**: https://dnschecker.org/#TXT/CLOUDFLARE-VERIFY.dt-cname.cf
 
 https://staging.dt-cname.cf/cdn-cgi/trace 
 
-### Check Response
 
 Check the Cloudflare Response:
 ```
@@ -76,7 +90,26 @@ Check Nameservers:
 dig +short NS dt-testing.cf
 ```
 
+Run DNS queries and check DNS records:
+```
+dig @1.1.1.1 https://staging.dt-cname.cf/
+```
+
+### traceroute / mtr
+
+traceroute and tracert are computer network diagnostic commands for displaying possible routes (paths) and measuring transit delays of packets:
+```
+traceroute staging.dt-cname.cf
+```
+
+mtr is a network based command line tools used to measure performance/latency on a particular path to a given host/destination:
+```
+sudo mtr staging.dt-cname.cf
+```
+
 *** 
+
+<a name="allowips"></a>
 
 ## Allow Cloudflare IPs
 
@@ -94,6 +127,8 @@ sudo iptables -L -nv
 Input Cloudflare IP Addresses (See Screenshot)
 
 ***
+
+<a name="logs"></a>
 
 ## Log Retention
 
@@ -113,7 +148,9 @@ curl -svo /dev/null/ "https://www.dt-cname.cf/file.php?cmd=echo(shell_exec(%22ls
 for i in {1..100}; do curl -svo /dev/null/ -H "exploit: true" "https://www.dt-cname.cf/file.php?cmd=echo(shell_exec(%22ls%20/etc/var%22))" 2>&1 | grep "< HTTP"; done;
 ```
 
-Create a Rate Limiting Rule.
+*** 
+
+## Create a Rate Limiting Rule.
 
 Try out the Rate Limiting:
 ```
@@ -130,27 +167,6 @@ Custom Purge. (See screenshot)
 
 
 ***
-
-Run DNS queries and check DNS records:
-```
-dig @1.1.1.1 https://staging.dt-cname.cf/
-```
-
-cURL is a command line tool used to transport data using the URL syntax:
-```
-curl -svo /dev/null/ https://staging.dt-cname.cf/
-```
-
-Use cURL option to check the origin response directly:
-```
-curl -svo /dev/null/ https://staging.dt-cname.cf/ --connect-to ::35.234.81.115
-```
-
-MTR/Traceroute is Network based command line tools used to measure performance/latency on a particular path to a given host/destination:
-```
-sudo mtr staging.dt-cname.cf
-```
-
 ***
 
 https://support.cloudflare.com/hc/en-us/articles/360029779472 
@@ -161,8 +177,6 @@ https://support.cloudflare.com/hc/en-us/articles/203118044-How-do-I-generate-a-H
 
 ***
 
-Day 4 – 
-
 DNSSEC 
 https://dnsviz.net/d/staging.dt-testing.cf/dnssec/ 
 
@@ -170,13 +184,25 @@ https://dnsviz.net/d/staging.dt-testing.cf/dnssec/
 ======
 ======
 
-GItHUB
+GitHub
 
 https://shields.io/category/other 
 https://github.com/pabloqc/pabloqc/blob/main/README.md 
 
 ***
 
+<a name="domainlookup"></a>
+
 ## Domain Lookup
 
 https://rdap.cloudflare.com/
+
+****
+****
+
+<a name="bestpractices"></a>
+
+# Enterprise Best Practices
+
+Inspiration / Source: _CloudFlare Best Practices v2.0, https://vsip.info/cloudflare-best-practices-v20-pdf-free.html_
+
