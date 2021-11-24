@@ -60,11 +60,15 @@ As soon as you hit enter, your RPi starts to mine!
 
 ## Check
 
-Hit the letter ```h``` to see your Hashrate (speed), how many guesses you are making.
+Hit the letter ```h``` to see your **hashrate** (speed), how many guesses you are making.
 
-Hit the letter ```s``` to see if we helped finish a job and how many shares we got.
+Hit the letter ```s``` to see the **results**, if we helped finish a job and how many shares we got.
 
-Hit the letter ```c``` to see the current connection.
+Hit the letter ```c``` to see the current **connection**.
+
+Hit the letter ```p``` to **pause** mining.
+
+Hit the letter ```r``` to **resume** mining.
 
 Copy-paste your Wallet address to view how much you have already mined: ```https://moneroocean.stream/```
 
