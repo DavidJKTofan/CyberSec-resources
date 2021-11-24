@@ -32,7 +32,7 @@ First step, update: ```sudo apt update && sudo apt dist-upgrade && sudo apt full
 
 Install the necessary packages: ```sudo apt install git build-essential cmake libuv1-dev libssl-dev libhwloc-dev -y```
 
-Clone the repository and change into that directory: ```git clone https://github.com/xmrig/xmrig.git```
+Clone the repository and change into that directory: ```git clone https://github.com/xmrig/xmrig.git``` (check out the [command line options](https://xmrig.com/docs/miner/command-line-options))
 
 Create a new directory and change into that directory: ```cd xmrig``` and ```mkdir build``` and ```cd build```
 
