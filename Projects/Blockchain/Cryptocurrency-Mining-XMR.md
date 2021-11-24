@@ -36,7 +36,9 @@ Clone the repository and change into that directory: ```git clone https://github
 
 Create a new directory and change into that directory: ```cd xmrig``` and ```mkdir build``` and ```cd build```
 
-Install the program by building it from the source: ```cmake ..``` and ```make```
+_NOTE: if you want to disable the donation feature (which you shouldn't), you can go on ```/src/donate.h``` and change the values of ```kDefaultDonateLevel = 1``` and ```kMinimumDonateLevel = 1``` to ```0```._
+
+Install the program by building/compiling it from the source: ```cmake ..``` and ```make```
 
 ## Wallet
 
