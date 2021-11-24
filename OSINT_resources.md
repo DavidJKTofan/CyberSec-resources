@@ -28,6 +28,8 @@ _"Open-source intelligence (OSINT) is data collected from publicly available sou
 * [Usernames](https://checkusernames.com/)
 * [Intelligence X](https://intelx.io/)
 * [Mitaka](https://github.com/ninoseki/mitaka)
+* [Startpage](https://startpage.com/)
+* [Shodan](https://www.shodan.io/)
 
 * [Awesome OSINT – GitHub Repo](https://github.com/jivoi/awesome-osint)
 * [OSINT – HackControl](https://hackcontrol.org/OSINT/People_search_engines.html)
@@ -71,6 +73,7 @@ _"Open-source intelligence (OSINT) is data collected from publicly available sou
 * [Test My Site](https://www.thinkwithgoogle.com/feature/testmysite/)
 * [Website Security Test](https://www.immuniweb.com/websec/)
 * [SSL Server Test](https://www.ssllabs.com/ssltest/index.html)
+* [Ahmia](https://ahmia.fi/)
 
 ### DNS
 
