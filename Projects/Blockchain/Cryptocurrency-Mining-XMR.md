@@ -34,7 +34,7 @@ Install the necessary packages: ```sudo apt install git build-essential cmake li
 
 Clone the repository and change into that directory: ```git clone https://github.com/xmrig/xmrig.git```
 
-Create a new directory and change into that directory: ```mkdir build```
+Create a new directory and change into that directory: ```cd xmrig``` and ```mkdir build``` and ```cd build```
 
 Install the program by building it from the source: ```cmake ..``` and ```make```
 
