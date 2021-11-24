@@ -64,6 +64,8 @@ Hit the letter ```s``` to see if we helped finish a job and how many shares we g
 
 Hit the letter ```c``` to see the current connection.
 
+Copy-paste your Wallet address to view how much you have already mined: ```https://moneroocean.stream/```
+
 * * * * * * * * 
 
 # Disclaimer
