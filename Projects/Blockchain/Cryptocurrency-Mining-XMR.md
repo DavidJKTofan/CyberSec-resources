@@ -72,7 +72,7 @@ After=network.target
 User=pi
 Group=pi
 Type=simple
-ExecStart=/home/pi/xmrig/build/xmrig -o gulf.moneroocean.stream:10128 -u YOUR_WALLET_ADDRESS_HERE --background -p YOUR_LABEL
+ExecStart=/home/pi/xmrig/build/xmrig -o gulf.moneroocean.stream:10128 -u YOUR_WALLET_ADDRESS_HERE -p YOUR_LABEL
 Restart=always
 [Install]
 WantedBy=multi-user.target
