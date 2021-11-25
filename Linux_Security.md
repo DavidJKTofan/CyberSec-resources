@@ -36,6 +36,16 @@ timedatectl
 systemctl status systemd-timesyncd.service
 ```
 
+View all Time Zones:
+```
+ls /usr/share/zoneinfo
+```
+
+Change Time Zone:
+```
+sudo timedatectl set-timezone Europe/Berlin
+```
+
 Edit CONFIG file:
 ```
 sudo nano /etc/systemd/timesyncd.conf
