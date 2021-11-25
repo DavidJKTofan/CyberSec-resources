@@ -72,14 +72,14 @@ After=network.target
 User=pi
 Group=pi
 Type=simple
-ExecStart=/home/pi/xmrig/xmrig -o gulf.moneroocean.stream:10128 -u YOUR_WALLET_ADDRESS_HERE --background -p YOUR_LABEL
+ExecStart=/home/pi/xmrig/build/xmrig -o gulf.moneroocean.stream:10128 -u YOUR_WALLET_ADDRESS_HERE --background -p YOUR_LABEL
 Restart=always
 [Install]
 WantedBy=multi-user.target
 ```
 
 On the other hand, one can also create a JSON config file with most parameters already set up:
-```ExecStart=/home/pi/xmrig/xmrig --config=/home/pi/xmrig/src/config.json```
+```ExecStart=/home/pi/xmrig/build/xmrig --config=/home/pi/xmrig/src/config.json```
 _NOTE: You can use the official [Config Wizard](https://xmrig.com/wizard#start) from XMRig._
 
 Reload processes, enable boot-start and start service: ```systemctl daemon-reload``` and ```systemctl enable --now xmrig.service``` and ```systemctl start xmrig.service```
