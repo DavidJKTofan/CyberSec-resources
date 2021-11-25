@@ -59,6 +59,33 @@ Ready? Type into your RPi: ```./xmrig -o gulf.moneroocean.stream:10128 -u YOUR_W
 
 As soon as you hit enter, your RPi starts to mine!
 
+## Start at boot
+
+If you want to start XMRig at boot, create a systemd block: ```nano /etc/systemd/system/xmrig.service```
+
+The content would like something like this:
+```
+[Unit]
+Description=XMRig Daemon
+After=network.target
+[Service]
+User=pi
+Group=pi
+Type=simple
+ExecStart=/home/pi/xmrig/xmrig -o gulf.moneroocean.stream:10128 -u YOUR_WALLET_ADDRESS_HERE --background -p YOUR_LABEL
+Restart=always
+[Install]
+WantedBy=multi-user.target
+```
+
+On the other hand, one can also create a JSON config file with most parameters already set up:
+```ExecStart=/home/pi/xmrig/xmrig --config=/home/pi/xmrig/src/config.json```
+_NOTE: You can use the official [Config Wizard](https://xmrig.com/wizard#start) from XMRig._
+
+Reload processes, enable boot-start and start service: ```systemctl daemon-reload``` and ```systemctl enable --now xmrig.service``` and ```systemctl start xmrig.service```
+
+To view logs: ```journalctl -u xmrig.service```
+
 ## Check
 
 Hit the letter ```h``` to see your **hashrate** (speed), how many guesses you are making.
