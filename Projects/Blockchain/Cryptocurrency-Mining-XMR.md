@@ -51,6 +51,8 @@ Use the Simple Mode, and create a new Wallet, and SAVE your ```Mnemonic seed``` 
 
 Click on the Account tab, and copy your Wallet Address.
 
+:) My Wallet Address: _476Hss9ziDEg5gNqmGZR2KRVRQDsBbD8E58scVcUzRbRaxSxTPmY66LbRTghXu3MYD61B4vmDLXGHXCMpkX21MvRKiPk4UX_
+
 ## Start Mining
 
 Using a mining pool makes it _easier_ to mine, so we use a mining pool.
@@ -101,6 +103,10 @@ Hit the letter ```r``` to **resume** mining.
 Copy-paste your Wallet address to view how much you have already mined: ```https://moneroocean.stream/```
 
 * * * * * * * * 
+
+# My Monero Wallet
+
+XMR Wallet Address: _476Hss9ziDEg5gNqmGZR2KRVRQDsBbD8E58scVcUzRbRaxSxTPmY66LbRTghXu3MYD61B4vmDLXGHXCMpkX21MvRKiPk4UX_
 
 # Disclaimer
 
