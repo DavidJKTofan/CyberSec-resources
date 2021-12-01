@@ -104,9 +104,16 @@ Copy-paste your Wallet address to view how much you have already mined: ```https
 
 * * * * * * * * 
 
-# My Monero Wallet
+## Analysis
+
+In average, one **Raspberry Pi 4 Model B 4GB RAM** achieves around 0.0006 XMR (€0.13) per month (as of 1st of December 2021). 
+So not really worth it, is it? But what if we have a cluster? Hmm...
+
+## My Monero Wallet
 
 XMR Wallet Address: _476Hss9ziDEg5gNqmGZR2KRVRQDsBbD8E58scVcUzRbRaxSxTPmY66LbRTghXu3MYD61B4vmDLXGHXCMpkX21MvRKiPk4UX_
+
+* * * * * * * * 
 
 # Disclaimer
 
