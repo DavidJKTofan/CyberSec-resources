@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Toy Management</title>
+        <link rel="icon" href="/static/images/logo.png" />
+        <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="/static/css/auth.css" />
+        <link rel="stylesheet" type="text/css" href="/static/css/dashboard.css" />
+    </head>
+    <body>
+        <img src="/static/images/cflower.png" class="main-logo" />
+        <img src="/static/images/cring3.png" class="decorate" />
+        <p class="logout-frame"><a href="/logout">Logout</a></p>
+        <p class="pb-3">Welcome back, {{ user.username }}!</p>
+        <div class="dash-frame">
+            {% if user.username == 'admin' %}
+            <p class="pb-3">List of unapproved toys for distribution</p>
+            {% else %}
+            <p class="pb-3">List of approved toys for distribution</p>
+            {% endif %}
+            <table class="table table-striped" id="toy-listing">
+                <tbody>
+                  <tr>
+                    <th scope="col">Toy</th>
+                    <th scope="col">Receiver Name</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Approved</th>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    {% if user.username == 'admin' %}
+        <img id="fireplace" src="/static/images/fireplace.png">
+    {% endif %}
+    </body>
+    <script type="text/javascript" src="/static/js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="/static/js/dashboard.js"></script>
+</html>

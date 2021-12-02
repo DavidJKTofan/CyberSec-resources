@@ -1,0 +1,26 @@
+{
+	"name": "web_toy_management",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "node index.js"
+	},
+	"keywords": [],
+	"authors": [
+		"rayhan0x01",
+		"Makelaris",
+		"Makelaris jr"
+	],
+	"license": "ISC",
+	"dependencies": {
+		"cookie-parser": "^1.4.4",
+		"express": "^4.17.1",
+		"jsonwebtoken": "^8.5.1",
+		"mysql": "^2.18.1",
+		"nunjucks": "^3.2.0"
+	},
+	"devDependencies": {
+		"nodemon": "^1.19.1"
+	}
+}
