@@ -1,0 +1,203 @@
+body  {
+  font-family: 'Press Start 2P', cursive;
+  min-width: 260px;
+  color: #6bfaa3;
+  background-color: #613216;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 10px;
+
+ background-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+ border-radius: 0px;
+ background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+ background: #302e2e;
+}
+
+::-webkit-scrollbar-corner {background-color: transparent;}
+
+#fireplace {
+  position: absolute;
+  bottom: -5px;
+  left: 5%;
+  height: 250px;
+}
+
+#mainwrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 1300px;
+  width: 100%;
+  height: 750px;
+  background: #ca8f6d;
+}
+
+.consume_relative {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#deviceBody {
+  position: absolute;
+  bottom: 0;
+  left: 420px;
+  height: 650px;
+  width: 650px;
+  background: rgb(199, 83, 83);
+  border-top-left-radius: 15px;  
+  border-top-right-radius: 15px;
+}
+
+#left_panel {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  border-top-left-radius: 10px;
+  height: 495px;
+  width: 220px;
+  background-color: #8b4c49;
+}
+
+#right_console {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  border-top-right-radius: 10px;
+  height: 380px;
+  width: 390px;
+  background-color: #272827;
+}
+
+#bottom_area {
+  position: absolute;
+  top: 525px;
+  left: 15px;
+  height: 105px;
+  width: 620px;
+  background-color: #edc4c4;
+}
+
+#keyboard {
+  position: absolute;
+  top: 405px;
+  right: 55px;
+  height: 105px;
+ 
+  background-color: #4e4e4e;
+}
+
+#right_grid {
+  position: absolute;
+  top: 160px;
+  left: 1070px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  height: 300px;
+  width: 20px;
+  background-color: #8b4c49;
+}
+
+#generator_switch {
+  position: absolute;
+  top: 250px;
+  left: 1090px;
+  height: 15px;
+  width: 40px;
+  background-color: #8b4c49;
+}
+
+#generator_switch::after {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 30px;
+  background: black;
+  height: 40px;
+  width: 40px;
+  border-radius: 25px;
+  background-color: #8b4c49;
+}
+
+#topcandy {
+  position: absolute;
+  width: 110px;
+  top: 49px;
+  left: 450px;
+}
+
+#ctree {
+    position: absolute;
+  height: 310px;
+  top: 440px;
+  left: 1150px;
+}
+
+#calender {
+  position: absolute;
+  height: 80px;
+  top: 120px;
+  left: 1300px;
+  opacity: 0.8;
+}
+
+#chat {
+  position: absolute;
+  height: 80px;
+  top: 50px;
+  left: 1025px;
+  z-index: 33;
+  transform: rotate(10deg);
+}
+
+#cmd_list {
+  text-align: center;
+  padding-left: 10px;
+  width: 200px;
+}
+
+#cmd_list > a > li {
+  display: block;
+  list-style: none;
+  background: #d4f1ff;
+  cursor: pointer;
+  padding: 8px 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+
+#cmd_list > a {
+  text-decoration: none;
+  color: black;
+  font-size: 11px;
+}
+
+#cwheel {
+    position: absolute;
+  bottom: 85px;
+  right: 35px;
+  width: 150px;
+}
+
+#ckeyring {
+    position: absolute;
+  bottom: 25px;
+  right: 10px;
+  width: 50px;
+}
+
+pre {
+  padding-left: 20px;
+  width: 95%;
+  overflow: scroll;
+  height: 96%;
+}
