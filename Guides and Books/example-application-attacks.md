@@ -14,6 +14,16 @@ Obtaining elevated privileges (i.e. Administrator or Root) on the target.
 
 Many vulnerabilities enable an attacker to gain system-level permissions.
 
+### Examples
+
+```
+cat /etc/passwd | cut –d: -f1
+```
+
+```
+pinjector.exe –p <PID of the account you want to mimick permissions from> cmd.exe <port>
+```
+
 ## Cross Site Scripting (XSS)
 
 Techniques used to hijack sessions:
@@ -21,6 +31,14 @@ Techniques used to hijack sessions:
 * Can be **non-persistent** (emails, instant messages, blog posts, etc.) 
 * **DOM-based**, which can be persistent or non-persitent
 * **Persistent** (server-based) where an attacker doesn't need to actively target a user
+
+### Examples
+
+```
+const script = document.createElement('script')
+script.innerHTML = 'alert("hacked!")'
+document.body.appendChild(script)
+```
 
 ## SQL Injection
 
@@ -32,9 +50,13 @@ Adding code into a data stream:
 * Vulnerable websites return usernames, passwords, etc., with the right SQL injection 
 * Cause the application to "throw" an error and crash (allowing an attacked remote access)
 
-### Example
+### Examples
 
 `USERNAME'#`
+
+`" or ""="`
+
+`105; DROP TABLE TABLENAME`
 
 ## DLL Injection
 
@@ -54,6 +76,18 @@ Lightweight Directory Access Protocol (LDAP):
 * Identifies level of access, group memberships, etc.
 
 Similar to SQL Injection attacks in that the query that is passed to the web server is modified to include malicious query statements or code.
+
+### Examples
+
+```
+"value)(injected_filter"
+"value)(injected_filter))(&(1=0"
+```
+
+```
+(&(attribute=value)(second_filter))
+(|(attribute=value)(second_filter))
+```
 
 ## XML Injection
 
@@ -79,6 +113,32 @@ String passed from the web browser:
 <results>
     <results>&harmless;</results>
 </results>
+```
+
+### Examples
+
+```
+http://example.com/add_to_cart.php?itemId=5"+perItemPrice="0.00"+quantity="100"+/><item+id="5&quantity=0
+```
+
+```
+http://www.example.com/create_user.php?name=thomas&password=hfdj7!dn&mail=thomas@mail.com
+```
+
+```
+<?xml  version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE foo [
+   <!ELEMENT foo ANY >
+   <!ENTITY xxe SYSTEM  "file:///dev/random" >]>
+<foo>&xxe;</foo>
+```
+
+```
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE foo [
+  <!ELEMENT foo ANY >
+  <!ENTITY xxe SYSTEM "file:///etc/passwd" >]>
+<foo>&xxe;</foo>
 ```
 
 ## Pointer Dereference
