@@ -32,6 +32,10 @@ Adding code into a data stream:
 * Vulnerable websites return usernames, passwords, etc., with the right SQL injection 
 * Cause the application to "throw" an error and crash (allowing an attacked remote access)
 
+### Example
+
+`USERNAME'#`
+
 ## DLL Injection
 
 DLL Injection is a process of inserting code into a running process: 
