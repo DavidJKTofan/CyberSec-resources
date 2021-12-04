@@ -230,9 +230,22 @@ Difference between XSRF and XSS attacks:
 
 ## API Attacks
 
-Application Programming Interfact (API)
+Application Programming Interfact (API).
+
+Hostile usage of an API:
+* Injection attacks 
+* DoS/DDoS attacks 
+* Authentication hijacking 
+* Data exposure 
+* MiTM attacks
+
+Traditional methods of protection don't work:
+* WAF and simple port blocking
+* Continuously evolving APIs
 
 ## Resource Exhaustion
+
+
 
 ## Memory Leak
 
