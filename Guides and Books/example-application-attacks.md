@@ -158,19 +158,79 @@ Attack that manipulates user input to cause the application to traverse a direct
 
 ## Buffer Overflow
 
+Causes a system or app to crash or behave unexpectedly:
+* Writing more data than the buffer can handle 
+* Data is written to adjacent memory 
+
+Calls or pointers to jump to a different address that was intended:
+* Can contain user executable code which could allow remote code execution
+
 ## Race Conditions
+
+A race condition occurs when a pair of routine programming calls in an application do not perform in the sequential manner that was intended:
+* Potential security vulnerability if the calls are not performed in the correct order
+
+Potential Vulnerabilities:
+* Authentication: Trust may be assigned to an entity who is not who it claims to be 
+* Integrity: Data from an untrusted (and possibly malicious) source may be integrated 
+* Confidentiality: Data may be disclosed to an entity impersonating a trusted entity, resulting in information disclosure
 
 ## Time of Check
 
+Type of race condition:
+* Attacker is able to gain access prior to an authentication check
+* Inserts code or alters authentication to disrupt normal authentication processes 
+* Administrator see the intrusion, reset passwords, etc, but the attacker may still have access
+    * Attacker could remain logged in with old credentials
+
+Also referred to as Time of Check to Time of Use.
+
 ## Secure Conding Concepts, Error Handling, Input Validation
+
+Application development is often a balancing act between time to market and security 
+* Building for security adds to development time 
+* Critical – if you don't have time to find the vulnerabilities, the bad guys will
+
+Security mindset in programming:
+* Error and exception handling
+    * What does the application do when it encounters an error? Does it continue running, restart a process or module, or completely crash? If it crashes, does it give an attacker elevated privileges?
+* Input validation
+    * Validate/sanitize what is entered at the client side and/or server side before it's processed 
+    * Mitigate attacks such as Cross Site Scripting (XSS) 
+    * SQL Injection attacks
+
+[Open Web Application Security Project (OWASP) – Secure Coding Practices](https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/migrated_content)
+
+[CERT – Secure Coding](https://www.sei.cmu.edu/our-work/secure-development/index.cfm)
 
 ## Replay Attacks
 
+Sniffing the wired or wireless network, a replay attack captures packets and puts them back on the wire
+* Packets can potentially be modified and retransmitted to look like legitimate packets
+
+Sequencing helps mitigate the effectiveness of this type of attack
+
 ## Integer Overflow
+
+Integer overflow condition occurs when the result of an arithmetic operation exceeds the maximum size of integer type used to store it. 
+
+When the overflow occurs, the interpreted value appears to "warp around" the max value and start at the min value:
+* Could allow transactions to be reversed (i.e. money sent instead of received)
 
 ## Cross Site Request Forgery (XSRF)
 
+Exploiting a website's trust in a user (application, IP address, etc) 
+* Often referred to as one-click attack or session riding: CSRF or "See-Surf"
+
+Requires victim to have recently visited the target website and have a valid cookie (not expired).
+
+Difference between XSRF and XSS attacks:
+* In an XSS attack, the browser runs malicious code because it was server from a site it trusts 
+* In an XSRF attack, the server performs an action because it was sent a request from a client it trust
+
 ## API Attacks
+
+Application Programming Interfact (API)
 
 ## Resource Exhaustion
 
