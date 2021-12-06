@@ -4,6 +4,8 @@
 
 A brief guide on how to **set up a Cloudflare account** and **add a Zone (domain)**, as well as **Best Practices** on Security and Performance features.
 
+Another starting place is the [Core Setup](https://www.cloudflare.com/welcome-center/core-setup/) guide on Cloudflare.
+
 _Disclaimer: This is for educational purposes only, and depending on the situation, some configurations or steps might differ, or change, or have different impacts._
 
 ***
