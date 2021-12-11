@@ -69,7 +69,7 @@ Create a Token:
 ```
 spl-token create-token
 ```
-_Note: this will use your SOL to create the Token. Copy the token address for later._
+_Note: this will use your SOL to create the Token. Copy the token address (henceforth TOKEN_ADDRESS) for later._
 
 Create an account that can hold the Token:
 ```
@@ -104,3 +104,42 @@ _Note: External SOL Wallet is now being used to do the transfers._
 
 Create your own Token brand: name + logo (needs to be .png and less than 200 Kilobytes).
 
+We then navigate to [Solana's GitHub Token List](https://github.com/solana-labs/token-list), where all SOL Tokens are listed.
+
+Steps:
+1. Fork the Repository
+2. Once forked, click on the browser window of the forked repo, and click "." (period button) to open VSCode in-browser... If this does not work, we can do it manually by going through each folder.
+3. Go to the folder `assets/mainnet` where all Token addresses are displayed.
+4. Create a new folder with your own TOKEN_ADDRESS.
+5. Upload your `logo.png` (remember, it needs to be less than 200KB).
+6. Now go to the folder `src/tokens` and go to the file `solana.tokenlist.json`.
+7. We will copy one part:
+```
+{
+      "chainId": 101,
+      "address": "2fvPmqYk1NemSQ3NFUSu3zw3LgiZKxzFoz79oqkKdmaY",
+      "symbol": "PXE",
+      "name": "PixieCat",
+      "decimals": 0,
+      "logoURI": "https://raw.githubusercontent.com/DavidJKTofan/pixie-crypto-token/main/logo.png",
+      "tags": [
+        "social-token"
+      ]
+},
+```
+8. Scroll to the bottom of the JSON file, paste the part we copied and edit them:
+* Change address with your TOKEN_ADDRESS.
+* Change the symbol and name.
+* Change logoURI with your own logo.png.
+9. Finally, add `Adding PixieCat token` as the reason for your commit, and commit.
+10. Go back to `Solana's GitHub Token List` and click on `Pull requests`, and click `new pull request`.
+11. Click on `compare across forks`, and change the `head repository` to our forked repo.
+12. Click on `create pull request` and we wait...
+13. After a few minutes (hopefully), we can go back to [Solscan](https://solscan.io/) and look for your TOKEN_ADDRESS, and voala!
+
+Congratulations! We created our own Token :)
+
+* * * * * *
+
+# Disclaimer
+This is not financial advice. Educational purposes only!
