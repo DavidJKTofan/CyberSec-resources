@@ -102,13 +102,13 @@ _Note: External SOL Wallet is now being used to do the transfers._
 
 ## Token Branding
 
-Create your own Token brand: name + logo (needs to be .png and less than 200 Kilobytes).
+Create your own Token brand: name + symbol + logo (needs to be `.png` and less than 200 Kilobytes).
 
 We then navigate to [Solana's GitHub Token List](https://github.com/solana-labs/token-list), where all SOL Tokens are listed.
 
 Steps:
 1. Fork the Repository
-2. Once forked, click on the browser window of the forked repo, and click "." (period button) to open VSCode in-browser... If this does not work, we can do it manually by going through each folder.
+2. Once forked, click on the browser window of the forked repo, and click `.` (period button) to open VSCode in-browser... If this does not work, we can do it manually by going through each folder.
 3. Go to the folder `assets/mainnet` where all Token addresses are displayed.
 4. Create a new folder with your own TOKEN_ADDRESS.
 5. Upload your `logo.png` (remember, it needs to be less than 200KB).
@@ -130,12 +130,12 @@ Steps:
 8. Scroll to the bottom of the JSON file, paste the part we copied and edit them:
 * Change address with your TOKEN_ADDRESS.
 * Change the symbol and name.
-* Change logoURI with your own `logo.png`.
+* Change `logoURI` with your own raw `logo.png`.
 9. Finally, add `Adding PixieCat token` as the reason for your commit, and commit.
-10. Go back to `Solana's GitHub Token List` and click on `Pull requests`, and click `new pull request`.
+10. Go back to the original `Solana's GitHub Token List` and click on `Pull requests`, and click `new pull request`.
 11. Click on `compare across forks`, and change the `head repository` to our forked repo.
 12. Click on `create pull request` and we wait...
-13. After a few minutes (hopefully), we can go back to [Solscan](https://solscan.io/) and look for your TOKEN_ADDRESS, and voala!
+13. After (hopefully) a few minutes, we can go back to [Solscan](https://solscan.io/) and look for your TOKEN_ADDRESS, and voalá!
 
 Congratulations! We created our own Token 🤓
 
