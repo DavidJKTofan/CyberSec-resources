@@ -130,14 +130,14 @@ Steps:
 8. Scroll to the bottom of the JSON file, paste the part we copied and edit them:
 * Change address with your TOKEN_ADDRESS.
 * Change the symbol and name.
-* Change logoURI with your own logo.png.
+* Change logoURI with your own `logo.png`.
 9. Finally, add `Adding PixieCat token` as the reason for your commit, and commit.
 10. Go back to `Solana's GitHub Token List` and click on `Pull requests`, and click `new pull request`.
 11. Click on `compare across forks`, and change the `head repository` to our forked repo.
 12. Click on `create pull request` and we wait...
 13. After a few minutes (hopefully), we can go back to [Solscan](https://solscan.io/) and look for your TOKEN_ADDRESS, and voala!
 
-Congratulations! We created our own Token :)
+Congratulations! We created our own Token 🤓
 
 * * * * * *
 
