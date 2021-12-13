@@ -22,14 +22,6 @@ We will read the encrypted message and convert it back to bytes from hexidecimal
 To summarize: we open the original message ```msg.enc```, using ```binascii.unhexlify()``` to return the binary string, and apply our ```reverse_func()``` function to iterate over each character, which includes the original mathematical formula to encrypt ```encrypt()```, and ultimately gives us the flag in string format.
 
 ```
-import binascii
-
-with open("msg.enc") as message:
-    msg = binascii.unhexlify(message.read())
-    deciphered_message = reverse_func(msg)
-    print('Flag: ', deciphered_message)
-```
-```
 def encrypt(char):
     return (123 * char + 18) % 256
 ```
@@ -45,3 +37,13 @@ def reverse_func(msg):
                 original_msg.append(chr(i))
     return ''.join(original_msg)
 ```
+```
+import binascii
+
+with open("msg.enc") as message:
+    msg = binascii.unhexlify(message.read())
+    deciphered_message = reverse_func(msg)
+    print('Flag: ', deciphered_message)
+```
+
+5. After some playing around to get the code right, we finally get the flag.
