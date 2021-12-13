@@ -139,6 +139,16 @@ Steps:
 
 Congratulations! We created our own Token 🤓
 
+## Giving away PixieCat(s)
+
+In collaboration with a colleague, we created [PixieCat (PXE) Tokens](https://github.com/DavidJKTofan/pixie-crypto-token) as a present for another colleague of ours, who is a true crypto-fan and proud cat-owner.
+
+Whoever is interested in receiving some PXE too, feel free to send me your SOL Wallet address.
+
+Or if you want to send me some Tokens, here is my SOL Wallet address: `7zAdKsbmNcChFMtiRDunyv4rm3py5WQJAGJEgg9fLFmG`
+
+Thank you!
+
 * * * * * *
 
 # Disclaimer
