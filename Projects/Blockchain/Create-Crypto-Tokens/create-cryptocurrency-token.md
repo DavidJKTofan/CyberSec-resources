@@ -2,7 +2,9 @@
 
 Inspiration and Source: YouTube Channel **NetworkChuck**, [you need to create a Cryptocurrency RIGHT NOW!! (Solana token)](https://youtu.be/befUVytFC80)
 
-* Proof of History (PoH)
+Dev Docs: https://spl.solana.com/token
+
+* Proof of History (PoH): "Leader nodes "timestamp" blocks with cryptographic proofs that some duration of time has passed since the last proof. All data hashed into the proof most certainly have occurred before the proof was generated." – [Solana Synchronization](https://docs.solana.com/cluster/synchronization)
 
 ## Create Solana (SOL) Wallet
 
