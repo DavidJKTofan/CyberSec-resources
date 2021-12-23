@@ -1,0 +1,16 @@
+Java HotSpot(TM) 64-Bit Server VM warning: Failed to reserve shared memory. (error = 1)
+Java HotSpot(TM) 64-Bit Server VM warning: Failed to reserve shared memory. (error = 12)
+Java HotSpot(TM) 64-Bit Server VM warning: Failed to reserve shared memory. (error = 12)
+Java HotSpot(TM) 64-Bit Server VM warning: Failed to reserve shared memory. (error = 1)
+2021-12-13 03:43:30.399 INFO  (main) [   ] o.e.j.u.log Logging initialized @1872ms to org.eclipse.jetty.util.log.Slf4jLog
+2021-12-13 03:43:30.826 INFO  (main) [   ] o.e.j.s.Server jetty-9.4.44.v20210927; built: 2021-09-27T23:02:44.612Z; git: 8da83308eeca865e495e53ef315a249d63ba9332; jvm 1.8.0_181-b13
+2021-12-13 03:43:30.851 INFO  (main) [   ] o.e.j.d.p.ScanningAppProvider Deployment monitor [file:///opt/solr-8.11.0/server/contexts/] at interval 0
+2021-12-13 03:43:31.360 INFO  (main) [   ] o.e.j.w.StandardDescriptorProcessor NO JSP Support for /solr, did not find org.apache.jasper.servlet.JspServlet
+2021-12-13 03:43:31.393 INFO  (main) [   ] o.e.j.s.session DefaultSessionIdManager workerName=node0
+2021-12-13 03:43:31.394 INFO  (main) [   ] o.e.j.s.session No SessionScavenger set, using defaults
+2021-12-13 03:43:31.397 INFO  (main) [   ] o.e.j.s.session node0 Scavenging every 660000ms
+2021-12-13 03:43:31.635 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter Using logger factory org.apache.logging.slf4j.Log4jLoggerFactory
+2021-12-13 03:43:31.642 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter  ___      _       Welcome to Apache Solr™ version 8.11.0
+2021-12-13 03:43:31.642 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter / __| ___| |_ _   Starting in standalone mode on port 8983
+2021-12-13 03:43:31.643 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter \__ \/ _ \ | '_|  Install dir: /opt/solr
+2021-12-13 03:43:31.644 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter |___/\___/_|_|    Start time: 2021-12-13T03:43:31.644Z
