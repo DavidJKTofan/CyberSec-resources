@@ -14,6 +14,31 @@ https://www.google.com/search?q=inurl:https://www.tercerob.com/3BValue&as_qdr=y1
 inurl: URL_HERE &as_qdr=y15
 ```
 
+Specifically search that particular site and lists all the results for that site:
+```
+site:"www.google.com"
+```
+
+Search for a specific filetype:
+```
+filetype:"pdf"
+```
+
+Search for external links to pages:
+```
+link:"keyword"
+```
+
+Search for a URL matching one of the keywords:
+```
+inurl:"keyword"
+```
+
+Search within a date range:
+```
+(before:2000-01-01 after:2001-01-01)
+```
+
 Find Username Logs:
 ```
 allintext:username filetype:log
