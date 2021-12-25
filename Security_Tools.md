@@ -15,3 +15,7 @@
 ## Encryption, Encoding, Compression and Data Analysis
 
 * [CyberChef](https://gchq.github.io/CyberChef/)
+
+## Analysis
+* [oledump.py](https://blog.didierstevens.com/programs/oledump-py/)
+* [YaraRules](https://yara-rules.github.io/blog/)
