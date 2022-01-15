@@ -4,7 +4,9 @@ Some interesting Google dorks.
 ## Definition
 _"Google hacking, also named Google Dorking, is a hacker technique that uses Google Search and other Google applications to find security holes in the configuration and computer code that websites are using."_
 
-More information:  https://www.exploit-db.com/google-hacking-database
+More information: 
+- https://www.exploit-db.com/google-hacking-database
+- https://sansorg.egnyte.com/dl/f4TCYNMgN6 
 
 ***
 
