@@ -2,45 +2,128 @@
 
 # Cloudflare
 
-A brief guide on how to **set up a Cloudflare account** and **add a Zone (domain)**, as well as **Best Practices** on Security and Performance features.
+A brief and general guide on how to **set up a Cloudflare account**, **add a Zone (domain)**, as well as some **Best Practices** on Security and Performance solutions, including some Admin best practices.
 
-Another starting place is the [Core Setup](https://www.cloudflare.com/welcome-center/core-setup/) guide on Cloudflare.
+Another very good starting place is the [Core Setup](https://www.cloudflare.com/welcome-center/core-setup/) guide on Cloudflare.
 
 _Disclaimer: This is for educational purposes only, and depending on the situation, some configurations or steps might differ, or change, or have different impacts._
 
 ***
 
 # Table of Contents
+
+[Security Best Practices](#securitybestpractices)  
+[Performance Best Practices](#performancebestpractices)  
+[Administrative Best Practices](#adminbestpractices)  
+
+Inspiration / Source: _CloudFlare Best Practices v2.0, https://vsip.info/cloudflare-best-practices-v20-pdf-free.html_
+
+* * * *
+
 [Full or CNAME Setup](#fullsetup)  
 [Troubleshooting](#troubleshooting)  
 [Allow Cloudflare IPs](#allowips)  
 [Log Retention](#logs)  
 [Domain Lookup](#domainlookup)  
 
-[Enterprise Best Practices](#bestpractices)  
+* * * *
+* * * *
 
-***
-***
+<a name="securitybestpractices"></a>
+
+# Enterprise Best Practices
+
+## Secure Origin IP Addresses
+
+_Orange-Cloud all DNS Records for HTTP(S) traffic from your origin._
+
+How a **Grey-Clouded** record looks like:
+```
+dig greycloud.theburritobot.com @woz.ns.cloudflare.com +short
+```
+
+How an **Orange-Cloude** record looks like:
+```
+dig orangecloud.theburritobot.com @woz.ns.cloudflare.com +short
+```
+
+## Configure your Security Level selectively
+
+On **Page Rules**, select the URL pattern and set the Security Level Setting to High.
+
+_Note:_ decrease the Security Level for non-sensitive paths or APIs to reduce false positives.
+
+_Security Level settings are aligned with a threat scores that IP addresses acquire with malicious behavior on our network. A threat score above 10 is considered high and 50 is really bad._
+
+## Activate your Web Application Firewall safely
+
+1. First, set the **OWASP ModSecurity** sensitivity to High with an action of Simulate in order to log any false positives.
+
+2. Second, activate **Managed Rules** (Cloudflare Specials) and any platform-specific groups you use.
+
+3. Finally, turn your WAF ON with the global setting.
+
+* * * *
+
+<a name="performancebestpractices"></a>
+
+# Performance Best Practices
+
+## Activate Web Content Optimization (WCO) Features
+
+* Enable **Polish** for image compression.
+
+* Enable **minify HTML, CSS and JavaScript**. 
+
+* Test **Mirage** (mobile specific image optimization) and **Rocket Loader** (forces JavaScript to be loaded asynchronously) with your system.
+
+* Enable **Cache Everything** for static HTML webpages on **Page Rules**.
+
+* Utilize conservative **TTLs (Time-to-Lives)** for content that changes occasionally.
+
+Check the response header `CF-Cache-Status`:
+```
+curl -I theburritobot.com | grep -Fi CF-Cache-Status
+```
+
+* Accelerate your dynamic content with **Railgun** (compresses previously unreachable web objects).
+
+* * * *
+
+<a name="adminbestpractices"></a>
+
+# Admin Best Practices
+
+## Manage your brand by customizing Cloudflare pages
+
+* **Domain-wide**: within the settings of each domain, you can go to the Customize application to change the default pages for each and every page we could potentially show your users.
+
+* **Organization-wide**: if you have many domains within your CloudFlare account and would like to create Custom pages for all of them, you may do so within your Organization settings.
+
+## Enforce 2-factor authentication across your entire organization
+
+On the upper right hand corner, select **My Profile** > Authentication > Two-Factor Authentication.
+
+Alternatively, go on **Manage Account** > Members > Member 2FA enforcement, in order to require all members to have two-factor authentication enabled.
+
+* * * *
+* * * *
+* * * *
+
+# Interesting / Useful Stuff
 
 <a name="fullsetup"></a>
 
 ## Full Setup
 
-Full Setup: https://dt-testing.cf/ 
+Full Setup: use the setup wizard on Cloudflare's website when you register, follow the steps, and change your Domain's Nameservers.
 
 Add A Record:
 ```
-A	www	35.234.81.115	Auto	Proxied
+A	www	IP_ADDRESS	Auto	Proxied
 ```
 
-## CNAME Setup
-
-CNAME Setup: https://dt-cname.cf/ 
-
-Add CNAME Record on Authoritative DNS:
-```
-staging    CNAME    TTL 3600    staging.dt-cname.cf.cdn.cloudflare.net
-```
+Alternatively, one can do a [CNAME Setup](https://support.cloudflare.com/hc/en-us/articles/360020348832-Understanding-a-CNAME-Setup)
 
 ***
 
@@ -89,7 +172,7 @@ Server: Apache/2.4.18 (Ubuntu) (bypasses Cloudflare)
 
 Check Nameservers:
 ```
-dig +short NS dt-testing.cf
+dig +short NS cf-testing.com
 ```
 
 Run DNS queries and check DNS records:
@@ -179,8 +262,8 @@ https://support.cloudflare.com/hc/en-us/articles/203118044-How-do-I-generate-a-H
 
 ***
 
-DNSSEC 
-https://dnsviz.net/d/staging.dt-testing.cf/dnssec/ 
+DNSSEC
+https://dnsviz.net/d/staging.cf-testing.com/dnssec/ 
 
 ======
 ======
@@ -198,13 +281,3 @@ https://github.com/pabloqc/pabloqc/blob/main/README.md
 ## Domain Lookup
 
 https://rdap.cloudflare.com/
-
-****
-****
-
-<a name="bestpractices"></a>
-
-# Enterprise Best Practices
-
-Inspiration / Source: _CloudFlare Best Practices v2.0, https://vsip.info/cloudflare-best-practices-v20-pdf-free.html_
-
