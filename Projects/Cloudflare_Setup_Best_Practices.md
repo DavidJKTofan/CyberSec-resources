@@ -131,6 +131,18 @@ Alternatively, one can do a [CNAME Setup](https://support.cloudflare.com/hc/en-u
 
 ## Troubleshooting
 
+### MTU Size
+
+Get the Maximum Transmission Unit (MTU) size on your device:
+```
+networksetup -getMTU en0
+```
+
+Do a Browser Integrity Check (BIC), which should return a 403 status code:
+```
+curl http://cf-testing.com --header "User-Agent: CloudFlare BIC Test" --verbose --silent 2>&1 | egrep -i "< HTTP|< Server:|< CF|<title>|signature"
+```
+
 ### Check DNS Propagation & Response
 
 Check A Record for a **Full Setup**: https://dnschecker.org/#A/staging.dt-cname.cf.cdn.cloudflare.net OR `curl -svo /dev/null/ http://staging.dt-cname.cf/ 2>&1 | grep 'HTTP'`
@@ -173,6 +185,7 @@ Server: Apache/2.4.18 (Ubuntu) (bypasses Cloudflare)
 Check Nameservers:
 ```
 dig +short NS cf-testing.com
+host -t NS cf-testing.com
 ```
 
 Run DNS queries and check DNS records:
@@ -217,7 +230,7 @@ Input Cloudflare IP Addresses (See Screenshot)
 
 ## Log Retention
 
-Log Retention is off by default. We only store logs for 72h.
+Log Retention is off by default.
 https://developers.cloudflare.com/logs/get-started 
 Activate via API.
 https://developers.cloudflare.com/logs/logpull/enabling-log-retention 
