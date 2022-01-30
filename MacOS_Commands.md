@@ -25,6 +25,7 @@ _This is for educational purposes only._
 [MAC Address](#mac)  
 [Random Passwords](#randompw)
 [Download GIFs](#download)  
+[OWASP Favicon Database](#owaspfavicon)  
 
 *****
 *****
@@ -472,6 +473,17 @@ _NOTE: change the value 200 to change the lenght of the password._
 Use cURL to download GIFs from Giphy:
 ```
 curl https://media4.giphy.com/media/xUA7aUNw61j9Vdzs0U/giphy.gif --output ~/Desktop/download.gif
+```
+
+*****
+
+<a name="owaspfavicon"></a>
+## OWASP Favicon Database
+
+Check Website's Favicon and compare with the [OWASP Favicon Database](https://wiki.owasp.org/index.php/OWASP_favicon_database):
+```
+curl https://www.cf-testing.com/favicon.png -o output.png | md5
+curl https://www.cf-testing.com/favicon.png | md5
 ```
 
 *****

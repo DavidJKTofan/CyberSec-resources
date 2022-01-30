@@ -23,6 +23,7 @@ _This is for educational purposes only._
 [Random Passwords](#randompw)  
 [NGINX](#nginx)  
 [MIME Types](#mime)  
+[OWASP Favicon Database](#owaspfavicon)  
 
 ***
 ***
@@ -1034,3 +1035,15 @@ Check MIME Type of File:
 ```
 file --mime-type -b FILE_PATH
 ```
+
+****
+
+<a name="owaspfavicon"></a>
+## OWASP Favicon Database
+
+Check Website's Favicon and compare with the [OWASP Favicon Database](https://wiki.owasp.org/index.php/OWASP_favicon_database):
+```
+curl https://www.cf-testing.com/favicon.png -o output.png | md5sum
+curl https://www.cf-testing.com/favicon.png | md5sum
+```
+
