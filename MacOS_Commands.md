@@ -24,6 +24,7 @@ _This is for educational purposes only._
 [Convert Images](#webp)  
 [MAC Address](#mac)  
 [Random Passwords](#randompw)
+[Download GIFs](#download)  
 
 *****
 *****
@@ -462,5 +463,15 @@ openssl rand -base64 200
 ```
 
 _NOTE: change the value 200 to change the lenght of the password._
+
+*****
+
+<a name="download"></a>
+## Download GIFs
+
+Use cURL to download GIFs from Giphy:
+```
+curl https://media4.giphy.com/media/xUA7aUNw61j9Vdzs0U/giphy.gif --output ~/Desktop/download.gif
+```
 
 *****

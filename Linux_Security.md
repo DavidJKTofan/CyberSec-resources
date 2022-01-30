@@ -22,6 +22,7 @@ _This is for educational purposes only._
 [MAC Address](#mac)  
 [Random Passwords](#randompw)  
 [NGINX](#nginx)  
+[MIME Types](#mime)  
 
 ***
 ***
@@ -1024,3 +1025,12 @@ sudo systemctl restart nginx
 ```
 
 ****
+
+<a name="mime"></a>
+
+## MIME Types
+
+Check MIME Type of File:
+```
+file --mime-type -b FILE_PATH
+```
