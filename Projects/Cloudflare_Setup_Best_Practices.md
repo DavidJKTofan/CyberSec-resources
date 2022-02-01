@@ -15,6 +15,7 @@ _Disclaimer: This is for educational purposes only, and depending on the situati
 [Security Best Practices](#securitybestpractices)  
 [Performance Best Practices](#performancebestpractices)  
 [Administrative Best Practices](#adminbestpractices)  
+[Common Questions](#commonquestions)  
 
 Inspiration / Source: _CloudFlare Best Practices v2.0, https://vsip.info/cloudflare-best-practices-v20-pdf-free.html_
 
@@ -294,3 +295,78 @@ https://github.com/pabloqc/pabloqc/blob/main/README.md
 ## Domain Lookup
 
 https://rdap.cloudflare.com/
+
+* * * *
+* * * *
+* * * *
+
+<a name="commonquestions"></a>
+
+# Common Questions
+
+## DNS
+
+### Upload multiple DNS records
+
+Upload multiple DNS records under the Advanced section with a TXT file in BIND format.
+
+### CNAME Setup
+
+A partial setup or CNAME setup allows you to route only the traffic you want through Cloudflare, allowing you to keep your Authoritative DNS.
+
+### Orange Clouded Record
+
+Orange Clouded DNS records return Cloudflare's anycast IPs, obfuscating origin IPs and allowing SSL/TLS termination at Cloudflare's Edge to apply security and performance features. Gray Clouded DNS records return the actual DNS record.
+
+## SSL
+
+### Use your own SSL Certificate
+
+You can upload your own SSL Certificate and Private Keys into the Dashboard. Additionally, you can use [Data Localization](https://www.cloudflare.com/data-localization/) to comply with evolving regional data privacy requirements.
+
+### Full SSL settings
+
+On the SSL/TLS tab, it is recommended to select the "Full (strict)" or "Strict (SSL-Only Origin Pull)" option which validates that the certificate at your Origin Server is from a Certificate Authority, has not expired, and contains the hostname for the request coming from the visitor.
+
+### Minimum TLS Version
+
+The minimum TLS version by default is TLS 1.0. However, it is recommended to set the option to TLS 1.2 or above, like TLS 1.3.
+
+### Universal SSL vs Dedicated SSL
+
+You can choose if you want to use Universal SSL or Dedicated SSL, which will have your zone's domain name.
+
+## Firewall
+
+### Country Block
+
+You can block any specific country, as well as apply Captcha Challenge or JavaScript Challenge, which presents a complex math problem to the browser and requires JS to be enabled in order to pass the challenge.
+
+### Rate Limiting
+
+Protects specific sites from brute force attacks.
+
+### WAF Rules
+
+Cloudflare offers a variety of WAF Rules, such as OWASP Top 10, managed Rulesets (maintained by Cloudflare's Security Engineers), and more. Additionally, you can write your own rules to i.e. block specific IPs or create more complex rules.
+
+## Caching
+
+### Purge Cached Items
+
+Normally it takes less than 30 seconds for a cache purge across the entire Cloudflare network.
+
+## Page Rules
+
+## Traffic
+
+## Speed
+
+## Workers
+
+## Multi-User Organization
+
+## Analytics
+
+## General
+
