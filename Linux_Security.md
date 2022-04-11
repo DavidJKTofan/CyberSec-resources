@@ -401,7 +401,12 @@ sudo systemctl restart cloudflared
 
 Uninstall Cloudflared:
 ```
+sudo systemctl stop cloudflared
+sudo systemctl disable cloudflared
+rm /etc/systemd/system/cloudflared
+rm /usr/lib/systemd/system/cloudflared
 sudo cloudflared service uninstall && rm -rf /usr/local/etc/cloudflared/config.yml && rm -rf /usr/local/etc/cloudflared
+systemctl daemon-reload
 ```
 
 ### dnscrypt-proxy
