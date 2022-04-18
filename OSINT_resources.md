@@ -8,6 +8,7 @@ _"Open-source intelligence (OSINT) is data collected from publicly available sou
 
 # Table of Contents
 [General](#general)  
+[Vehicles](#vehicles)  
 [File & URL Scanners](#scans)  
 [Company Research](#company)  
 [Websites](#websites)  
@@ -32,12 +33,41 @@ _"Open-source intelligence (OSINT) is data collected from publicly available sou
 * [Startpage](https://startpage.com/)
 * [Shodan](https://www.shodan.io/)
 * [WiGLE](https://wigle.net/)
-* [MarineTraffic](https://www.marinetraffic.com/)
-
 * [Awesome OSINT – GitHub Repo](https://github.com/jivoi/awesome-osint)
 * [OSINT – HackControl](https://hackcontrol.org/OSINT/People_search_engines.html)
 * [OSINT: How to find information on anyone – Guide](https://medium.com/the-first-digit/osint-how-to-find-information-on-anyone-5029a3c7fd56)
 <br>
+
+
+<a name="vehicles"/>
+
+## Vehicles
+
+* [APRS database](https://aprs.fi/)
+* [Vehicle History](https://www.vehiclehistory.com/)
+
+**Cell Towers/Phones**
+* [Radiocells](https://www.radiocells.org/default/world)
+* [CellMapper](https://www.cellmapper.net/map)
+* [OpenCellid](https://opencellid.org/)
+
+**Boats/Ships**
+* [MarineTraffic](https://www.marinetraffic.com/)
+* [My Ship Tracking](https://www.myshiptracking.com/)
+* [VesselFinder](https://www.vesselfinder.com/)
+
+**Planes/Flights**
+* [FlightRadar24](https://www.flightradar24.com/)
+* [AirNav RadarBox](https://www.radarbox.com/)
+
+**Trains**
+* [North America Intercity Rail Tools](https://asm.transitdocs.com/)
+
+**Satellites/UFOs**
+* [N2YO](https://www.n2yo.com/)
+* [SatelliteMap](https://satellitemap.space/)
+<br>
+
 
 <a name="scans"/>
 
