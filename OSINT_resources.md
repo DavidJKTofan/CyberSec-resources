@@ -8,6 +8,7 @@ _"Open-source intelligence (OSINT) is data collected from publicly available sou
 
 # Table of Contents
 [General](#general)  
+[Usernames](#usernames)  
 [Vehicles](#vehicles)  
 [File & URL Scanners](#scans)  
 [Company Research](#company)  
@@ -27,7 +28,6 @@ _"Open-source intelligence (OSINT) is data collected from publicly available sou
 * [Atomic Red Team - MITRE's ATT&CK](https://github.com/redcanaryco/atomic-red-team)
 * [OCCRP Aleph](https://aleph.occrp.org/)
 * [Background Checks](https://backgroundchecks.org/)
-* [Usernames](https://checkusernames.com/)
 * [Intelligence X](https://intelx.io/)
 * [Mitaka](https://github.com/ninoseki/mitaka)
 * [Startpage](https://startpage.com/)
@@ -38,6 +38,13 @@ _"Open-source intelligence (OSINT) is data collected from publicly available sou
 * [OSINT: How to find information on anyone – Guide](https://medium.com/the-first-digit/osint-how-to-find-information-on-anyone-5029a3c7fd56)
 <br>
 
+<a name="usernames"/>
+
+## Usernames
+
+* [NameCheckup](https://namecheckup.com/)
+* [CheckUsernames](https://checkusernames.com/)
+<br>
 
 <a name="vehicles"/>
 
