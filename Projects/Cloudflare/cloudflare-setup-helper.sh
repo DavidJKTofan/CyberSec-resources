@@ -53,8 +53,7 @@ validator() {
 }
 
 get_cloudflare_parameters() {
-
-    # Get user_email and x_auth_key
+    # Get user_email and x_auth_key variables
     # Cloudflare email
     while true
     do
@@ -74,7 +73,7 @@ get_cloudflare_parameters() {
 }
 
 cloudflare_get_zoneid() {
-
+    # Get all Cloudflare zones on your account
     # Set temporary filename
     zone_filename="zoneids_tmp.json"
 
@@ -100,7 +99,9 @@ cloudflare_get_zoneid() {
     read -r -n 1 -s -r -p "Press any key to continue...\n"
 }
 
-cloudflare_improve_settings() {
+cloudflare_improve_performance_settings() {
+    # Optimize site speed and improve SEO
+    # Reference: https://developers.cloudflare.com/fundamentals/get-started/task-guides/optimize-site-speed/ 
 
     # Check for user_email and x_auth_key
     if [[ -z "${user_email}" ]] && [[ -z "${x_auth_key}" ]]; then
@@ -375,6 +376,14 @@ cloudflare_improve_settings() {
     read -r -n 1 -s -r -p "Press any key to continue...\n"
 }
 
+cloudflare_improve_security_settings() {
+    # Protect website against malicious traffic and bad actors
+    # Reference: https://developers.cloudflare.com/fundamentals/get-started/task-guides/secure-your-website/ 
+
+    # Wait for user
+    read -r -n 1 -s -r -p "Press any key to continue...\n"
+}
+
 get_paramteres() {
 
   printf "What is your Cloudflare login email?\n"
@@ -402,11 +411,6 @@ get_paramteres() {
   printf "=%.0s"  $(seq 1 63)
   sleep 2
 
-  printf "\nWe need sudo access, so please type in your root password now: \n"
-  [ "$UID" -eq 0 ] || exec sudo "$0" "$@"
-
-  printf "Preparing everything...\n"
-  sleep 2
   # Wait for user
   read -r -n 1 -s -r -p "Press any key to continue with the Cloudflare account setup...\n"
 }
@@ -425,7 +429,7 @@ os_level_firewall() {
     sudo iptables -A INPUT -p tcp --dport ssh -j ACCEPT
 
     # Drop all other ingress traffic (careful here!)
-    read -p "Do you want to drop all other ingress traffic? " -n 1 -r
+    read -p "\nDo you want to drop all other ingress traffic? " -n 1 -r
     printf    # (optional) move to a new line
     if [[ $REPLY =~ ^[Yy]$ ]]
     then
@@ -475,6 +479,7 @@ update_ufw() {
     sudo ufw allow 80/tcp
     sudo ufw allow 443/tcp
     sudo ufw allow www
+    sudo ufw allow "Nginx Full"
 
     # Download latest Cloudflare IPs
     curl -s https://www.cloudflare.com/ips-v4 -o /tmp/cf_ips
@@ -519,7 +524,7 @@ else
         printf "Well, create one now! And come back later...\n"
         printf "https://dash.cloudflare.com/sign-up"
         printf "\n"
-        exit 0
+        exit 1
 fi
 
 PS3="\nPlease select your choice: "
@@ -536,16 +541,23 @@ do
             printf "\nLet's continue with the Uncomplicated Firewall (ufw).\n"
             update_ufw
             sleep 2
+            printf "\nYour server should have basic security now :)\n"
+            printf "Just in case, review your firewall settings and rules later.\n"
             ;;
         "Setup Cloudflare Zone")
             printf "you chose choice %s which is %s" "$REPLY" "$opt"
             ;;
         "Improve Cloudflare Zone")
             printf "you chose choice %s which is %s" "$REPLY" "$opt"
-            printf "\nLet's check your zone settings and see what we can improve...\n"
+            printf "\nLet's check your zone PERFORMANCE settings and see what we can improve...\n"
             sleep 3
-            cloudflare_improve_settings
+            cloudflare_improve_performance_settings
+            printf "\nLet's check your zone SECURITY settings and see what we can improve...\n"
+            sleep 3
+            cloudflare_improve_security_settings
             sleep 2
+            printf "\nYour Cloudflare zone has now improved settings turned on :)\n"
+            printf "Review your zones on the Dashboard later.\n"
             ;;
         "Quit\n")
             break
