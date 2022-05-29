@@ -18,7 +18,7 @@ IFS=$'\t\n'   # Split on newlines and tabs (but not on spaces)
 
 ###########################################################
 
-printf "Welcome to Cloudflare Setup Helper!"
+printf "Welcome to Cloudflare Setup Helper!\n"
 sleep 2
 printf "What is your name?\n"
 read -r name
@@ -103,8 +103,8 @@ cloudflare_get_zoneid() {
 cloudflare_improve_settings() {
 
     # Check for user_email and x_auth_key
-    if [[ -z "$user_email" ]] && [[ -z "$x_auth_key" ]]; then
-        printf "Must provide user_email and x_auth_key\n" 1>&2
+    if [[ -z "${user_email}" ]] && [[ -z "${x_auth_key}" ]]; then
+        printf "Must provide user_email and x_auth_key\n"
         get_cloudflare_parameters
     fi
 
@@ -514,10 +514,11 @@ update_ufw() {
 printf "Do you have a Cloudflare account? [Y,n]\n"
 read -r input
 if [[ $input == "Y" || $input == "y" ]]; then
-        printf "Perfect! Let's continue\n"
+        printf "Perfect! Let's continue\n\n"
 else
         printf "Well, create one now! And come back later...\n"
         printf "https://dash.cloudflare.com/sign-up"
+        printf "\n"
         exit 0
 fi
 
@@ -546,7 +547,7 @@ do
             cloudflare_improve_settings
             sleep 2
             ;;
-        "Quit")
+        "Quit\n")
             break
             exit 0
             ;;
