@@ -33,7 +33,6 @@ _"Open-source intelligence (OSINT) is data collected from publicly available sou
 * [Startpage](https://startpage.com/)
 * [Shodan](https://www.shodan.io/)
 * [WiGLE](https://wigle.net/)
-* [CleanUp.pictures](https://cleanup.pictures/)
 * [Awesome OSINT – GitHub Repo](https://github.com/jivoi/awesome-osint)
 * [OSINT – HackControl](https://hackcontrol.org/OSINT/People_search_engines.html)
 * [OSINT: How to find information on anyone – Guide](https://medium.com/the-first-digit/osint-how-to-find-information-on-anyone-5029a3c7fd56)
@@ -168,4 +167,6 @@ _"Open-source intelligence (OSINT) is data collected from publicly available sou
 * [TinyEye](https://tineye.com/)
 * [Yandex Images](https://yandex.ru/images/)
 * [EXIF Data Viewer](https://exifdata.com/)
+* [CleanUp.pictures](https://cleanup.pictures/)
+* [Search by Image](https://chrome.google.com/webstore/detail/search-by-image/cnojnbdhbhnkbcieeekonklommdnndci?hl=en)
 <br>
