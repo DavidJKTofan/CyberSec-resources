@@ -11,8 +11,8 @@ set -o nounset
 set -o pipefail
 #}}}
 #{{{ Variables
-read -ronly script_name="$(basename "${0}")"
-read -ronly script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+#read -ronly script_name="$(basename "${0}")"
+#read -ronly script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 IFS=$'\t\n'   # Split on newlines and tabs (but not on spaces)
 #}}}
 
@@ -25,10 +25,10 @@ read -r name
 printf "Hello %s! Please give me a second, or two...\n" "${name}"
 sleep 2
 # Ask for sudo privileges
-if [ "$UID" != 0 ]; then
-    sudo "$0" "$@"
-    exit $?
-fi
+# if [ "$UID" != 0 ]; then
+#     sudo "$0" "$@"
+#     exit $?
+# fi
 
 ###########################################################
 ######################## FUNCTIONS ########################
@@ -60,7 +60,7 @@ get_cloudflare_parameters() {
         printf "What is your Cloudflare login email?\n"
         read -r user_email
         validator "${user_email}"
-        if [[ -v email_approved ]]; then
+        if [[ -n email_approved ]]; then
             break
         fi
     done
@@ -511,66 +511,6 @@ update_ufw() {
     read -r -n 1 -s -r -p "Press any key to continue\n"
 }
 
-###########################################################
-####################### GET STARTED #######################
-###########################################################
-
-# Set up your Cloudflare account (!)
-printf "Do you have a Cloudflare account? [Y,n]\n"
-read -r input
-if [[ $input == "Y" || $input == "y" ]]; then
-        printf "Perfect! Let's continue\n\n"
-else
-        printf "Well, create one now! And come back later...\n"
-        printf "https://dash.cloudflare.com/sign-up"
-        printf "\n"
-        exit 1
-fi
-
-PS3="\nPlease select your choice: "
-options=("Secure Server" "Setup Cloudflare Zone" "Improve Cloudflare Zone" "Quit")
-select opt in "${options[@]}"
-do
-    case $opt in
-        "Secure Server")
-            printf "you chose choice %s which is %s" "$REPLY" "$opt"
-            printf "\nLet's start with your OS-Level Firewall.\n"
-            sleep 2
-            os_level_firewall
-            sleep 2
-            printf "\nLet's continue with the Uncomplicated Firewall (ufw).\n"
-            update_ufw
-            sleep 2
-            printf "\nYour server should have basic security now :)\n"
-            printf "Just in case, review your firewall settings and rules later.\n"
-            ;;
-        "Setup Cloudflare Zone")
-            printf "you chose choice %s which is %s" "$REPLY" "$opt"
-            ;;
-        "Improve Cloudflare Zone")
-            printf "you chose choice %s which is %s" "$REPLY" "$opt"
-            printf "\nLet's check your zone PERFORMANCE settings and see what we can improve...\n"
-            sleep 3
-            cloudflare_improve_performance_settings
-            printf "\nLet's check your zone SECURITY settings and see what we can improve...\n"
-            sleep 3
-            cloudflare_improve_security_settings
-            sleep 2
-            printf "\nYour Cloudflare zone has now improved settings turned on :)\n"
-            printf "Review your zones on the Dashboard later.\n"
-            ;;
-        "Quit\n")
-            break
-            exit 0
-            ;;
-        *) printf "invalid option %s" "$REPLY";;
-    esac
-done
-
-###########################################################
-######################### CLEANUP #########################
-###########################################################
-
 cleanup() {
     # Remove zoneids_tmp.json file
     if [ -f $zone_filename ]; then
@@ -585,6 +525,71 @@ cleanup() {
     printf "\nDone! Good job!\n"
     sleep 2
 }
+
+###########################################################
+####################### GET STARTED #######################
+###########################################################
+
+# Set up your Cloudflare account (!)
+printf "Do you have a Cloudflare account? [Y,n]\n"
+read -r input
+if [[ $input == "Y" || $input == "y" ]]; then
+        printf "Perfect! Let's continue...\n\n"
+else
+        printf "Well, create one now! And come back later...\n"
+        printf "https://dash.cloudflare.com/sign-up"
+        printf "\n"
+        exit 1
+fi
+
+PS3="Please select your choice: "
+options=("Secure Server" "Setup Cloudflare Zone" "Improve Cloudflare Zone" "Quit")
+select opt in "${options[@]}"
+do
+    case $opt in
+        "Secure Server")
+            # SERVER SECURITY
+            printf "you chose choice %s which is %s" "$REPLY" "$opt"
+            printf "\nLet's start with your OS-Level Firewall.\n"
+            sleep 2
+            os_level_firewall
+            sleep 2
+            printf "\nLet's continue with the Uncomplicated Firewall (ufw).\n"
+            update_ufw
+            sleep 2
+            printf "\nYour server should have basic security now :)\n"
+            printf "Just in case, review your firewall settings and rules later.\n"
+            ;;
+        "Setup Cloudflare Zone")
+            # GENERAL ZONE SETUP (WORK IN PROGRESS)
+            printf "you chose choice %s which is %s" "$REPLY" "$opt"
+            ;;
+        "Improve Cloudflare Zone")
+            # PERFORMANCE AND SECURITY SETTINGS UPDATES
+            printf "you chose choice %s which is %s" "$REPLY" "$opt"
+            printf "\nLet's check your zone PERFORMANCE settings and see what we can improve...\n"
+            sleep 3
+            cloudflare_improve_performance_settings
+            printf "\nLet's check your zone SECURITY settings and see what we can improve...\n"
+            sleep 3
+            cloudflare_improve_security_settings
+            sleep 2
+            printf "\nYour Cloudflare zone has now improved settings turned on :)\n"
+            printf "Review your zones on the Dashboard later.\n"
+            ;;
+        "Quit")
+            # END PROGRAM
+            cleanup
+            break
+            exit 0
+            ;;
+        *) printf "invalid option %s \n" "$REPLY";;
+    esac
+done
+
+###########################################################
+######################### CLEANUP #########################
+###########################################################
 
 trap cleanup EXIT
 exit 0
