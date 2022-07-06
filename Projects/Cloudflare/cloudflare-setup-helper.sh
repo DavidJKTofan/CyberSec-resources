@@ -417,8 +417,9 @@ get_paramteres() {
 
 os_level_firewall() {
     # Check OS-level firewall
-    # Reference: https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/do-more-with-tunnels/secure-server/ 
-    
+    # Reference 1: https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/do-more-with-tunnels/secure-server/ 
+    # Reference 2: https://developers.cloudflare.com/fundamentals/get-started/setup/allow-cloudflare-ip-addresses/#configure-origin-server
+
     # Allow localhost to communicate with itself
     sudo iptables -A INPUT -i lo -j ACCEPT
 
