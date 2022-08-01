@@ -203,6 +203,22 @@ cloudflare_improve_performance_settings() {
         exit $?
     fi
 
+    # Change Origin Max HTTP version setting
+    # Reference: https://developers.cloudflare.com/cache/how-to/enable-http2-to-origin
+    maxhttp_value=$(curl -X PATCH "https://api.cloudflare.com/client/v4/zones/${zone_id}/origin_max_http_version" \
+        -H "X-Auth-Email: ${user_email}" \
+        -H "X-Auth-Key: ${x_auth_key}" \
+        -H "Content-Type: application/json" \
+        --data '{"value":"2"}' | jq '.result.value')
+
+    if [[ "${maxhttp_value}" == *"2"* ]]; then
+        printf "Origin Max HTTP Version is already HTTP/2.\n"
+    elif [[ "${maxhttp_value}" == *"1"* ]]; then
+        printf "Origin Max HTTP Version is HTTP/1...\n"
+        #printf "Activating now...\n"
+        sleep 2
+        #printf "Enabled Origin Max HTTP Version to be HTTP/2."
+
     # Get HTTP/2 Edge Prioritization Settings
     http2prio_value=$(curl -X GET "https://api.cloudflare.com/client/v4/zones/${zone_id}/settings/h2_prioritization" \
         -H "X-Auth-Email: ${user_email}" \
