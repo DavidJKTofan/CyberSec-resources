@@ -193,7 +193,115 @@ Make random GET API calls:
 for i in {1..10}; do curl -H "x-api-shield: DEMO" -H "Accept: application/json" -H "Content-Type: application/json" https://api.cf-testing.com/api/resources/$[ $RANDOM % 381 + 1 ]; sleep 2; done
 ```
 
+```
+for i in {1..10}; do curl -H "x-api-shield: DEMO" -H "Accept: application/json" -H "x-api-schema: validated" -H "Content-Type: application/json" https://api.cf-testing.com/api/resources/$[ $RANDOM % 381 + 1 ]; sleep 2; done
+```
+
 Reference: [API Discovery](https://developers.cloudflare.com/api-shield/security/api-discovery/)
+
+## API Shield Schema Validation
+
+```
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: Resources
+  license:
+    name: MIT
+servers:
+  - url: https://api.cf-testing.com/api/
+paths:
+  /resources:
+    get:
+      summary: Resources from the World of Opportunities database
+      operationId: listResources
+      tags:
+        - resources
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: A paged array of resources
+          headers:
+            x-next:
+              description: A link to the next page of responses
+              schema:
+                type: string
+          content:
+            application/json:    
+              schema:
+                $ref: "#/components/schemas/Resources"
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /resources/{id}:
+    get:
+      summary: Info for a specific resource
+      operationId: showResourceById
+      tags:
+        - resources
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The id of the Resource to retrieve
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Resources"
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+components:
+  schemas:
+    Resources:
+      type: object
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        tag:
+          type: string
+    Resources:
+      type: array
+      items:
+        $ref: "#/components/schemas/Resources"
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+```
+
+Reference: [Schema Validation](https://developers.cloudflare.com/api-shield/security/schema-validation/)
 
 * * * 
 
