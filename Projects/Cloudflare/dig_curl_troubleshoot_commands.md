@@ -210,9 +210,9 @@ info:
   license:
     name: MIT
 servers:
-  - url: https://api.cf-testing.com
+  - url: https://api.cf-testing.com/api
 paths:
-  /api/resources/:
+  /resources:
     get:
       summary: List all resources from the World of Opportunities database
       operationId: listResources
@@ -230,12 +230,8 @@ paths:
       responses:
         '200':
           description: Auto generated using Swagger Inspector
-      servers:
-        - url: https://api.cf-testing.com
-    servers:
-      - url: https://api.cf-testing.com
 
-  /api/resources/{id}:
+  /resources/{id}:
     get:
       summary: Resource from the World of Opportunities database
       operationId: listResource
@@ -284,13 +280,10 @@ paths:
                     domain
                     pictures","url":"https://www.1millionfreepictures.com/","main_cat1":"CREATIVE","main_cat2":"","tag1":"PHOTO
                     STOCKS","tag2":"","tag3":""}
-      servers:
-        - url: https://api.cf-testing.com
-    servers:
-      - url: https://api.cf-testing.com
 ```
 
 Reference: [Schema Validation](https://developers.cloudflare.com/api-shield/security/schema-validation/)
+
 Reference: [Swagger Inspector – create Schema](https://inspector.swagger.io/builder)
 
 * * * 
