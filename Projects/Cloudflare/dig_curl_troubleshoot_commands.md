@@ -193,13 +193,14 @@ Make random GET API calls:
 for i in {1..10}; do curl -H "x-api-shield: DEMO" -H "Accept: application/json" -H "Content-Type: application/json" https://api.cf-testing.com/api/resources/$[ $RANDOM % 381 + 1 ]; sleep 2; done
 ```
 
-```
-for i in {1..10}; do curl -H "x-api-shield: DEMO" -H "Accept: application/json" -H "x-api-schema: validated" -H "Content-Type: application/json" https://api.cf-testing.com/api/resources/$[ $RANDOM % 381 + 1 ]; sleep 2; done
-```
-
 Reference: [API Discovery](https://developers.cloudflare.com/api-shield/security/api-discovery/)
 
 ## API Shield Schema Validation
+
+To trigger the API Schema below:
+```
+for i in {1..10}; do curl -H "x-api-shield: DEMO" -H "Accept: application/json" -H "Content-Type: application/json" https://api.cf-testing.com/api/resources/bla/$[ $RANDOM % 381 + 1 ]; sleep 2; done
+```
 
 ```
 openapi: 3.0.1
