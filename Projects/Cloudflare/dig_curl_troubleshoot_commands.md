@@ -84,6 +84,10 @@ Check Cache Status:
 curl -I https://www.cf-testing.com/ | grep -Fi CF-Cache-Status
 ```
 
+```
+curl -I --silent --http2 -X GET https://www.cf-testing.com/ | grep -Fi CF-Cache-Status
+```
+
 * * * 
 
 ## Browser Integrity Check (BIC)
