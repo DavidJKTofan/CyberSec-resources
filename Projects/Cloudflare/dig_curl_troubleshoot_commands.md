@@ -202,18 +202,19 @@ Reference: [API Discovery](https://developers.cloudflare.com/api-shield/security
 ## API Shield Schema Validation
 
 ```
-openapi: "3.0.0"
+openapi: 3.0.1
 info:
-  version: 1.0.0
-  title: Resources
+  title: Serverless API on Resources
+  description: World of Opportunities API through Cloudflare Workers
+  version: '0.1'
   license:
     name: MIT
 servers:
-  - url: https://api.cf-testing.com/api/
+  - url: https://api.cf-testing.com
 paths:
-  /resources:
+  /api/resources/:
     get:
-      summary: Resources from the World of Opportunities database
+      summary: List all resources from the World of Opportunities database
       operationId: listResources
       tags:
         - resources
@@ -225,83 +226,72 @@ paths:
           schema:
             type: integer
             format: int32
+      description: Auto generated using Swagger Inspector
       responses:
         '200':
-          description: A paged array of resources
-          headers:
-            x-next:
-              description: A link to the next page of responses
-              schema:
-                type: string
-          content:
-            application/json:    
-              schema:
-                $ref: "#/components/schemas/Resources"
-        default:
-          description: unexpected error
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Error"
-  /resources/{id}:
+          description: Auto generated using Swagger Inspector
+      servers:
+        - url: https://api.cf-testing.com
+    servers:
+      - url: https://api.cf-testing.com
+
+  /api/resources/{id}:
     get:
-      summary: Info for a specific resource
-      operationId: showResourceById
+      summary: Resource from the World of Opportunities database
+      operationId: listResource
       tags:
-        - resources
+        - resource
+      description: Auto generated using Swagger Inspector
       parameters:
         - name: id
           in: path
           required: true
-          description: The id of the Resource to retrieve
+          description: The id of the resource to retrieve
           schema:
-            type: string
+            type: integer
+            format: int32
       responses:
         '200':
-          description: Expected response to a valid request
+          description: Auto generated using Swagger Inspector
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Resources"
-        default:
-          description: unexpected error
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Error"
-components:
-  schemas:
-    Resources:
-      type: object
-      required:
-        - id
-        - name
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        tag:
-          type: string
-    Resources:
-      type: array
-      items:
-        $ref: "#/components/schemas/Resources"
-    Error:
-      type: object
-      required:
-        - code
-        - message
-      properties:
-        code:
-          type: integer
-          format: int32
-        message:
-          type: string
+                type: object
+                properties:
+                  main_cat1:
+                    type: string
+                  tag1:
+                    type: string
+                  main_cat2:
+                    type: string
+                  description:
+                    type: string
+                  id:
+                    type: integer
+                  title:
+                    type: string
+                  url:
+                    type: string
+                  tag2:
+                    type: string
+                  tag3:
+                    type: string
+              examples:
+                '0':
+                  value: >-
+                    {"id":2,"title":"1 Million Free
+                    Pictures","description":"Alternative source of free public
+                    domain
+                    pictures","url":"https://www.1millionfreepictures.com/","main_cat1":"CREATIVE","main_cat2":"","tag1":"PHOTO
+                    STOCKS","tag2":"","tag3":""}
+      servers:
+        - url: https://api.cf-testing.com
+    servers:
+      - url: https://api.cf-testing.com
 ```
 
 Reference: [Schema Validation](https://developers.cloudflare.com/api-shield/security/schema-validation/)
+Reference: [Swagger Inspector – create Schema](https://inspector.swagger.io/builder)
 
 * * * 
 
