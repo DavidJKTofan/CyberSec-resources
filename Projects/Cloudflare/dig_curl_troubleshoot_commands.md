@@ -279,6 +279,8 @@ Reference: [Schema Validation](https://developers.cloudflare.com/api-shield/secu
 
 Reference: [Swagger Inspector – create Schema](https://inspector.swagger.io/builder)
 
+Reference: [Serverless API Example on GitHub](https://github.com/DavidJKTofan/serverless-woo-api)
+
 * * * 
 
 ## SSL for SaaS
