@@ -219,14 +219,6 @@ paths:
       operationId: listResources
       tags:
         - resources
-      parameters:
-        - name: limit
-          in: query
-          description: How many items to return at one time (max 100)
-          required: false
-          schema:
-            type: integer
-            format: int32
       description: Auto generated using Swagger Inspector
       responses:
         '200':
