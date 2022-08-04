@@ -94,17 +94,6 @@ curl -I --silent --http2 -X GET https://www.cf-testing.com/ | grep -Fi CF-Cache-
 
 * * * 
 
-## Browser Integrity Check (BIC)
-
-Testing Browser Integrity Check (BIC):
-```
-curl http://cf-testing.com --header "User-Agent: CloudFlare BIC Test" --verbose --silent 2>&1 | egrep -i "< HTTP|< Server:|< CF|<title>|signature"
-```
-
-Reference: [Understanding the Cloudflare Browser Integrity Check](https://support.cloudflare.com/hc/en-us/articles/200170086-Understanding-the-Cloudflare-Browser-Integrity-Check)
-
-* * * 
-
 ## Mail Exchanger (MX) Records
 
 Find MX Records:
@@ -137,7 +126,9 @@ curl -I --http2 -s https://cf-testing.com/ | grep HTTP
 
 * * * 
 
-## Hotlink Protection via ScrapeShield
+## ScrapeShield
+
+### Hotlink Protection
 
 Prevent other websites from linking to your image resources or abusing your bandwidth:
 ```
@@ -154,6 +145,8 @@ Reference: [Understanding Cloudflare Hotlink Protection](https://support.cloudfl
 * * * 
 
 ## Web Application Firewall (WAF)
+
+### Managed Rulesets
 
 Testing WAF Rule `PHP - Code Injection`:
 ```
@@ -177,6 +170,15 @@ curl -svo /dev/null "https://www.cf-testing.com?user=-1+union+select+1,2,3,4,5,6
 
 Reference: [Managed Rulesets](https://developers.cloudflare.com/waf/managed-rulesets/)
 
+### Browser Integrity Check (BIC)
+
+Testing Browser Integrity Check (BIC):
+```
+curl http://cf-testing.com --header "User-Agent: CloudFlare BIC Test" --verbose --silent 2>&1 | egrep -i "< HTTP|< Server:|< CF|<title>|signature"
+```
+
+Reference: [Understanding the Cloudflare Browser Integrity Check](https://support.cloudflare.com/hc/en-us/articles/200170086-Understanding-the-Cloudflare-Browser-Integrity-Check)
+
 * * * 
 
 ## Rate Limiting
@@ -190,7 +192,9 @@ Reference: [Rate Limiting Rules](https://developers.cloudflare.com/waf/rate-limi
 
 * * * 
 
-## API Shield Discovery
+## API Shield
+
+### API Discovery
 
 Make random GET API calls:
 ```
@@ -199,7 +203,7 @@ for i in {1..10}; do curl -H "x-api-shield: DEMO" -H "Accept: application/json" 
 
 Reference: [API Discovery](https://developers.cloudflare.com/api-shield/security/api-discovery/)
 
-## API Shield Schema Validation
+### Schema Validation
 
 To trigger the API Schema below:
 ```
@@ -283,7 +287,7 @@ Reference: [Schema Validation](https://developers.cloudflare.com/api-shield/secu
 
 Reference: [Swagger Inspector – create Schema](https://inspector.swagger.io/builder)
 
-Reference: [Serverless API Example on GitHub](https://github.com/DavidJKTofan/serverless-woo-api)
+Used API: [Serverless API Example on GitHub](https://github.com/DavidJKTofan/serverless-woo-api)
 
 * * * 
 
