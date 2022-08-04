@@ -297,3 +297,7 @@ Verify SSL/TLS Certificates:
 ```
 curl -svo /dev/null https://custom-hostname.cf-saas.com/ 2>&1 | grep -A6 'Server cert'
 ```
+
+```
+curl --insecure -vvI https://www.cf-testing.com 2>&1 | awk 'BEGIN { cert=0 } /^\* Server certificate:/ { cert=1 } /^\*/ { if (cert) print }'
+```
