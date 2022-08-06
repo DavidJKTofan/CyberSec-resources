@@ -203,6 +203,77 @@ for i in {1..10}; do curl -H "x-api-shield: DEMO" -H "Accept: application/json" 
 
 Reference: [API Discovery](https://developers.cloudflare.com/api-shield/security/api-discovery/)
 
+Used Testing Tool: [K6 Load Testing](https://k6.io/)
+
+Example K6 Test Script: 
+```
+import http from 'k6/http';
+
+export const options = {
+  stages: [
+    { duration: '1m', target: 20 },
+    { duration: '3m', target: 20 },
+    { duration: '1m', target: 0 },
+  ],
+  thresholds: {
+    http_req_failed: ['rate<0.02'], // http errors should be less than 2%
+    http_req_duration: ['p(95)<2000'], // 95% requests should be below 2s
+  },
+  ext: {
+    loadimpact: {
+      distribution: { // Load Zones https://k6.io/docs/cloud/creating-and-running-a-test/cloud-tests-from-the-cli/#load-zones
+        //distributionLabel1: { loadZone: 'amazon:us:ashburn', percent: 100 }, //20
+        //distributionLabel2: { loadZone: 'amazon:ie:dublin', percent: 100 }, //20
+        //distributionLabel3: { loadZone: 'amazon:jp:tokyo', percent: 100 }, //10
+        distributionLabel4: { loadZone: 'amazon:de:frankfurt', percent: 100 }, //30
+        //distributionLabel5: { loadZone: 'amazon:sg:singapore', percent: 100 }, //10
+        //distributionLabel6: { loadZone: 'amazon:au:sydney', percent: 100 }, //10
+        //distributionLabel7: { loadZone: 'amazon:it:milan', percent: 100 },
+        //distributionLabel8: { loadZone: 'amazon:br:sao paulo', percent: 100 },
+        //distributionLabel8: { loadZone: 'amazon:ca:montreal', percent: 100 },
+        //distributionLabel9: { loadZone: 'amazon:us:portland', percent: 100 },
+      },
+    },
+  },
+}
+
+export default function () {
+  function generateRandom(min = 0, max = 381) {
+    let difference = max - min;
+    let rand = Math.random();
+    rand = Math.floor(rand * difference);
+    rand = rand + min;
+    return rand;
+  }
+
+  function add_random_number() {
+    let random_number = generateRandom()
+    console.log(random_number);
+    const someHost = 'https://api.cf-testing.com/api/resources';
+    const url = someHost + '/' + random_number;
+    return url;
+  }
+
+  const url = add_random_number();
+  const payload = JSON.stringify({
+    'x-api-shield': 'DEMO', // payload usually only on POST requests
+  });
+
+  var words = ['DEMO', 'Testing', 'Scissors', 'Tools', 'Resources', 'MALICIOUS', 'APIShield'];
+  var word = words[Math.floor(Math.random() * words.length)];
+
+  const params = {
+    headers: {
+      'Content-Type': 'application/json',
+      'x-api-shield': word.toString(), // API Shield Discovery
+    },
+  };
+
+  http.get(url, params); //payload, params
+}
+```
+
+
 ### Schema Validation
 
 To trigger the API Schema below:
