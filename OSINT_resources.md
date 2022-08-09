@@ -115,6 +115,7 @@ _"Open-source intelligence (OSINT) is data collected from publicly available sou
 * [Website Security Test](https://www.immuniweb.com/websec/)
 * [SSL Server Test](https://www.ssllabs.com/ssltest/index.html)
 * [Ahmia](https://ahmia.fi/)
+* [Request Map Generator](https://requestmap.webperf.tools/)
 
 ### DNS
 
