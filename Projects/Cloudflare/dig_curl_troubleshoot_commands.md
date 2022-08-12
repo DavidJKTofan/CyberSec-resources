@@ -81,6 +81,15 @@ host -t NS cf-testing.com
 
 * * *
 
+## DNSSEC
+
+Check DS (DNSKEY) records:
+```
+dig DS cf-testing.com
+```
+
+* * *
+
 ## Cache Status
 
 Check Cache Status:
