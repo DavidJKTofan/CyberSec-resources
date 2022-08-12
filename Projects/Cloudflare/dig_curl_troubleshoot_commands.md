@@ -177,6 +177,11 @@ Testing WAF Rule `SQLi - UNION in MSSQL`:
 curl -svo /dev/null "https://www.cf-testing.com?user=-1+union+select+1,2,3,4,5,6,7,8,9,(SELECT+user_pass+FROM+wp_users+WHERE+ID=1)" 2>&1 | grep "< HTTP"
 ```
 
+Testing WAF Rule `SQLi - AND/OR Digit Operator Digit`:
+```
+curl -svo /dev/null "https://www.cf-testing.com/parrot.php?username=%27or1=1/*&password=1" 2>&1 | grep "< HTTP"
+```
+
 Reference: [Managed Rulesets](https://developers.cloudflare.com/waf/managed-rulesets/)
 
 ### Browser Integrity Check (BIC)
