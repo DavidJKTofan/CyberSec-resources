@@ -15,6 +15,7 @@
 ## Encryption, Encoding, Compression and Data Analysis
 
 * [CyberChef](https://gchq.github.io/CyberChef/)
+* [CSRF PoC Generator](https://security.love/CSRF-PoC-Genorator/)
 
 ## Analysis
 * [oledump.py](https://blog.didierstevens.com/programs/oledump-py/)
