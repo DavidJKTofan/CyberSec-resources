@@ -24,6 +24,8 @@ _This is for educational purposes only._
 [NGINX](#nginx)  
 [MIME Types](#mime)  
 [OWASP Favicon Database](#owaspfavicon)  
+[Convert JPG/PNG to WebP](#imageconvert)  
+[Check device resources](#deviceresources)  
 
 ***
 ***
@@ -1052,3 +1054,51 @@ curl https://www.cf-testing.com/favicon.png -o output.png | md5sum
 curl https://www.cf-testing.com/favicon.png | md5sum
 ```
 
+**** 
+
+<a name="imageconvert"></a>
+## Convert JPG/PNG to WebP
+
+```
+for F in *.jpg; do cwebp $F -o `basename ${F%.jpg}`.webp; done
+```
+```
+for F in *.png; do cwebp $F -o `basename ${F%.png}`.webp; done
+```
+
+****
+
+<a name="deviceresources"></a>
+## Check device resources
+
+Check the CPU:
+```
+lscpu
+head -n 20 /proc/cpuinfo
+```
+
+Check the RAM:
+```
+free -m
+free -g
+```
+
+Check the PCI:
+```
+lspci
+```
+
+Check the USB:
+```
+lsusb
+```
+
+Check the Drivers:
+```
+lsmod
+```
+
+Check the Disk Storage
+```
+fdisk -l
+```
