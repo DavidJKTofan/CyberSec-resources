@@ -11,6 +11,7 @@
 ## Network Protocol Analyzer
 
 * [Wireshark](https://www.wireshark.org/)
+* [bettercap](https://github.com/bettercap/bettercap)
 
 ## Encryption, Encoding, Compression and Data Analysis
 
