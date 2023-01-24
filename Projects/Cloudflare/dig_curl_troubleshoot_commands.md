@@ -155,6 +155,13 @@ Reference: [Understanding Cloudflare Hotlink Protection](https://support.cloudfl
 
 ## Web Application Firewall (WAF)
 
+### WAF ML
+
+Testing [WAF Attack Score](https://developers.cloudflare.com/waf/about/waf-attack-score/):
+```
+curl -X POST -d "payload=<?php system('ls'); ?>" "http://www.cf-testing.com/wp-admin/admin-ajax.php"
+```
+
 ### Managed Rulesets
 
 Testing WAF Rule `PHP - Code Injection`:
@@ -166,10 +173,18 @@ Testing WAF Rule `DotNetNuke - File Inclusion - CVE:CVE-2018-9126, CVE:CVE-2011-
 ```
 curl -svo /dev/null/ -I "https://cf-testing.com/?url=file:///etc/passwd" 2>&1 | grep "< HTTP"
 ```
+OR
+```
+curl "http://www.cf-testing.com/../../../etc/passwd"
+```
 
 Testing WAF Rule `XSS, HTML Injection - Script Tag`:
 ```
 curl -svo /dev/null -I "https://www.cf-testing.com?name=<script>alert(document.cookie)</script>" 2>&1 | grep "< HTTP"
+```
+OR
+```
+curl "http://www.cf-testing.com/page?name=<script>alert('XSS')</script>"
 ```
 
 Testing WAF Rule `SQLi - UNION in MSSQL`:
@@ -180,6 +195,10 @@ curl -svo /dev/null "https://www.cf-testing.com?user=-1+union+select+1,2,3,4,5,6
 Testing WAF Rule `SQLi - AND/OR Digit Operator Digit`:
 ```
 curl -svo /dev/null "https://www.cf-testing.com/parrot.php?username=%27or1=1/*&password=1" 2>&1 | grep "< HTTP"
+```
+OR
+```
+curl "http://www.cf-testing.com/page?id=1'OR1=1--" 2>&1 | grep "< HTTP"
 ```
 
 Reference: [Managed Rulesets](https://developers.cloudflare.com/waf/managed-rulesets/)
