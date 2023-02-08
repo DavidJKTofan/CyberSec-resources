@@ -33,9 +33,9 @@ _This is for educational purposes only._
 <a name="update"></a>
 ## Update
 
-Update brew, pip, outdated pip modules, brew cleanup, brew doctor, npm:
+Update brew, pip, outdated pip modules, brew cleanup, brew doctor, update npm, update nvm:
 ```
-brew update && brew upgrade && pip install --upgrade pip && pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U && brew cleanup && brew doctor && brew cleanup && echo success && npm update -g
+brew update && brew upgrade && pip install --upgrade pip && pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U && brew cleanup && brew doctor && brew cleanup && echo success && npm update -g && nvm install "lts/*" --reinstall-packages-from="$(nvm current)"
 ```
 
 *****
