@@ -979,6 +979,11 @@ openssl rand -base64 200
 
 _NOTE: change the value 200 to change the lenght of the password._
 
+Copy-paste into your terminal:
+```
+cat /dev/urandom | env LC_CTYPE=C tr -dc a-zA-Z0-9 | head -c 14
+```
+
 ****
 
 <a name="nginx"></a>
