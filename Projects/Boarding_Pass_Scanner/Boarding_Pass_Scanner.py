@@ -1,5 +1,14 @@
+# Install packages:
+# pip install zxing pandas requests
+
+# Install Java OpenJDKv11:
+# brew install openjdk@11
+# export JAVA_HOME=$(brew --prefix openjdk@11)
+# export PATH="$JAVA_HOME/bin:$PATH"
+
+
 import os
-import zxing # Dependency on Java OpenJDKv11 # brew install openjdk@11
+import zxing  # Dependency on Java OpenJDKv11
 import re
 import pandas as pd
 import requests
