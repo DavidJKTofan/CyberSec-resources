@@ -38,6 +38,8 @@ Source: [Page 27, 4.2.2. Encoding one flight leg](https://tinkrmind.me/wp-conten
 
 ## How to Run
 
+Create a virtual environment (`source venv/bin/activate`) and install all required packages.
+
 You can run the boarding pass scanner from your terminal:
 
 ```

@@ -66,6 +66,9 @@ def decode_barcode(image_path):
                 elif barcode_type == 'AZTEC':
                     print("\nAztec Barcode detected.")
                     return 'AZTEC', decoded_data
+                else:
+                    print("ERROR!")
+                    return barcode_type, decoded_data
     except Exception as e:
         print(f"Error with pyzbar: {e}")
 
@@ -308,6 +311,8 @@ def scan_boarding_pass(image_here):
 
     if not barcode_data:
         print("Error decoding the barcode.")
+        print(f"Barcode Type: {barcode_type}\n")
+        #print(barcode_data) # DEBUGGING
         return
 
     print(f"\nBarcode Type: {barcode_type}")
