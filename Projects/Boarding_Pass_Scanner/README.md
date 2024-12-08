@@ -1,16 +1,56 @@
 # Simple Boarding Pass Scanner
 
-Currently only works with good quality and cropped images of the Bar Code, as well as only with formats ```AZTEC``` and ```PDF_417```.
+A simple tool to scan and decode boarding pass barcodes, supporting `AZTEC` and `PDF_417` formats.
+
+**Supported Barcode Formats:**
+- **PDF_417**: Typically found on paper boarding passes, these are long barcodes.
+- **AZTEC (or QR)**: Square barcodes, often used in digital boarding passes, such as those in phone wallets.
+
+**Note:** The scanner works best with cropped, high-quality images of the barcodes.
 
 ## Boarding Pass Structure
 
-![Boarding Pass Structure](/Boarding_Pass_Scanner/boarding-pass-structure.jpg)
+![Boarding Pass Structure](/Projects/Boarding_Pass_Scanner/boarding-pass-structure.jpg)
 
+Source: [Page 27, 4.2.2. Encoding one flight leg](https://tinkrmind.me/wp-content/uploads/2017/09/bcbp-implementation-guide-5th-edition-june-2016.pdf)
 
-## Run on Terminal
-```python Boarding_Pass_Scanner.py``` 
+### Key Elements in the Boarding Pass
 
-Then <b>insert</b> the Path or URL to the image file of the Flight QR/Bar Code.
+| Item # | Element Description                                         | Field Size | Type  | Example                          |
+|--------|-------------------------------------------------------------|------------|-------|----------------------------------|
+| 1      | Format Code                                                 | 1          | Unique | M                                |
+| 5      | Number of Legs Encoded                                      | 1          | Unique | 1                                |
+| 11     | Passenger Name                                              | 20         | Unique | D.ESMARIS / LUCAS                |
+| 253    | Electronic Ticket Indicator                                 | 1          | Unique | E                                |
+| 7      | Operating Carrier PNR Code                                  | 7          | Repeated | ABC123                           |
+| 26     | From City Airport Code                                      | 3          | Repeated | YUL                              |
+| 38     | To City Airport Code                                        | 3          | Repeated | FRA                              |
+| 42     | Operating Carrier Designator                                | 3          | Repeated | AC                               |
+| 43     | Flight Number                                               | 5          | Repeated | 08345                            |
+| 46     | Date of Flight (Julian Date)                                | 3          | Repeated | 226 (August 14th)                |
+| 71     | Compartment Code                                            | 1          | Repeated | F                                |
+| 104    | Seat Number                                                 | 4          | Repeated | 001A                             |
+| 107    | Check-in Sequence Number                                    | 5          | Repeated | 0025                             |
+| 113    | Passenger Status                                            | 1          | Repeated | 1                                |
+| 6      | Field Size of Variable Size Field (Conditional + Airline item 4) | 2          | Repeated | 00 (in Decimal or Hexadecimal)   |
+
+---
+
+## How to Run
+
+You can run the boarding pass scanner from your terminal:
+
+```
+python3 Boarding_Pass_Scanner.py <image_url_or_file_path>
+```
+
+### Example Usage:
+```
+python3 Boarding_Pass_Scanner.py "./Sample_Boarding_Passes/Print-Long-BA.png"
+```
+
+---
 
 ## Disclaimer
-Just a small pet-project, made out of curiosity... :)
+
+This project is a small personal experiment created out of curiosity. It may not handle all edge cases and is primarily intended for educational purposes.
