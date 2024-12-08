@@ -1,10 +1,10 @@
 # Simple Boarding Pass Scanner
 
-A simple tool to scan and decode boarding pass barcodes, supporting `AZTEC` and `PDF_417` formats.
+A simple tool to scan and decode boarding pass barcodes, supporting `QRCode` and `PDF417` formats.
 
 **Supported Barcode Formats:**
-- **PDF_417**: Typically found on paper boarding passes, these are long barcodes.
-- **AZTEC (or QR)**: Square barcodes, often used in digital boarding passes, such as those in phone wallets.
+- **PDF417**: Typically found on paper boarding passes, these are long barcodes.
+- **QRCode**: Square barcodes, often used in digital boarding passes, such as those in phone wallets.
 
 **Note:** The scanner works best with cropped, high-quality images of the barcodes.
 

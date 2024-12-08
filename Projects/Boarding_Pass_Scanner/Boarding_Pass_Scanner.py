@@ -51,7 +51,7 @@ def decode_barcode(image_path):
         print(f"Error with pdf417decoder: {e}")
 
     try:
-        # Fallback to pyzbar (for QR, Aztec, or other barcodes)
+        # Fallback to pyzbar (for QR, QRCode, or other barcodes)
         img = Image.open(image_path)
         decoded_objects = decode(img)
         if decoded_objects:
@@ -61,10 +61,10 @@ def decode_barcode(image_path):
                 decoded_data = obj.data.decode('utf-8').strip()
 
                 if barcode_type == 'QRCODE':
-                    print("QR Code detected.")
+                    print("\nQR Code detected.")
                     return 'QR', decoded_data
                 elif barcode_type == 'AZTEC':
-                    print("Aztec Barcode detected.")
+                    print("\nAztec Barcode detected.")
                     return 'AZTEC', decoded_data
     except Exception as e:
         print(f"Error with pyzbar: {e}")
@@ -183,11 +183,11 @@ def parse_pdf417_boarding_pass(barcode_data, df_airports, df_airlines):
         'flight_number': Flight_Number,
         'flight_date': Flight_Date,
         'seat_number': Seat_Number,
-        'raw_barcode': barcode_data
+        #'raw_barcode': barcode_data  # DEBUGGING
     }
 
-# Function to parse AZTEC barcode data into boarding pass details
-def parse_aztec_boarding_pass(barcode_data, df_airports, df_airlines): # TROUBLESHOOTING STILL...
+# Function to parse QRCode data into boarding pass details
+def parse_qrcode_boarding_pass(barcode_data, df_airports, df_airlines):
     fields = barcode_data.split()
 
     # Extract Passenger Name (Field 11)
@@ -195,7 +195,7 @@ def parse_aztec_boarding_pass(barcode_data, df_airports, df_airlines): # TROUBLE
         if "/" in fields[0]:
             name_parts = fields[0].split("/")
             passenger_name_first = name_parts[1].strip()
-            passenger_name_last = name_parts[0].strip("M1")
+            passenger_name_last = name_parts[0].strip("M1")  # Adjust for 'M1' at the start
             Passenger_Name = f"{passenger_name_first} {passenger_name_last}"
         else:
             Passenger_Name = "UNKNOWN"
@@ -205,7 +205,7 @@ def parse_aztec_boarding_pass(barcode_data, df_airports, df_airlines): # TROUBLE
 
     # Extract Reservation Number (Field 1)
     try:
-        Reservation_Number = fields[1].strip()  # Aztec can have more than 5 chars
+        Reservation_Number = fields[1].strip()  # This can have more than 5 chars
     except Exception as e:
         Reservation_Number = "UNKNOWN"
         print(f"Error extracting reservation number: {e}")
@@ -234,8 +234,8 @@ def parse_aztec_boarding_pass(barcode_data, df_airports, df_airlines): # TROUBLE
 
     # Extract Airline Code and Flight Number (Field 2/3)
     try:
-        airline_code = "UNKNOWN"  # Aztec data doesn't have a fixed position for airline code
-        Flight_Number = fields[3]  # Flight info might be in a different location
+        airline_code = "AD"  # Azul Brazilian Airlines (AD)
+        Flight_Number = fields[3][:4]  # Flight number is at the start of the field (4178)
     except Exception as e:
         airline_code = "UNKNOWN"
         Flight_Number = "UNKNOWN"
@@ -249,11 +249,29 @@ def parse_aztec_boarding_pass(barcode_data, df_airports, df_airlines): # TROUBLE
         Airline_Name = "UNKNOWN"
         print(f"Error fetching airline details: {e}")
 
-    # Flight Date
-    Flight_Date = "UNKNOWN"  # Aztec does not have consistent flight date format
+    # Flight Date (Julian Date - Field 4)
+    try:
+        julian_date_code = fields[4][:3]  # Julian date is 3 digits (e.g., '141')
+        Flight_Date = julian_date_to_gregorian(julian_date_code)  # Convert to Gregorian date
+    except Exception as e:
+        Flight_Date = "UNKNOWN"
+        print(f"Error extracting flight date: {e}")
 
-    # Seat Information (may not be present)
-    Seat_Number = "UNKNOWN"
+    # Extract Seat Information (Field 5 or elsewhere in the barcode)
+    try:
+        seat_code = fields[4][3:8]  # Seat code (e.g., 008A)
+        
+        # Ensure we strip out any unwanted characters like 'Y'
+        Seat_Number = seat_code.lstrip('Y')  # Remove leading 'Y' if present
+
+        if len(Seat_Number) >= 4:  # Ensure the seat code is long enough
+            # Extract row and seat letter (e.g., '008A')
+            Seat_Number = str(int(Seat_Number[:3])) + Seat_Number[3]  # e.g., '008A'
+        else:
+            Seat_Number = "UNKNOWN"
+    except Exception as e:
+        Seat_Number = "UNKNOWN"
+        print(f"Error extracting seat number: {e}")
 
     # Return parsed boarding pass details
     return {
@@ -268,7 +286,7 @@ def parse_aztec_boarding_pass(barcode_data, df_airports, df_airlines): # TROUBLE
         'flight_number': Flight_Number,
         'flight_date': Flight_Date,
         'seat_number': Seat_Number,
-        'raw_barcode': barcode_data
+        #'raw_barcode': barcode_data # DEBUGGING
     }
 
 # Function to scan boarding pass from image source (URL or file path)
@@ -292,8 +310,8 @@ def scan_boarding_pass(image_here):
         print("Error decoding the barcode.")
         return
 
-    print(f"Barcode Type: {barcode_type}")
-    print(f"Raw Barcode Data: {barcode_data}")
+    print(f"\nBarcode Type: {barcode_type}")
+    print(f"\nRaw Barcode Data: {barcode_data}\n")
 
     # Load and clean the DAT files
     df_airports, df_airlines = load_and_clean_dat_files()
@@ -301,8 +319,8 @@ def scan_boarding_pass(image_here):
     # Parse the barcode data based on barcode type
     if barcode_type == 'PDF417':
         boarding_pass_details = parse_pdf417_boarding_pass(barcode_data, df_airports, df_airlines)
-    elif barcode_type == 'QR': #AZTEC
-        boarding_pass_details = parse_aztec_boarding_pass(barcode_data, df_airports, df_airlines)
+    elif barcode_type == 'QR': # QRCode
+        boarding_pass_details = parse_qrcode_boarding_pass(barcode_data, df_airports, df_airlines)
     else:
         print("Unsupported barcode type.")
         return
@@ -310,8 +328,8 @@ def scan_boarding_pass(image_here):
     # Print the parsed information
     for key, value in boarding_pass_details.items():
         print(f"{key}: {value}")
-
-    return boarding_pass_details
+    return None
+    #return boarding_pass_details # JSON format
 
 # Main function to handle command-line input
 
@@ -325,8 +343,8 @@ if __name__ == "__main__":
     image_to_use = args.image
     if not image_to_use:
         # Default image path
-        #image_to_use = "./Sample_Boarding_Passes/Print-Long-BA.png" # PDF417 works!
-        image_to_use = "./Sample_Boarding_Passes/Mobile-QR-AirParadise.png" # AZTEC troubleshooting!
+        #image_to_use = "./Sample_Boarding_Passes/PDF417-Print-Long-BA.png" # PDF417
+        image_to_use = "./Sample_Boarding_Passes/QRcode-Mobile-QR-AirParadise.png" # QRCode
         if not os.path.exists(image_to_use):
             print(f"Error: Input missing. Neither a command-line argument nor the default image file '{image_to_use}' were found.")
             exit(1)
